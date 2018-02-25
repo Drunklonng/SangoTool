@@ -72,7 +72,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="core.vb" />
+    <Compile Include="SangoCore.vb" />
     <Compile Include="SangoTool.vb">
       <SubType>Form</SubType>
     </Compile>
