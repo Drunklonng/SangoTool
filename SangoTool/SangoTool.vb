@@ -1,5 +1,5 @@
-﻿
-Public Class SangoTool
+﻿Public Class SangoTool
+
     Dim TempColor As Color() = {}
     Dim TempBitmap As Bitmap() = {}
     Dim TempPoint As Object() = {}
@@ -9,7 +9,7 @@ Public Class SangoTool
     Dim FileList As String() = {""}
     Dim Bitmap As Bitmap = New Bitmap(1, 1)
     Dim Point As Int16() = {0, 0, 1, 1}
-    Dim SelectBodyIndex As Int16 = 0
+    'Dim SelectBodyIndex As Int16 = 0
     Dim Play As Boolean = False
     Dim Flip As Boolean = False
     Dim Zoom As Boolean = False
@@ -20,12 +20,12 @@ Public Class SangoTool
     Dim PlayTempPoint As Object() = {}
     Dim PlayPoint As Int16() = {0, 0, 1, 1}
     Dim PlayLoadFrame As Int16 = 0
-    Dim PlayTempPath As Object() = {}
+    'Dim PlayTempPath As Object() = {}
     Dim PlayRendering As Boolean = False
 
     Private Sub Refreshing(PictureBox As PictureBox)
-        If Not BackgroundWorker2.IsBusy Then
-            BackgroundWorker2.RunWorkerAsync()
+        If Not BackgroundWorkerPlay.IsBusy Then
+            BackgroundWorkerPlay.RunWorkerAsync()
         Else
             PlayRendering = True
         End If
@@ -48,6 +48,7 @@ Public Class SangoTool
                 Point(1) = Point(1) + (TempPoint(i)(1) - Point(1))
             End If
         Next
+        Bitmap.Dispose()
         Bitmap = New Bitmap(Point(2), Point(3))
         For y = 0 To TempBitmap(TempBitmap.Count - 1).Height - 1
             For x = 0 To TempBitmap(TempBitmap.Count - 1).Width - 1
@@ -94,14 +95,13 @@ Public Class SangoTool
             Bitmap = FlipBitmap
         End If
         If Zoom Then
-            Dim ZoomBitmap As Bitmap = New Bitmap(Convert.ToInt16(Bitmap.Width * ZoomRate), Convert.ToInt16(Bitmap.Height * ZoomRate))
-            Dim ZH = ZoomBitmap.Height - 1
-            Dim ZW = ZoomBitmap.Width - 1
-            Dim OH = Bitmap.Height - 1
-            Dim OW = Bitmap.Width - 1
-            For y = 0 To ZoomBitmap.Height - 1
-                For x = 0 To ZoomBitmap.Width - 1
-                    ZoomBitmap.SetPixel(x, y, Bitmap.GetPixel(x / ZW * OW, y / ZH * OH))
+            Dim ZoomBitmapSize As Int16() = {Convert.ToInt16(Bitmap.Width * ZoomRate), Convert.ToInt16(Bitmap.Height * ZoomRate)}
+            Dim ZoomBitmap As Bitmap = New Bitmap(ZoomBitmapSize(0), ZoomBitmapSize(1))
+            For y = 1 To ZoomBitmap.Height
+                For x = 1 To ZoomBitmap.Width
+                    Dim x2 As Int16 = x / ZoomBitmap.Width * Bitmap.Width - 1
+                    Dim y2 As Int16 = y / ZoomBitmap.Height * Bitmap.Height - 1
+                    ZoomBitmap.SetPixel(x - 1, y - 1, Bitmap.GetPixel(x2, y2)）
                 Next
             Next
             Bitmap = ZoomBitmap
@@ -117,7 +117,7 @@ Public Class SangoTool
         ReDim TempPath(max - 1)
         ReDim PlayTempBitmap(max * 2)
         ReDim PlayTempPoint(max * 2)
-        ReDim PlayTempPath(max - 1)
+        'ReDim PlayTempPath(max - 1)
         For i = 0 To max * 2
             TempBitmap(i) = New Bitmap(1, 1)
             TempPoint(i) = {0, 0, 1, 1}
@@ -126,27 +126,36 @@ Public Class SangoTool
         Next
         For i = 0 To max - 1
             TempPath(i) = ""
-            PlayTempPath(i) = ""
+            'PlayTempPath(i) = ""
             TempColor(i) = Color.Transparent
         Next
     End Sub
 
-    Private Sub BackgroundWorker2_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker2.DoWork
+    Private Sub BackgroundWorker2_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorkerPlay.DoWork
         PlayLoadFrame = 0
         For p = 0 To PlayBitmap.Count - 1
+            Dim PlayShadowPath = ShadowPath
+            Dim shpfiles As String = PlayShadowPath + SubPath(0) + "\s" + FileList(0)
+            Dim shpfiles2 As String = PlayShadowPath + "\shadow" + FileList(0)
+            PlayTempBitmap(20).Dispose()
+            PlayTempBitmap(20) = SHPToBitmap(shpfiles, shpfiles2)
+            PlayTempPoint(20) = GetCenterPoint(shpfiles, shpfiles2)
             For i = 0 To 10 - 1
-                PlayTempPath(i) = TempPath(i)
-                Dim shpfile As String = PlayTempPath(i) + SubPath(p) + FileList(p)
-                Dim shpfile2 As String = PlayTempPath(i) + FileList(p)
-                Dim covfile As String = PlayTempPath(i) + SubPath(p) + "\_cov" + FileList(p)
-                Dim covfile2 As String = PlayTempPath(i) + "\cover" + FileList(p)
+                Dim PlayTempPath = TempPath(i)
+                Dim shpfile As String = PlayTempPath + SubPath(p) + FileList(p)
+                Dim shpfile2 As String = PlayTempPath + FileList(p)
+                Dim covfile As String = PlayTempPath + SubPath(p) + "\_cov" + FileList(p)
+                Dim covfile2 As String = PlayTempPath + "\cover" + FileList(p)
+                PlayTempBitmap(i * 2).Dispose()
                 PlayTempBitmap(i * 2) = SHPToBitmap(shpfile, shpfile2)
                 PlayTempPoint(i * 2) = GetCenterPoint(shpfile, shpfile2)
+                PlayTempBitmap(i * 2 + 1).Dispose()
                 PlayTempBitmap(i * 2 + 1) = SHPToBitmap(covfile, covfile2)
                 PlayTempPoint(i * 2 + 1) = GetCenterPoint(covfile, covfile2)
             Next
             'PlayPoint = {0, 0, 1, 1}
-            PlayPoint = {300, 300, 600, 400}
+            PlayPoint = {128, 196, 256, 256}
+            'PlayPoint = {300, 300, 600, 400}
             For i = 0 To PlayTempPoint.Count - 1
                 If PlayTempPoint(i)(2) - PlayTempPoint(i)(0) > PlayPoint(2) - PlayPoint(0) Then
                     Dim increment As Int16 = (PlayTempPoint(i)(2) - PlayTempPoint(i)(0)) - (PlayPoint(2) - PlayPoint(0))
@@ -165,6 +174,7 @@ Public Class SangoTool
                     PlayPoint(1) = PlayPoint(1) + (PlayTempPoint(i)(1) - PlayPoint(1))
                 End If
             Next
+            PlayBitmap(p).Dispose()
             PlayBitmap(p) = New Bitmap(PlayPoint(2), PlayPoint(3))
             For y = 0 To PlayTempBitmap(PlayTempBitmap.Count - 1).Height - 1
                 For x = 0 To PlayTempBitmap(PlayTempBitmap.Count - 1).Width - 1
@@ -211,10 +221,10 @@ Public Class SangoTool
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If PlayFrame(1) = 0 Then Exit Sub
-        If Not BackgroundWorker2.IsBusy Then
+        If Not BackgroundWorkerPlay.IsBusy Then
             If PlayRendering = True Then
                 PlayRendering = False
-                BackgroundWorker2.RunWorkerAsync()
+                BackgroundWorkerPlay.RunWorkerAsync()
             End If
         End If
         If PlayFrame(0) > PlayFrame(1) Then
@@ -223,22 +233,23 @@ Public Class SangoTool
         If PlayFrame(0) > PlayLoadFrame Then
             PlayFrame(0) = 0 'PlayLoadFrame
         End If
-        If BackgroundWorker2.IsBusy Then
+        If BackgroundWorkerPlay.IsBusy Then
             ProgressBar1.Value = PlayLoadFrame
         ElseIf ProgressBar1.Value <> ProgressBar1.Maximum Then
             ProgressBar1.Value = ProgressBar1.Maximum
         End If
         Label1.Text = PlayFrame(0).ToString + "/" + PlayFrame(1).ToString
         If PlayLoadFrame = 0 Then
+            'PictureBoxPlay.Image.Dispose()
             PictureBoxPlay.Image = CreateImage("Loading", 64, 64, "#ffffff")
         Else
+            'PictureBoxPlay.Image.Dispose()
             PictureBoxPlay.Image = PlayBitmap(PlayFrame(0))
             PlayFrame(0) = PlayFrame(0) + 1
         End If
     End Sub
 
-    Private Sub PictureBox0_Click(sender As Object, e As EventArgs) Handles PictureBox0.Click
-        SelectBodyIndex = 0
+    Private Sub SetObjectBitmap(SelectBodyIndex As Int16)
         FolderBrowserDialog1.SelectedPath = TempPath(SelectBodyIndex)
         SelectObject.ShowDialog()
         TempPath(SelectBodyIndex) = FolderBrowserDialog1.SelectedPath
@@ -246,243 +257,155 @@ Public Class SangoTool
         Dim shpfile2 As String = TempPath(SelectBodyIndex) + FileList(0)
         Dim covfile As String = TempPath(SelectBodyIndex) + SubPath(0) + "\_cov" + FileList(0)
         Dim covfile2 As String = TempPath(SelectBodyIndex) + "\cover" + FileList(0)
+        TempBitmap(SelectBodyIndex * 2).Dispose()
         TempBitmap(SelectBodyIndex * 2) = SHPToBitmap(shpfile, shpfile2)
         TempPoint(SelectBodyIndex * 2) = GetCenterPoint(shpfile, shpfile2)
+        TempBitmap(SelectBodyIndex * 2 + 1).Dispose()
         TempBitmap(SelectBodyIndex * 2 + 1) = SHPToBitmap(covfile, covfile2)
         TempPoint(SelectBodyIndex * 2 + 1) = GetCenterPoint(covfile, covfile2)
+    End Sub
+
+    Private Sub PictureBox0_Click(sender As Object, e As EventArgs) Handles PictureBox0.Click
+        Dim SelectBodyIndex As Int16 = 0
+        SetObjectBitmap(SelectBodyIndex)
         PictureBox0.Image = TempBitmap(SelectBodyIndex * 2)
         Refreshing(PictureBoxMian)
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
-        SelectBodyIndex = 1
-        FolderBrowserDialog1.SelectedPath = TempPath(SelectBodyIndex)
-        SelectObject.ShowDialog()
-        TempPath(SelectBodyIndex) = FolderBrowserDialog1.SelectedPath
-        Dim shpfile As String = TempPath(SelectBodyIndex) + SubPath(0) + FileList(0)
-        Dim shpfile2 As String = TempPath(SelectBodyIndex) + FileList(0)
-        Dim covfile As String = TempPath(SelectBodyIndex) + SubPath(0) + "\_cov" + FileList(0)
-        Dim covfile2 As String = TempPath(SelectBodyIndex) + "\cover" + FileList(0)
-        TempBitmap(SelectBodyIndex * 2) = SHPToBitmap(shpfile, shpfile2)
-        TempPoint(SelectBodyIndex * 2) = GetCenterPoint(shpfile, shpfile2)
-        TempBitmap(SelectBodyIndex * 2 + 1) = SHPToBitmap(covfile, covfile2)
-        TempPoint(SelectBodyIndex * 2 + 1) = GetCenterPoint(covfile, covfile2)
+        Dim SelectBodyIndex As Int16 = 1
+        SetObjectBitmap(SelectBodyIndex)
         PictureBox1.Image = TempBitmap(SelectBodyIndex * 2)
         Refreshing(PictureBoxMian)
     End Sub
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
-        SelectBodyIndex = 2
-        FolderBrowserDialog1.SelectedPath = TempPath(SelectBodyIndex)
-        SelectObject.ShowDialog()
-        TempPath(SelectBodyIndex) = FolderBrowserDialog1.SelectedPath
-        Dim shpfile As String = TempPath(SelectBodyIndex) + SubPath(0) + FileList(0)
-        Dim shpfile2 As String = TempPath(SelectBodyIndex) + FileList(0)
-        Dim covfile As String = TempPath(SelectBodyIndex) + SubPath(0) + "\_cov" + FileList(0)
-        Dim covfile2 As String = TempPath(SelectBodyIndex) + "\cover" + FileList(0)
-        TempBitmap(SelectBodyIndex * 2) = SHPToBitmap(shpfile, shpfile2)
-        TempPoint(SelectBodyIndex * 2) = GetCenterPoint(shpfile, shpfile2)
-        TempBitmap(SelectBodyIndex * 2 + 1) = SHPToBitmap(covfile, covfile2)
-        TempPoint(SelectBodyIndex * 2 + 1) = GetCenterPoint(covfile, covfile2)
+        Dim SelectBodyIndex As Int16 = 2
+        SetObjectBitmap(SelectBodyIndex)
         PictureBox2.Image = TempBitmap(SelectBodyIndex * 2)
         Refreshing(PictureBoxMian)
     End Sub
 
     Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
-        SelectBodyIndex = 3
-        FolderBrowserDialog1.SelectedPath = TempPath(SelectBodyIndex)
-        SelectObject.ShowDialog()
-        TempPath(SelectBodyIndex) = FolderBrowserDialog1.SelectedPath
-        Dim shpfile As String = TempPath(SelectBodyIndex) + SubPath(0) + FileList(0)
-        Dim shpfile2 As String = TempPath(SelectBodyIndex) + FileList(0)
-        Dim covfile As String = TempPath(SelectBodyIndex) + SubPath(0) + "\_cov" + FileList(0)
-        Dim covfile2 As String = TempPath(SelectBodyIndex) + "\cover" + FileList(0)
-        TempBitmap(SelectBodyIndex * 2) = SHPToBitmap(shpfile, shpfile2)
-        TempPoint(SelectBodyIndex * 2) = GetCenterPoint(shpfile, shpfile2)
-        TempBitmap(SelectBodyIndex * 2 + 1) = SHPToBitmap(covfile, covfile2)
-        TempPoint(SelectBodyIndex * 2 + 1) = GetCenterPoint(covfile, covfile2)
+        Dim SelectBodyIndex As Int16 = 3
+        SetObjectBitmap(SelectBodyIndex)
         PictureBox3.Image = TempBitmap(SelectBodyIndex * 2)
         Refreshing(PictureBoxMian)
     End Sub
 
     Private Sub PictureBox4_Click(sender As Object, e As EventArgs) Handles PictureBox4.Click
-        SelectBodyIndex = 4
-        FolderBrowserDialog1.SelectedPath = TempPath(SelectBodyIndex)
-        SelectObject.ShowDialog()
-        TempPath(SelectBodyIndex) = FolderBrowserDialog1.SelectedPath
-        Dim shpfile As String = TempPath(SelectBodyIndex) + SubPath(0) + FileList(0)
-        Dim shpfile2 As String = TempPath(SelectBodyIndex) + FileList(0)
-        Dim covfile As String = TempPath(SelectBodyIndex) + SubPath(0) + "\_cov" + FileList(0)
-        Dim covfile2 As String = TempPath(SelectBodyIndex) + "\cover" + FileList(0)
-        TempBitmap(SelectBodyIndex * 2) = SHPToBitmap(shpfile, shpfile2)
-        TempPoint(SelectBodyIndex * 2) = GetCenterPoint(shpfile, shpfile2)
-        TempBitmap(SelectBodyIndex * 2 + 1) = SHPToBitmap(covfile, covfile2)
-        TempPoint(SelectBodyIndex * 2 + 1) = GetCenterPoint(covfile, covfile2)
+        Dim SelectBodyIndex As Int16 = 4
+        SetObjectBitmap(SelectBodyIndex)
         PictureBox4.Image = TempBitmap(SelectBodyIndex * 2)
         Refreshing(PictureBoxMian)
     End Sub
 
     Private Sub PictureBox5_Click(sender As Object, e As EventArgs) Handles PictureBox5.Click
-        SelectBodyIndex = 5
-        FolderBrowserDialog1.SelectedPath = TempPath(SelectBodyIndex)
-        SelectObject.ShowDialog()
-        TempPath(SelectBodyIndex) = FolderBrowserDialog1.SelectedPath
-        Dim shpfile As String = TempPath(SelectBodyIndex) + SubPath(0) + FileList(0)
-        Dim shpfile2 As String = TempPath(SelectBodyIndex) + FileList(0)
-        Dim covfile As String = TempPath(SelectBodyIndex) + SubPath(0) + "\_cov" + FileList(0)
-        Dim covfile2 As String = TempPath(SelectBodyIndex) + "\cover" + FileList(0)
-        TempBitmap(SelectBodyIndex * 2) = SHPToBitmap(shpfile, shpfile2)
-        TempPoint(SelectBodyIndex * 2) = GetCenterPoint(shpfile, shpfile2)
-        TempBitmap(SelectBodyIndex * 2 + 1) = SHPToBitmap(covfile, covfile2)
-        TempPoint(SelectBodyIndex * 2 + 1) = GetCenterPoint(covfile, covfile2)
+        Dim SelectBodyIndex As Int16 = 5
+        SetObjectBitmap(SelectBodyIndex)
         PictureBox5.Image = TempBitmap(SelectBodyIndex * 2)
         Refreshing(PictureBoxMian)
     End Sub
 
     Private Sub PictureBox6_Click(sender As Object, e As EventArgs) Handles PictureBox6.Click
-        SelectBodyIndex = 6
-        FolderBrowserDialog1.SelectedPath = TempPath(SelectBodyIndex)
-        SelectObject.ShowDialog()
-        TempPath(SelectBodyIndex) = FolderBrowserDialog1.SelectedPath
-        Dim shpfile As String = TempPath(SelectBodyIndex) + SubPath(0) + FileList(0)
-        Dim shpfile2 As String = TempPath(SelectBodyIndex) + FileList(0)
-        Dim covfile As String = TempPath(SelectBodyIndex) + SubPath(0) + "\_cov" + FileList(0)
-        Dim covfile2 As String = TempPath(SelectBodyIndex) + "\cover" + FileList(0)
-        TempBitmap(SelectBodyIndex * 2) = SHPToBitmap(shpfile, shpfile2)
-        TempPoint(SelectBodyIndex * 2) = GetCenterPoint(shpfile, shpfile2)
-        TempBitmap(SelectBodyIndex * 2 + 1) = SHPToBitmap(covfile, covfile2)
-        TempPoint(SelectBodyIndex * 2 + 1) = GetCenterPoint(covfile, covfile2)
+        Dim SelectBodyIndex As Int16 = 6
+        SetObjectBitmap(SelectBodyIndex)
         PictureBox6.Image = TempBitmap(SelectBodyIndex * 2)
         Refreshing(PictureBoxMian)
     End Sub
 
     Private Sub PictureBox7_Click(sender As Object, e As EventArgs) Handles PictureBox7.Click
-        SelectBodyIndex = 7
-        FolderBrowserDialog1.SelectedPath = TempPath(SelectBodyIndex)
-        SelectObject.ShowDialog()
-        TempPath(SelectBodyIndex) = FolderBrowserDialog1.SelectedPath
-        Dim shpfile As String = TempPath(SelectBodyIndex) + SubPath(0) + FileList(0)
-        Dim shpfile2 As String = TempPath(SelectBodyIndex) + FileList(0)
-        Dim covfile As String = TempPath(SelectBodyIndex) + SubPath(0) + "\_cov" + FileList(0)
-        Dim covfile2 As String = TempPath(SelectBodyIndex) + "\cover" + FileList(0)
-        TempBitmap(SelectBodyIndex * 2) = SHPToBitmap(shpfile, shpfile2)
-        TempPoint(SelectBodyIndex * 2) = GetCenterPoint(shpfile, shpfile2)
-        TempBitmap(SelectBodyIndex * 2 + 1) = SHPToBitmap(covfile, covfile2)
-        TempPoint(SelectBodyIndex * 2 + 1) = GetCenterPoint(covfile, covfile2)
+        Dim SelectBodyIndex As Int16 = 7
+        SetObjectBitmap(SelectBodyIndex)
         PictureBox7.Image = TempBitmap(SelectBodyIndex * 2)
         Refreshing(PictureBoxMian)
     End Sub
 
     Private Sub PictureBox8_Click(sender As Object, e As EventArgs) Handles PictureBox8.Click
-        SelectBodyIndex = 8
-        FolderBrowserDialog1.SelectedPath = TempPath(SelectBodyIndex)
-        SelectObject.ShowDialog()
-        TempPath(SelectBodyIndex) = FolderBrowserDialog1.SelectedPath
-        Dim shpfile As String = TempPath(SelectBodyIndex) + SubPath(0) + FileList(0)
-        Dim shpfile2 As String = TempPath(SelectBodyIndex) + FileList(0)
-        Dim covfile As String = TempPath(SelectBodyIndex) + SubPath(0) + "\_cov" + FileList(0)
-        Dim covfile2 As String = TempPath(SelectBodyIndex) + "\cover" + FileList(0)
-        TempBitmap(SelectBodyIndex * 2) = SHPToBitmap(shpfile, shpfile2)
-        TempPoint(SelectBodyIndex * 2) = GetCenterPoint(shpfile, shpfile2)
-        TempBitmap(SelectBodyIndex * 2 + 1) = SHPToBitmap(covfile, covfile2)
-        TempPoint(SelectBodyIndex * 2 + 1) = GetCenterPoint(covfile, covfile2)
+        Dim SelectBodyIndex As Int16 = 8
+        SetObjectBitmap(SelectBodyIndex)
         PictureBox8.Image = TempBitmap(SelectBodyIndex * 2)
         Refreshing(PictureBoxMian)
     End Sub
 
     Private Sub PictureBox9_Click(sender As Object, e As EventArgs) Handles PictureBox9.Click
-        SelectBodyIndex = 9
-        FolderBrowserDialog1.SelectedPath = TempPath(SelectBodyIndex)
-        SelectObject.ShowDialog()
-        TempPath(SelectBodyIndex) = FolderBrowserDialog1.SelectedPath
-        Dim shpfile As String = TempPath(SelectBodyIndex) + SubPath(0) + FileList(0)
-        Dim shpfile2 As String = TempPath(SelectBodyIndex) + FileList(0)
-        Dim covfile As String = TempPath(SelectBodyIndex) + SubPath(0) + "\_cov" + FileList(0)
-        Dim covfile2 As String = TempPath(SelectBodyIndex) + "\cover" + FileList(0)
-        TempBitmap(SelectBodyIndex * 2) = SHPToBitmap(shpfile, shpfile2)
-        TempPoint(SelectBodyIndex * 2) = GetCenterPoint(shpfile, shpfile2)
-        TempBitmap(SelectBodyIndex * 2 + 1) = SHPToBitmap(covfile, covfile2)
-        TempPoint(SelectBodyIndex * 2 + 1) = GetCenterPoint(covfile, covfile2)
+        Dim SelectBodyIndex As Int16 = 9
+        SetObjectBitmap(SelectBodyIndex)
         PictureBox9.Image = TempBitmap(SelectBodyIndex * 2)
         Refreshing(PictureBoxMian)
     End Sub
 
-    Private Sub Button0_Click(sender As Object, e As EventArgs) Handles Button0.Click
-        SelectBodyIndex = 0
+    Private Sub SetObjectColor(SelectBodyIndex As Int16)
         ColorDialog1.ShowDialog()
         TempColor(SelectBodyIndex) = ColorDialog1.Color
+    End Sub
+
+    Private Sub Button0_Click(sender As Object, e As EventArgs) Handles Button0.Click
+        Dim SelectBodyIndex As Int16 = 0
+        SetObjectColor(SelectBodyIndex)
         Button0.BackColor = TempColor(SelectBodyIndex)
         Refreshing(PictureBoxMian)
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        SelectBodyIndex = 1
-        ColorDialog1.ShowDialog()
-        TempColor(SelectBodyIndex) = ColorDialog1.Color
+        Dim SelectBodyIndex As Int16 = 1
+        SetObjectColor(SelectBodyIndex)
         Button1.BackColor = TempColor(SelectBodyIndex)
         Refreshing(PictureBoxMian)
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        SelectBodyIndex = 2
-        ColorDialog1.ShowDialog()
-        TempColor(SelectBodyIndex) = ColorDialog1.Color
+        Dim SelectBodyIndex As Int16 = 2
+        SetObjectColor(SelectBodyIndex)
         Button2.BackColor = TempColor(SelectBodyIndex)
         Refreshing(PictureBoxMian)
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        SelectBodyIndex = 3
-        ColorDialog1.ShowDialog()
-        TempColor(SelectBodyIndex) = ColorDialog1.Color
+        Dim SelectBodyIndex As Int16 = 3
+        SetObjectColor(SelectBodyIndex)
         Button3.BackColor = TempColor(SelectBodyIndex)
         Refreshing(PictureBoxMian)
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        SelectBodyIndex = 4
-        ColorDialog1.ShowDialog()
-        TempColor(SelectBodyIndex) = ColorDialog1.Color
+        Dim SelectBodyIndex As Int16 = 4
+        SetObjectColor(SelectBodyIndex)
         Button4.BackColor = TempColor(SelectBodyIndex)
         Refreshing(PictureBoxMian)
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        SelectBodyIndex = 5
-        ColorDialog1.ShowDialog()
-        TempColor(SelectBodyIndex) = ColorDialog1.Color
+        Dim SelectBodyIndex As Int16 = 5
+        SetObjectColor(SelectBodyIndex)
         Button5.BackColor = TempColor(SelectBodyIndex)
         Refreshing(PictureBoxMian)
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        SelectBodyIndex = 6
-        ColorDialog1.ShowDialog()
-        TempColor(SelectBodyIndex) = ColorDialog1.Color
+        Dim SelectBodyIndex As Int16 = 6
+        SetObjectColor(SelectBodyIndex)
         Button6.BackColor = TempColor(SelectBodyIndex)
         Refreshing(PictureBoxMian)
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        SelectBodyIndex = 7
-        ColorDialog1.ShowDialog()
-        TempColor(SelectBodyIndex) = ColorDialog1.Color
+        Dim SelectBodyIndex As Int16 = 7
+        SetObjectColor(SelectBodyIndex)
         Button7.BackColor = TempColor(SelectBodyIndex)
         Refreshing(PictureBoxMian)
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        SelectBodyIndex = 8
-        ColorDialog1.ShowDialog()
-        TempColor(SelectBodyIndex) = ColorDialog1.Color
+        Dim SelectBodyIndex As Int16 = 8
+        SetObjectColor(SelectBodyIndex)
         Button8.BackColor = TempColor(SelectBodyIndex)
         Refreshing(PictureBoxMian)
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        SelectBodyIndex = 9
-        ColorDialog1.ShowDialog()
-        TempColor(SelectBodyIndex) = ColorDialog1.Color
+        Dim SelectBodyIndex As Int16 = 9
+        SetObjectColor(SelectBodyIndex)
         Button9.BackColor = TempColor(SelectBodyIndex)
         Refreshing(PictureBoxMian)
     End Sub
@@ -518,15 +441,15 @@ Public Class SangoTool
         End If
     End Sub
 
-    Private Sub ButtonFlip_Click(sender As Object, e As EventArgs) Handles ButtonFlip.Click
-        Flip = Not Flip
-        Refreshing(PictureBoxMian)
+    Private Sub ButtonFlip_Click(sender As Object, e As EventArgs) Handles ButtonOutput.Click
+
     End Sub
 
-    Private Sub ButtonZoom_Click(sender As Object, e As EventArgs) Handles ButtonZoom.Click
-        Zoom = Not Zoom
-        Dim Rand = New Random
-        ZoomRate = Rand.Next(1, 200) / 100
+    Private Sub ButtonTransform_Click(sender As Object, e As EventArgs) Handles ButtonTransform.Click
+        Transform.ShowDialog()
+        Flip = Transform.FlipTrue.Checked
+        Zoom = Transform.ZoomTrue.Checked
+        ZoomRate = Transform.NumericUpDownZoom.Value / 100
         Refreshing(PictureBoxMian)
     End Sub
 
@@ -535,6 +458,7 @@ Public Class SangoTool
         ShadowPath = FolderBrowserDialog1.SelectedPath
         Dim shpfile As String = ShadowPath + SubPath(0) + "\s" + FileList(0)
         Dim shpfile2 As String = ShadowPath + "\shadow" + FileList(0)
+        TempBitmap(20).Dispose()
         TempBitmap(20) = SHPToBitmap(shpfile, shpfile2)
         TempPoint(20) = GetCenterPoint(shpfile, shpfile2)
         Refreshing(PictureBoxMian)

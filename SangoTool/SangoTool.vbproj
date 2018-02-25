@@ -101,8 +101,17 @@
     <Compile Include="SelectObject.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Transform.Designer.vb">
+      <DependentUpon>Transform.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Transform.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Transform.resx">
+      <DependentUpon>Transform.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

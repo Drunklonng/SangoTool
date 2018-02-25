@@ -26,20 +26,25 @@ Partial Class SangoTool
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
-        Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
+        Me.BackgroundWorkerPlay = New System.ComponentModel.BackgroundWorker()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.SplitContainerFill = New System.Windows.Forms.SplitContainer()
         Me.SplitContainerLeft = New System.Windows.Forms.SplitContainer()
+        Me.TableLayoutPanelPlay = New System.Windows.Forms.TableLayoutPanel()
+        Me.PictureBoxPlay = New System.Windows.Forms.PictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.PictureBoxMian = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanelDown = New System.Windows.Forms.TableLayoutPanel()
         Me.ButtonPlay = New System.Windows.Forms.Button()
         Me.ButtonSave = New System.Windows.Forms.Button()
         Me.ButtonNew = New System.Windows.Forms.Button()
         Me.ButtonNRead = New System.Windows.Forms.Button()
-        Me.ButtonFlip = New System.Windows.Forms.Button()
-        Me.ButtonZoom = New System.Windows.Forms.Button()
+        Me.ButtonOutput = New System.Windows.Forms.Button()
+        Me.ButtonTransform = New System.Windows.Forms.Button()
         Me.ButtonShadow = New System.Windows.Forms.Button()
         Me.TableLayoutPanelMian = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel9 = New System.Windows.Forms.TableLayoutPanel()
@@ -93,11 +98,6 @@ Partial Class SangoTool
         Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.PictureBoxPlay = New System.Windows.Forms.PictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TableLayoutPanelPlay = New System.Windows.Forms.TableLayoutPanel()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
-        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.TabPage2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.SplitContainerFill, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -108,6 +108,8 @@ Partial Class SangoTool
         Me.SplitContainerLeft.Panel1.SuspendLayout()
         Me.SplitContainerLeft.Panel2.SuspendLayout()
         Me.SplitContainerLeft.SuspendLayout()
+        Me.TableLayoutPanelPlay.SuspendLayout()
+        CType(Me.PictureBoxPlay, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBoxMian, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanelDown.SuspendLayout()
         Me.TableLayoutPanelMian.SuspendLayout()
@@ -142,8 +144,6 @@ Partial Class SangoTool
         Me.ClearColors4.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
-        CType(Me.PictureBoxPlay, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TableLayoutPanelPlay.SuspendLayout()
         Me.SuspendLayout()
         '
         'BackgroundWorker1
@@ -153,7 +153,7 @@ Partial Class SangoTool
         '
         Me.Timer1.Interval = 125
         '
-        'BackgroundWorker2
+        'BackgroundWorkerPlay
         '
         '
         'TabPage2
@@ -166,6 +166,17 @@ Partial Class SangoTool
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "About "
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'WebBrowser1
+        '
+        Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.WebBrowser1.Location = New System.Drawing.Point(3, 3)
+        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.WebBrowser1.Name = "WebBrowser1"
+        Me.WebBrowser1.Size = New System.Drawing.Size(770, 519)
+        Me.WebBrowser1.TabIndex = 0
+        Me.WebBrowser1.Url = New System.Uri("https://wapp.baidu.com/f?ie=utf-8&kw=%E4%B8%89%E5%9B%BD%E7%BE%A4%E8%8B%B1%E4%BC%A" &
+        "0&fr=search", System.UriKind.Absolute)
         '
         'TabPage1
         '
@@ -219,6 +230,57 @@ Partial Class SangoTool
         Me.SplitContainerLeft.SplitterDistance = 446
         Me.SplitContainerLeft.TabIndex = 0
         '
+        'TableLayoutPanelPlay
+        '
+        Me.TableLayoutPanelPlay.ColumnCount = 2
+        Me.TableLayoutPanelPlay.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanelPlay.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128.0!))
+        Me.TableLayoutPanelPlay.Controls.Add(Me.Label1, 1, 1)
+        Me.TableLayoutPanelPlay.Controls.Add(Me.PictureBoxPlay, 0, 0)
+        Me.TableLayoutPanelPlay.Controls.Add(Me.ProgressBar1, 0, 1)
+        Me.TableLayoutPanelPlay.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanelPlay.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanelPlay.Name = "TableLayoutPanelPlay"
+        Me.TableLayoutPanelPlay.RowCount = 2
+        Me.TableLayoutPanelPlay.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanelPlay.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanelPlay.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanelPlay.Size = New System.Drawing.Size(597, 444)
+        Me.TableLayoutPanelPlay.TabIndex = 3
+        Me.TableLayoutPanelPlay.Visible = False
+        '
+        'PictureBoxPlay
+        '
+        Me.TableLayoutPanelPlay.SetColumnSpan(Me.PictureBoxPlay, 2)
+        Me.PictureBoxPlay.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBoxPlay.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBoxPlay.Name = "PictureBoxPlay"
+        Me.PictureBoxPlay.Size = New System.Drawing.Size(591, 406)
+        Me.PictureBoxPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBoxPlay.TabIndex = 1
+        Me.PictureBoxPlay.TabStop = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Font = New System.Drawing.Font("宋体", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label1.Location = New System.Drawing.Point(472, 412)
+        Me.Label1.Name = "Label1"
+        Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label1.Size = New System.Drawing.Size(122, 32)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "0/0"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'ProgressBar1
+        '
+        Me.ProgressBar1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ProgressBar1.Location = New System.Drawing.Point(3, 415)
+        Me.ProgressBar1.Name = "ProgressBar1"
+        Me.ProgressBar1.Size = New System.Drawing.Size(463, 26)
+        Me.ProgressBar1.TabIndex = 3
+        '
         'PictureBoxMian
         '
         Me.PictureBoxMian.Dock = System.Windows.Forms.DockStyle.Fill
@@ -245,9 +307,9 @@ Partial Class SangoTool
         Me.TableLayoutPanelDown.Controls.Add(Me.ButtonSave, 3, 0)
         Me.TableLayoutPanelDown.Controls.Add(Me.ButtonNew, 1, 0)
         Me.TableLayoutPanelDown.Controls.Add(Me.ButtonNRead, 2, 0)
-        Me.TableLayoutPanelDown.Controls.Add(Me.ButtonFlip, 5, 0)
-        Me.TableLayoutPanelDown.Controls.Add(Me.ButtonZoom, 6, 0)
-        Me.TableLayoutPanelDown.Controls.Add(Me.ButtonShadow, 7, 0)
+        Me.TableLayoutPanelDown.Controls.Add(Me.ButtonOutput, 7, 0)
+        Me.TableLayoutPanelDown.Controls.Add(Me.ButtonShadow, 6, 0)
+        Me.TableLayoutPanelDown.Controls.Add(Me.ButtonTransform, 5, 0)
         Me.TableLayoutPanelDown.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanelDown.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanelDown.Name = "TableLayoutPanelDown"
@@ -296,30 +358,30 @@ Partial Class SangoTool
         Me.ButtonNRead.Text = "Read"
         Me.ButtonNRead.UseVisualStyleBackColor = True
         '
-        'ButtonFlip
+        'ButtonOutput
         '
-        Me.ButtonFlip.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonFlip.Location = New System.Drawing.Point(343, 3)
-        Me.ButtonFlip.Name = "ButtonFlip"
-        Me.ButtonFlip.Size = New System.Drawing.Size(78, 61)
-        Me.ButtonFlip.TabIndex = 8
-        Me.ButtonFlip.Text = "Flip"
-        Me.ButtonFlip.UseVisualStyleBackColor = True
+        Me.ButtonOutput.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonOutput.Location = New System.Drawing.Point(511, 3)
+        Me.ButtonOutput.Name = "ButtonOutput"
+        Me.ButtonOutput.Size = New System.Drawing.Size(78, 61)
+        Me.ButtonOutput.TabIndex = 8
+        Me.ButtonOutput.Text = "Output"
+        Me.ButtonOutput.UseVisualStyleBackColor = True
         '
-        'ButtonZoom
+        'ButtonTransform
         '
-        Me.ButtonZoom.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonZoom.Location = New System.Drawing.Point(427, 3)
-        Me.ButtonZoom.Name = "ButtonZoom"
-        Me.ButtonZoom.Size = New System.Drawing.Size(78, 61)
-        Me.ButtonZoom.TabIndex = 9
-        Me.ButtonZoom.Text = "Zoom"
-        Me.ButtonZoom.UseVisualStyleBackColor = True
+        Me.ButtonTransform.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonTransform.Location = New System.Drawing.Point(343, 3)
+        Me.ButtonTransform.Name = "ButtonTransform"
+        Me.ButtonTransform.Size = New System.Drawing.Size(78, 61)
+        Me.ButtonTransform.TabIndex = 9
+        Me.ButtonTransform.Text = "Transform"
+        Me.ButtonTransform.UseVisualStyleBackColor = True
         '
         'ButtonShadow
         '
         Me.ButtonShadow.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonShadow.Location = New System.Drawing.Point(511, 3)
+        Me.ButtonShadow.Location = New System.Drawing.Point(427, 3)
         Me.ButtonShadow.Name = "ButtonShadow"
         Me.ButtonShadow.Size = New System.Drawing.Size(78, 61)
         Me.ButtonShadow.TabIndex = 10
@@ -922,68 +984,6 @@ Partial Class SangoTool
         Me.TabControl1.Size = New System.Drawing.Size(784, 561)
         Me.TabControl1.TabIndex = 0
         '
-        'PictureBoxPlay
-        '
-        Me.TableLayoutPanelPlay.SetColumnSpan(Me.PictureBoxPlay, 2)
-        Me.PictureBoxPlay.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBoxPlay.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBoxPlay.Name = "PictureBoxPlay"
-        Me.PictureBoxPlay.Size = New System.Drawing.Size(591, 406)
-        Me.PictureBoxPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBoxPlay.TabIndex = 1
-        Me.PictureBoxPlay.TabStop = False
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("宋体", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label1.Location = New System.Drawing.Point(472, 412)
-        Me.Label1.Name = "Label1"
-        Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label1.Size = New System.Drawing.Size(122, 32)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "0/0"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'TableLayoutPanelPlay
-        '
-        Me.TableLayoutPanelPlay.ColumnCount = 2
-        Me.TableLayoutPanelPlay.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanelPlay.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128.0!))
-        Me.TableLayoutPanelPlay.Controls.Add(Me.Label1, 1, 1)
-        Me.TableLayoutPanelPlay.Controls.Add(Me.PictureBoxPlay, 0, 0)
-        Me.TableLayoutPanelPlay.Controls.Add(Me.ProgressBar1, 0, 1)
-        Me.TableLayoutPanelPlay.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanelPlay.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanelPlay.Name = "TableLayoutPanelPlay"
-        Me.TableLayoutPanelPlay.RowCount = 2
-        Me.TableLayoutPanelPlay.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanelPlay.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
-        Me.TableLayoutPanelPlay.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanelPlay.Size = New System.Drawing.Size(597, 444)
-        Me.TableLayoutPanelPlay.TabIndex = 3
-        Me.TableLayoutPanelPlay.Visible = False
-        '
-        'ProgressBar1
-        '
-        Me.ProgressBar1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ProgressBar1.Location = New System.Drawing.Point(3, 415)
-        Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(463, 26)
-        Me.ProgressBar1.TabIndex = 3
-        '
-        'WebBrowser1
-        '
-        Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WebBrowser1.Location = New System.Drawing.Point(3, 3)
-        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(770, 519)
-        Me.WebBrowser1.TabIndex = 0
-        Me.WebBrowser1.Url = New System.Uri("https://wapp.baidu.com/f?ie=utf-8&kw=%E4%B8%89%E5%9B%BD%E7%BE%A4%E8%8B%B1%E4%BC%A" &
-        "0&fr=search", System.UriKind.Absolute)
-        '
         'SangoTool
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -1005,6 +1005,9 @@ Partial Class SangoTool
         Me.SplitContainerLeft.Panel2.ResumeLayout(False)
         CType(Me.SplitContainerLeft, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainerLeft.ResumeLayout(False)
+        Me.TableLayoutPanelPlay.ResumeLayout(False)
+        Me.TableLayoutPanelPlay.PerformLayout()
+        CType(Me.PictureBoxPlay, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBoxMian, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanelDown.ResumeLayout(False)
         Me.TableLayoutPanelMian.ResumeLayout(False)
@@ -1039,16 +1042,13 @@ Partial Class SangoTool
         Me.ClearColors4.ResumeLayout(False)
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
-        CType(Me.PictureBoxPlay, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TableLayoutPanelPlay.ResumeLayout(False)
-        Me.TableLayoutPanelPlay.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents Timer1 As Timer
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
-    Friend WithEvents BackgroundWorker2 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents BackgroundWorkerPlay As System.ComponentModel.BackgroundWorker
     Friend WithEvents ColorDialog1 As ColorDialog
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents TabPage1 As TabPage
@@ -1060,8 +1060,8 @@ Partial Class SangoTool
     Friend WithEvents ButtonSave As Button
     Friend WithEvents ButtonNew As Button
     Friend WithEvents ButtonNRead As Button
-    Friend WithEvents ButtonFlip As Button
-    Friend WithEvents ButtonZoom As Button
+    Friend WithEvents ButtonOutput As Button
+    Friend WithEvents ButtonTransform As Button
     Friend WithEvents ButtonShadow As Button
     Friend WithEvents TableLayoutPanelMian As TableLayoutPanel
     Friend WithEvents TableLayoutPanel9 As TableLayoutPanel

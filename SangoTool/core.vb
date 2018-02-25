@@ -260,4 +260,5 @@ Module core
         fs.Close()
         BitmapToSHP = True
     End Function
+
 End Module
