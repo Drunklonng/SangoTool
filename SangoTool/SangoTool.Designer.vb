@@ -23,7 +23,8 @@ Partial Class SangoTool
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SangoTool))
+        Me.BackgroundWorkerOut = New System.ComponentModel.BackgroundWorker()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.BackgroundWorkerPlay = New System.ComponentModel.BackgroundWorker()
@@ -32,71 +33,62 @@ Partial Class SangoTool
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.SplitContainerFill = New System.Windows.Forms.SplitContainer()
         Me.SplitContainerLeft = New System.Windows.Forms.SplitContainer()
-        Me.TableLayoutPanelPlay = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.PictureBoxPlay = New System.Windows.Forms.PictureBox()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
-        Me.PictureBoxMian = New System.Windows.Forms.PictureBox()
-        Me.TableLayoutPanelDown = New System.Windows.Forms.TableLayoutPanel()
-        Me.ButtonPlay = New System.Windows.Forms.Button()
+        Me.TableLayoutPanelUP = New System.Windows.Forms.TableLayoutPanel()
         Me.ButtonSave = New System.Windows.Forms.Button()
         Me.ButtonNew = New System.Windows.Forms.Button()
         Me.ButtonNRead = New System.Windows.Forms.Button()
-        Me.ButtonOutput = New System.Windows.Forms.Button()
         Me.ButtonShadow = New System.Windows.Forms.Button()
         Me.ButtonTransform = New System.Windows.Forms.Button()
+        Me.ButtonOutput = New System.Windows.Forms.Button()
+        Me.ButtonOffset = New System.Windows.Forms.Button()
+        Me.SplitContainerPlay = New System.Windows.Forms.SplitContainer()
+        Me.PictureBoxPlay = New System.Windows.Forms.PictureBox()
+        Me.TableLayoutPanelPlay = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.ButtonPlay = New System.Windows.Forms.Button()
+        Me.ButtonNext = New System.Windows.Forms.Button()
+        Me.ButtonLast = New System.Windows.Forms.Button()
+        Me.ButtonBorder = New System.Windows.Forms.Button()
+        Me.ButtonAxis = New System.Windows.Forms.Button()
         Me.TableLayoutPanelMian = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel9 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button9 = New System.Windows.Forms.Button()
-        Me.ClearColors9 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem9 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox9 = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button8 = New System.Windows.Forms.Button()
-        Me.ClearColors8 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button7 = New System.Windows.Forms.Button()
-        Me.ClearColors7 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.ClearColors6 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button5 = New System.Windows.Forms.Button()
-        Me.ClearColors5 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.ClearColors3 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.ClearColors2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.ClearColors1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel0 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button0 = New System.Windows.Forms.Button()
-        Me.ClearColors0 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem0 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox0 = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.ClearColors4 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TableLayoutPanel10 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TabPage2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.SplitContainerFill, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerFill.Panel1.SuspendLayout()
@@ -106,45 +98,39 @@ Partial Class SangoTool
         Me.SplitContainerLeft.Panel1.SuspendLayout()
         Me.SplitContainerLeft.Panel2.SuspendLayout()
         Me.SplitContainerLeft.SuspendLayout()
-        Me.TableLayoutPanelPlay.SuspendLayout()
+        Me.TableLayoutPanelUP.SuspendLayout()
+        CType(Me.SplitContainerPlay, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainerPlay.Panel1.SuspendLayout()
+        Me.SplitContainerPlay.Panel2.SuspendLayout()
+        Me.SplitContainerPlay.SuspendLayout()
         CType(Me.PictureBoxPlay, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBoxMian, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TableLayoutPanelDown.SuspendLayout()
+        Me.TableLayoutPanelPlay.SuspendLayout()
         Me.TableLayoutPanelMian.SuspendLayout()
         Me.TableLayoutPanel9.SuspendLayout()
-        Me.ClearColors9.SuspendLayout()
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel8.SuspendLayout()
-        Me.ClearColors8.SuspendLayout()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel7.SuspendLayout()
-        Me.ClearColors7.SuspendLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel6.SuspendLayout()
-        Me.ClearColors6.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel5.SuspendLayout()
-        Me.ClearColors5.SuspendLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel3.SuspendLayout()
-        Me.ClearColors3.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
-        Me.ClearColors2.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
-        Me.ClearColors1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel0.SuspendLayout()
-        Me.ClearColors0.SuspendLayout()
         CType(Me.PictureBox0, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel4.SuspendLayout()
-        Me.ClearColors4.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
+        Me.TableLayoutPanel10.SuspendLayout()
         Me.SuspendLayout()
         '
-        'BackgroundWorker1
+        'BackgroundWorkerOut
         '
         '
         'Timer1
@@ -156,12 +142,13 @@ Partial Class SangoTool
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.TableLayoutPanel10)
         Me.TabPage2.Location = New System.Drawing.Point(4, 32)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(776, 525)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "About "
+        Me.TabPage2.Text = "License"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'TabPage1
@@ -180,6 +167,7 @@ Partial Class SangoTool
         Me.SplitContainerFill.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.SplitContainerFill.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainerFill.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
+        Me.SplitContainerFill.IsSplitterFixed = True
         Me.SplitContainerFill.Location = New System.Drawing.Point(3, 3)
         Me.SplitContainerFill.Name = "SplitContainerFill"
         '
@@ -192,134 +180,63 @@ Partial Class SangoTool
         '
         Me.SplitContainerFill.Panel2.Controls.Add(Me.TableLayoutPanelMian)
         Me.SplitContainerFill.Size = New System.Drawing.Size(770, 519)
-        Me.SplitContainerFill.SplitterDistance = 599
+        Me.SplitContainerFill.SplitterDistance = 600
         Me.SplitContainerFill.TabIndex = 0
         '
         'SplitContainerLeft
         '
         Me.SplitContainerLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.SplitContainerLeft.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainerLeft.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
+        Me.SplitContainerLeft.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
+        Me.SplitContainerLeft.IsSplitterFixed = True
         Me.SplitContainerLeft.Location = New System.Drawing.Point(0, 0)
         Me.SplitContainerLeft.Name = "SplitContainerLeft"
         Me.SplitContainerLeft.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
         'SplitContainerLeft.Panel1
         '
-        Me.SplitContainerLeft.Panel1.Controls.Add(Me.TableLayoutPanelPlay)
-        Me.SplitContainerLeft.Panel1.Controls.Add(Me.PictureBoxMian)
+        Me.SplitContainerLeft.Panel1.Controls.Add(Me.TableLayoutPanelUP)
         '
         'SplitContainerLeft.Panel2
         '
-        Me.SplitContainerLeft.Panel2.Controls.Add(Me.TableLayoutPanelDown)
-        Me.SplitContainerLeft.Size = New System.Drawing.Size(599, 519)
-        Me.SplitContainerLeft.SplitterDistance = 446
+        Me.SplitContainerLeft.Panel2.Controls.Add(Me.SplitContainerPlay)
+        Me.SplitContainerLeft.Size = New System.Drawing.Size(600, 519)
+        Me.SplitContainerLeft.SplitterDistance = 45
         Me.SplitContainerLeft.TabIndex = 0
         '
-        'TableLayoutPanelPlay
+        'TableLayoutPanelUP
         '
-        Me.TableLayoutPanelPlay.ColumnCount = 2
-        Me.TableLayoutPanelPlay.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanelPlay.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128.0!))
-        Me.TableLayoutPanelPlay.Controls.Add(Me.Label1, 1, 1)
-        Me.TableLayoutPanelPlay.Controls.Add(Me.PictureBoxPlay, 0, 0)
-        Me.TableLayoutPanelPlay.Controls.Add(Me.ProgressBar1, 0, 1)
-        Me.TableLayoutPanelPlay.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanelPlay.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanelPlay.Name = "TableLayoutPanelPlay"
-        Me.TableLayoutPanelPlay.RowCount = 2
-        Me.TableLayoutPanelPlay.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanelPlay.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
-        Me.TableLayoutPanelPlay.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanelPlay.Size = New System.Drawing.Size(597, 444)
-        Me.TableLayoutPanelPlay.TabIndex = 3
-        Me.TableLayoutPanelPlay.Visible = False
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("宋体", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label1.Location = New System.Drawing.Point(472, 412)
-        Me.Label1.Name = "Label1"
-        Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label1.Size = New System.Drawing.Size(122, 32)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "0/0"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'PictureBoxPlay
-        '
-        Me.TableLayoutPanelPlay.SetColumnSpan(Me.PictureBoxPlay, 2)
-        Me.PictureBoxPlay.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBoxPlay.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBoxPlay.Name = "PictureBoxPlay"
-        Me.PictureBoxPlay.Size = New System.Drawing.Size(591, 406)
-        Me.PictureBoxPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBoxPlay.TabIndex = 1
-        Me.PictureBoxPlay.TabStop = False
-        '
-        'ProgressBar1
-        '
-        Me.ProgressBar1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ProgressBar1.Location = New System.Drawing.Point(3, 415)
-        Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(463, 26)
-        Me.ProgressBar1.TabIndex = 3
-        '
-        'PictureBoxMian
-        '
-        Me.PictureBoxMian.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBoxMian.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBoxMian.Name = "PictureBoxMian"
-        Me.PictureBoxMian.Size = New System.Drawing.Size(597, 444)
-        Me.PictureBoxMian.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBoxMian.TabIndex = 0
-        Me.PictureBoxMian.TabStop = False
-        '
-        'TableLayoutPanelDown
-        '
-        Me.TableLayoutPanelDown.ColumnCount = 9
-        Me.TableLayoutPanelDown.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanelDown.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84.0!))
-        Me.TableLayoutPanelDown.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84.0!))
-        Me.TableLayoutPanelDown.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84.0!))
-        Me.TableLayoutPanelDown.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84.0!))
-        Me.TableLayoutPanelDown.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84.0!))
-        Me.TableLayoutPanelDown.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84.0!))
-        Me.TableLayoutPanelDown.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84.0!))
-        Me.TableLayoutPanelDown.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanelDown.Controls.Add(Me.ButtonPlay, 4, 0)
-        Me.TableLayoutPanelDown.Controls.Add(Me.ButtonSave, 3, 0)
-        Me.TableLayoutPanelDown.Controls.Add(Me.ButtonNew, 1, 0)
-        Me.TableLayoutPanelDown.Controls.Add(Me.ButtonNRead, 2, 0)
-        Me.TableLayoutPanelDown.Controls.Add(Me.ButtonOutput, 7, 0)
-        Me.TableLayoutPanelDown.Controls.Add(Me.ButtonShadow, 6, 0)
-        Me.TableLayoutPanelDown.Controls.Add(Me.ButtonTransform, 5, 0)
-        Me.TableLayoutPanelDown.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanelDown.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanelDown.Name = "TableLayoutPanelDown"
-        Me.TableLayoutPanelDown.RowCount = 1
-        Me.TableLayoutPanelDown.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanelDown.Size = New System.Drawing.Size(597, 67)
-        Me.TableLayoutPanelDown.TabIndex = 0
-        '
-        'ButtonPlay
-        '
-        Me.ButtonPlay.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonPlay.Location = New System.Drawing.Point(259, 3)
-        Me.ButtonPlay.Name = "ButtonPlay"
-        Me.ButtonPlay.Size = New System.Drawing.Size(78, 61)
-        Me.ButtonPlay.TabIndex = 0
-        Me.ButtonPlay.Text = "Play"
-        Me.ButtonPlay.UseVisualStyleBackColor = True
+        Me.TableLayoutPanelUP.ColumnCount = 7
+        Me.TableLayoutPanelUP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanelUP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanelUP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanelUP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanelUP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanelUP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanelUP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanelUP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanelUP.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanelUP.Controls.Add(Me.ButtonSave, 2, 0)
+        Me.TableLayoutPanelUP.Controls.Add(Me.ButtonNew, 0, 0)
+        Me.TableLayoutPanelUP.Controls.Add(Me.ButtonNRead, 1, 0)
+        Me.TableLayoutPanelUP.Controls.Add(Me.ButtonShadow, 5, 0)
+        Me.TableLayoutPanelUP.Controls.Add(Me.ButtonTransform, 4, 0)
+        Me.TableLayoutPanelUP.Controls.Add(Me.ButtonOutput, 3, 0)
+        Me.TableLayoutPanelUP.Controls.Add(Me.ButtonOffset, 6, 0)
+        Me.TableLayoutPanelUP.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanelUP.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanelUP.Name = "TableLayoutPanelUP"
+        Me.TableLayoutPanelUP.RowCount = 1
+        Me.TableLayoutPanelUP.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanelUP.Size = New System.Drawing.Size(598, 43)
+        Me.TableLayoutPanelUP.TabIndex = 0
         '
         'ButtonSave
         '
         Me.ButtonSave.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonSave.Location = New System.Drawing.Point(175, 3)
+        Me.ButtonSave.Location = New System.Drawing.Point(173, 3)
         Me.ButtonSave.Name = "ButtonSave"
-        Me.ButtonSave.Size = New System.Drawing.Size(78, 61)
+        Me.ButtonSave.Size = New System.Drawing.Size(79, 37)
         Me.ButtonSave.TabIndex = 5
         Me.ButtonSave.Text = "Save"
         Me.ButtonSave.UseVisualStyleBackColor = True
@@ -327,9 +244,9 @@ Partial Class SangoTool
         'ButtonNew
         '
         Me.ButtonNew.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonNew.Location = New System.Drawing.Point(7, 3)
+        Me.ButtonNew.Location = New System.Drawing.Point(3, 3)
         Me.ButtonNew.Name = "ButtonNew"
-        Me.ButtonNew.Size = New System.Drawing.Size(78, 61)
+        Me.ButtonNew.Size = New System.Drawing.Size(79, 37)
         Me.ButtonNew.TabIndex = 6
         Me.ButtonNew.Text = "New"
         Me.ButtonNew.UseVisualStyleBackColor = True
@@ -337,29 +254,19 @@ Partial Class SangoTool
         'ButtonNRead
         '
         Me.ButtonNRead.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonNRead.Location = New System.Drawing.Point(91, 3)
+        Me.ButtonNRead.Location = New System.Drawing.Point(88, 3)
         Me.ButtonNRead.Name = "ButtonNRead"
-        Me.ButtonNRead.Size = New System.Drawing.Size(78, 61)
+        Me.ButtonNRead.Size = New System.Drawing.Size(79, 37)
         Me.ButtonNRead.TabIndex = 7
         Me.ButtonNRead.Text = "Read"
         Me.ButtonNRead.UseVisualStyleBackColor = True
         '
-        'ButtonOutput
-        '
-        Me.ButtonOutput.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonOutput.Location = New System.Drawing.Point(511, 3)
-        Me.ButtonOutput.Name = "ButtonOutput"
-        Me.ButtonOutput.Size = New System.Drawing.Size(78, 61)
-        Me.ButtonOutput.TabIndex = 8
-        Me.ButtonOutput.Text = "Output"
-        Me.ButtonOutput.UseVisualStyleBackColor = True
-        '
         'ButtonShadow
         '
         Me.ButtonShadow.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonShadow.Location = New System.Drawing.Point(427, 3)
+        Me.ButtonShadow.Location = New System.Drawing.Point(428, 3)
         Me.ButtonShadow.Name = "ButtonShadow"
-        Me.ButtonShadow.Size = New System.Drawing.Size(78, 61)
+        Me.ButtonShadow.Size = New System.Drawing.Size(79, 37)
         Me.ButtonShadow.TabIndex = 10
         Me.ButtonShadow.Text = "Shadow"
         Me.ButtonShadow.UseVisualStyleBackColor = True
@@ -369,10 +276,155 @@ Partial Class SangoTool
         Me.ButtonTransform.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ButtonTransform.Location = New System.Drawing.Point(343, 3)
         Me.ButtonTransform.Name = "ButtonTransform"
-        Me.ButtonTransform.Size = New System.Drawing.Size(78, 61)
+        Me.ButtonTransform.Size = New System.Drawing.Size(79, 37)
         Me.ButtonTransform.TabIndex = 9
         Me.ButtonTransform.Text = "Transform"
         Me.ButtonTransform.UseVisualStyleBackColor = True
+        '
+        'ButtonOutput
+        '
+        Me.ButtonOutput.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonOutput.Location = New System.Drawing.Point(258, 3)
+        Me.ButtonOutput.Name = "ButtonOutput"
+        Me.ButtonOutput.Size = New System.Drawing.Size(79, 37)
+        Me.ButtonOutput.TabIndex = 8
+        Me.ButtonOutput.Text = "Output"
+        Me.ButtonOutput.UseVisualStyleBackColor = True
+        '
+        'ButtonOffset
+        '
+        Me.ButtonOffset.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonOffset.Location = New System.Drawing.Point(513, 3)
+        Me.ButtonOffset.Name = "ButtonOffset"
+        Me.ButtonOffset.Size = New System.Drawing.Size(82, 37)
+        Me.ButtonOffset.TabIndex = 11
+        Me.ButtonOffset.Text = "Offset"
+        Me.ButtonOffset.UseVisualStyleBackColor = True
+        '
+        'SplitContainerPlay
+        '
+        Me.SplitContainerPlay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.SplitContainerPlay.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainerPlay.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
+        Me.SplitContainerPlay.IsSplitterFixed = True
+        Me.SplitContainerPlay.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainerPlay.Name = "SplitContainerPlay"
+        Me.SplitContainerPlay.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainerPlay.Panel1
+        '
+        Me.SplitContainerPlay.Panel1.Controls.Add(Me.PictureBoxPlay)
+        '
+        'SplitContainerPlay.Panel2
+        '
+        Me.SplitContainerPlay.Panel2.Controls.Add(Me.TableLayoutPanelPlay)
+        Me.SplitContainerPlay.Size = New System.Drawing.Size(600, 470)
+        Me.SplitContainerPlay.SplitterDistance = 425
+        Me.SplitContainerPlay.TabIndex = 4
+        '
+        'PictureBoxPlay
+        '
+        Me.PictureBoxPlay.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBoxPlay.Name = "PictureBoxPlay"
+        Me.PictureBoxPlay.Size = New System.Drawing.Size(0, 0)
+        Me.PictureBoxPlay.TabIndex = 1
+        Me.PictureBoxPlay.TabStop = False
+        '
+        'TableLayoutPanelPlay
+        '
+        Me.TableLayoutPanelPlay.ColumnCount = 7
+        Me.TableLayoutPanelPlay.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanelPlay.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanelPlay.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanelPlay.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanelPlay.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanelPlay.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanelPlay.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanelPlay.Controls.Add(Me.Label1, 6, 0)
+        Me.TableLayoutPanelPlay.Controls.Add(Me.ProgressBar1, 5, 0)
+        Me.TableLayoutPanelPlay.Controls.Add(Me.ButtonPlay, 3, 0)
+        Me.TableLayoutPanelPlay.Controls.Add(Me.ButtonNext, 4, 0)
+        Me.TableLayoutPanelPlay.Controls.Add(Me.ButtonLast, 2, 0)
+        Me.TableLayoutPanelPlay.Controls.Add(Me.ButtonBorder, 0, 0)
+        Me.TableLayoutPanelPlay.Controls.Add(Me.ButtonAxis, 1, 0)
+        Me.TableLayoutPanelPlay.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanelPlay.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanelPlay.Name = "TableLayoutPanelPlay"
+        Me.TableLayoutPanelPlay.RowCount = 1
+        Me.TableLayoutPanelPlay.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39.0!))
+        Me.TableLayoutPanelPlay.Size = New System.Drawing.Size(598, 39)
+        Me.TableLayoutPanelPlay.TabIndex = 3
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label1.Location = New System.Drawing.Point(513, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label1.Size = New System.Drawing.Size(82, 39)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "0/0"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'ProgressBar1
+        '
+        Me.ProgressBar1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ProgressBar1.Location = New System.Drawing.Point(428, 3)
+        Me.ProgressBar1.Name = "ProgressBar1"
+        Me.ProgressBar1.Size = New System.Drawing.Size(79, 33)
+        Me.ProgressBar1.TabIndex = 3
+        '
+        'ButtonPlay
+        '
+        Me.ButtonPlay.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonPlay.Location = New System.Drawing.Point(258, 3)
+        Me.ButtonPlay.Name = "ButtonPlay"
+        Me.ButtonPlay.Size = New System.Drawing.Size(79, 33)
+        Me.ButtonPlay.TabIndex = 0
+        Me.ButtonPlay.Text = "Play"
+        Me.ButtonPlay.UseVisualStyleBackColor = True
+        '
+        'ButtonNext
+        '
+        Me.ButtonNext.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonNext.Location = New System.Drawing.Point(343, 3)
+        Me.ButtonNext.Name = "ButtonNext"
+        Me.ButtonNext.Size = New System.Drawing.Size(79, 33)
+        Me.ButtonNext.TabIndex = 4
+        Me.ButtonNext.Text = "Next"
+        Me.ButtonNext.UseVisualStyleBackColor = True
+        '
+        'ButtonLast
+        '
+        Me.ButtonLast.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonLast.Location = New System.Drawing.Point(173, 3)
+        Me.ButtonLast.Name = "ButtonLast"
+        Me.ButtonLast.Size = New System.Drawing.Size(79, 33)
+        Me.ButtonLast.TabIndex = 5
+        Me.ButtonLast.Text = "Last"
+        Me.ButtonLast.UseVisualStyleBackColor = True
+        '
+        'ButtonBorder
+        '
+        Me.ButtonBorder.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonBorder.Location = New System.Drawing.Point(3, 3)
+        Me.ButtonBorder.Name = "ButtonBorder"
+        Me.ButtonBorder.Size = New System.Drawing.Size(79, 33)
+        Me.ButtonBorder.TabIndex = 6
+        Me.ButtonBorder.Text = "Border"
+        Me.ButtonBorder.UseVisualStyleBackColor = True
+        '
+        'ButtonAxis
+        '
+        Me.ButtonAxis.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonAxis.Location = New System.Drawing.Point(88, 3)
+        Me.ButtonAxis.Name = "ButtonAxis"
+        Me.ButtonAxis.Size = New System.Drawing.Size(79, 33)
+        Me.ButtonAxis.TabIndex = 7
+        Me.ButtonAxis.Text = "Axis"
+        Me.ButtonAxis.UseVisualStyleBackColor = True
         '
         'TableLayoutPanelMian
         '
@@ -404,7 +456,7 @@ Partial Class SangoTool
         Me.TableLayoutPanelMian.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.TableLayoutPanelMian.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.TableLayoutPanelMian.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanelMian.Size = New System.Drawing.Size(165, 517)
+        Me.TableLayoutPanelMian.Size = New System.Drawing.Size(164, 517)
         Me.TableLayoutPanelMian.TabIndex = 1
         Me.TableLayoutPanelMian.Visible = False
         '
@@ -422,17 +474,16 @@ Partial Class SangoTool
         Me.TableLayoutPanel9.RowCount = 1
         Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel9.Size = New System.Drawing.Size(159, 45)
+        Me.TableLayoutPanel9.Size = New System.Drawing.Size(158, 45)
         Me.TableLayoutPanel9.TabIndex = 4
         '
         'Button9
         '
         Me.Button9.BackColor = System.Drawing.Color.Transparent
-        Me.Button9.ContextMenuStrip = Me.ClearColors9
         Me.Button9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button9.FlatAppearance.BorderSize = 0
         Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button9.Location = New System.Drawing.Point(81, 2)
+        Me.Button9.Location = New System.Drawing.Point(80, 2)
         Me.Button9.Margin = New System.Windows.Forms.Padding(1)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(76, 41)
@@ -440,25 +491,13 @@ Partial Class SangoTool
         Me.Button9.Text = "Layer9"
         Me.Button9.UseVisualStyleBackColor = False
         '
-        'ClearColors9
-        '
-        Me.ClearColors9.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem9})
-        Me.ClearColors9.Name = "ContextMenuStrip1"
-        Me.ClearColors9.Size = New System.Drawing.Size(149, 26)
-        '
-        'ToolStripMenuItem9
-        '
-        Me.ToolStripMenuItem9.Name = "ToolStripMenuItem9"
-        Me.ToolStripMenuItem9.Size = New System.Drawing.Size(148, 22)
-        Me.ToolStripMenuItem9.Text = "Clear Colors"
-        '
         'PictureBox9
         '
         Me.PictureBox9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox9.Location = New System.Drawing.Point(2, 2)
         Me.PictureBox9.Margin = New System.Windows.Forms.Padding(1)
         Me.PictureBox9.Name = "PictureBox9"
-        Me.PictureBox9.Size = New System.Drawing.Size(76, 41)
+        Me.PictureBox9.Size = New System.Drawing.Size(75, 41)
         Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox9.TabIndex = 0
         Me.PictureBox9.TabStop = False
@@ -477,17 +516,16 @@ Partial Class SangoTool
         Me.TableLayoutPanel8.RowCount = 1
         Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel8.Size = New System.Drawing.Size(159, 45)
+        Me.TableLayoutPanel8.Size = New System.Drawing.Size(158, 45)
         Me.TableLayoutPanel8.TabIndex = 4
         '
         'Button8
         '
         Me.Button8.BackColor = System.Drawing.Color.Transparent
-        Me.Button8.ContextMenuStrip = Me.ClearColors8
         Me.Button8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button8.FlatAppearance.BorderSize = 0
         Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button8.Location = New System.Drawing.Point(81, 2)
+        Me.Button8.Location = New System.Drawing.Point(80, 2)
         Me.Button8.Margin = New System.Windows.Forms.Padding(1)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(76, 41)
@@ -495,25 +533,13 @@ Partial Class SangoTool
         Me.Button8.Text = "Layer8"
         Me.Button8.UseVisualStyleBackColor = False
         '
-        'ClearColors8
-        '
-        Me.ClearColors8.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem8})
-        Me.ClearColors8.Name = "ContextMenuStrip1"
-        Me.ClearColors8.Size = New System.Drawing.Size(149, 26)
-        '
-        'ToolStripMenuItem8
-        '
-        Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(148, 22)
-        Me.ToolStripMenuItem8.Text = "Clear Colors"
-        '
         'PictureBox8
         '
         Me.PictureBox8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox8.Location = New System.Drawing.Point(2, 2)
         Me.PictureBox8.Margin = New System.Windows.Forms.Padding(1)
         Me.PictureBox8.Name = "PictureBox8"
-        Me.PictureBox8.Size = New System.Drawing.Size(76, 41)
+        Me.PictureBox8.Size = New System.Drawing.Size(75, 41)
         Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox8.TabIndex = 0
         Me.PictureBox8.TabStop = False
@@ -532,17 +558,16 @@ Partial Class SangoTool
         Me.TableLayoutPanel7.RowCount = 1
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(159, 45)
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(158, 45)
         Me.TableLayoutPanel7.TabIndex = 4
         '
         'Button7
         '
         Me.Button7.BackColor = System.Drawing.Color.Transparent
-        Me.Button7.ContextMenuStrip = Me.ClearColors7
         Me.Button7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button7.FlatAppearance.BorderSize = 0
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button7.Location = New System.Drawing.Point(81, 2)
+        Me.Button7.Location = New System.Drawing.Point(80, 2)
         Me.Button7.Margin = New System.Windows.Forms.Padding(1)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(76, 41)
@@ -550,25 +575,13 @@ Partial Class SangoTool
         Me.Button7.Text = "Layer7"
         Me.Button7.UseVisualStyleBackColor = False
         '
-        'ClearColors7
-        '
-        Me.ClearColors7.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem7})
-        Me.ClearColors7.Name = "ContextMenuStrip1"
-        Me.ClearColors7.Size = New System.Drawing.Size(149, 26)
-        '
-        'ToolStripMenuItem7
-        '
-        Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
-        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(148, 22)
-        Me.ToolStripMenuItem7.Text = "Clear Colors"
-        '
         'PictureBox7
         '
         Me.PictureBox7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox7.Location = New System.Drawing.Point(2, 2)
         Me.PictureBox7.Margin = New System.Windows.Forms.Padding(1)
         Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(76, 41)
+        Me.PictureBox7.Size = New System.Drawing.Size(75, 41)
         Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox7.TabIndex = 0
         Me.PictureBox7.TabStop = False
@@ -587,17 +600,16 @@ Partial Class SangoTool
         Me.TableLayoutPanel6.RowCount = 1
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel6.Size = New System.Drawing.Size(159, 45)
+        Me.TableLayoutPanel6.Size = New System.Drawing.Size(158, 45)
         Me.TableLayoutPanel6.TabIndex = 4
         '
         'Button6
         '
         Me.Button6.BackColor = System.Drawing.Color.Transparent
-        Me.Button6.ContextMenuStrip = Me.ClearColors6
         Me.Button6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button6.FlatAppearance.BorderSize = 0
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Location = New System.Drawing.Point(81, 2)
+        Me.Button6.Location = New System.Drawing.Point(80, 2)
         Me.Button6.Margin = New System.Windows.Forms.Padding(1)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(76, 41)
@@ -605,25 +617,13 @@ Partial Class SangoTool
         Me.Button6.Text = "Layer6"
         Me.Button6.UseVisualStyleBackColor = False
         '
-        'ClearColors6
-        '
-        Me.ClearColors6.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem6})
-        Me.ClearColors6.Name = "ContextMenuStrip1"
-        Me.ClearColors6.Size = New System.Drawing.Size(149, 26)
-        '
-        'ToolStripMenuItem6
-        '
-        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(148, 22)
-        Me.ToolStripMenuItem6.Text = "Clear Colors"
-        '
         'PictureBox6
         '
         Me.PictureBox6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox6.Location = New System.Drawing.Point(2, 2)
         Me.PictureBox6.Margin = New System.Windows.Forms.Padding(1)
         Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(76, 41)
+        Me.PictureBox6.Size = New System.Drawing.Size(75, 41)
         Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox6.TabIndex = 0
         Me.PictureBox6.TabStop = False
@@ -642,17 +642,16 @@ Partial Class SangoTool
         Me.TableLayoutPanel5.RowCount = 1
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(159, 45)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(158, 45)
         Me.TableLayoutPanel5.TabIndex = 4
         '
         'Button5
         '
         Me.Button5.BackColor = System.Drawing.Color.Transparent
-        Me.Button5.ContextMenuStrip = Me.ClearColors5
         Me.Button5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button5.FlatAppearance.BorderSize = 0
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Location = New System.Drawing.Point(81, 2)
+        Me.Button5.Location = New System.Drawing.Point(80, 2)
         Me.Button5.Margin = New System.Windows.Forms.Padding(1)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(76, 41)
@@ -660,25 +659,13 @@ Partial Class SangoTool
         Me.Button5.Text = "Layer5"
         Me.Button5.UseVisualStyleBackColor = False
         '
-        'ClearColors5
-        '
-        Me.ClearColors5.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem5})
-        Me.ClearColors5.Name = "ContextMenuStrip1"
-        Me.ClearColors5.Size = New System.Drawing.Size(149, 26)
-        '
-        'ToolStripMenuItem5
-        '
-        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(148, 22)
-        Me.ToolStripMenuItem5.Text = "Clear Colors"
-        '
         'PictureBox5
         '
         Me.PictureBox5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox5.Location = New System.Drawing.Point(2, 2)
         Me.PictureBox5.Margin = New System.Windows.Forms.Padding(1)
         Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(76, 41)
+        Me.PictureBox5.Size = New System.Drawing.Size(75, 41)
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox5.TabIndex = 0
         Me.PictureBox5.TabStop = False
@@ -697,17 +684,16 @@ Partial Class SangoTool
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(159, 45)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(158, 45)
         Me.TableLayoutPanel3.TabIndex = 4
         '
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.Color.Transparent
-        Me.Button3.ContextMenuStrip = Me.ClearColors3
         Me.Button3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button3.FlatAppearance.BorderSize = 0
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Location = New System.Drawing.Point(81, 2)
+        Me.Button3.Location = New System.Drawing.Point(80, 2)
         Me.Button3.Margin = New System.Windows.Forms.Padding(1)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(76, 41)
@@ -715,25 +701,13 @@ Partial Class SangoTool
         Me.Button3.Text = "Layer3"
         Me.Button3.UseVisualStyleBackColor = False
         '
-        'ClearColors3
-        '
-        Me.ClearColors3.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem3})
-        Me.ClearColors3.Name = "ContextMenuStrip1"
-        Me.ClearColors3.Size = New System.Drawing.Size(149, 26)
-        '
-        'ToolStripMenuItem3
-        '
-        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(148, 22)
-        Me.ToolStripMenuItem3.Text = "Clear Colors"
-        '
         'PictureBox3
         '
         Me.PictureBox3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox3.Location = New System.Drawing.Point(2, 2)
         Me.PictureBox3.Margin = New System.Windows.Forms.Padding(1)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(76, 41)
+        Me.PictureBox3.Size = New System.Drawing.Size(75, 41)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox3.TabIndex = 0
         Me.PictureBox3.TabStop = False
@@ -752,17 +726,16 @@ Partial Class SangoTool
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(159, 45)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(158, 45)
         Me.TableLayoutPanel2.TabIndex = 3
         '
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Button2.ContextMenuStrip = Me.ClearColors2
         Me.Button2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button2.FlatAppearance.BorderSize = 0
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(81, 2)
+        Me.Button2.Location = New System.Drawing.Point(80, 2)
         Me.Button2.Margin = New System.Windows.Forms.Padding(1)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(76, 41)
@@ -770,25 +743,13 @@ Partial Class SangoTool
         Me.Button2.Text = "Layer2"
         Me.Button2.UseVisualStyleBackColor = False
         '
-        'ClearColors2
-        '
-        Me.ClearColors2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2})
-        Me.ClearColors2.Name = "ContextMenuStrip1"
-        Me.ClearColors2.Size = New System.Drawing.Size(149, 26)
-        '
-        'ToolStripMenuItem2
-        '
-        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(148, 22)
-        Me.ToolStripMenuItem2.Text = "Clear Colors"
-        '
         'PictureBox2
         '
         Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox2.Location = New System.Drawing.Point(2, 2)
         Me.PictureBox2.Margin = New System.Windows.Forms.Padding(1)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(76, 41)
+        Me.PictureBox2.Size = New System.Drawing.Size(75, 41)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox2.TabIndex = 0
         Me.PictureBox2.TabStop = False
@@ -807,17 +768,16 @@ Partial Class SangoTool
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(159, 45)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(158, 45)
         Me.TableLayoutPanel1.TabIndex = 2
         '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.ContextMenuStrip = Me.ClearColors1
         Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(82, 2)
+        Me.Button1.Location = New System.Drawing.Point(81, 2)
         Me.Button1.Margin = New System.Windows.Forms.Padding(1)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 41)
@@ -825,25 +785,13 @@ Partial Class SangoTool
         Me.Button1.Text = "Layer1"
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'ClearColors1
-        '
-        Me.ClearColors1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
-        Me.ClearColors1.Name = "ContextMenuStrip1"
-        Me.ClearColors1.Size = New System.Drawing.Size(149, 26)
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(148, 22)
-        Me.ToolStripMenuItem1.Text = "Clear Colors"
-        '
         'PictureBox1
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox1.Location = New System.Drawing.Point(2, 2)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(1)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(77, 41)
+        Me.PictureBox1.Size = New System.Drawing.Size(76, 41)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -862,17 +810,16 @@ Partial Class SangoTool
         Me.TableLayoutPanel0.RowCount = 1
         Me.TableLayoutPanel0.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel0.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel0.Size = New System.Drawing.Size(159, 52)
+        Me.TableLayoutPanel0.Size = New System.Drawing.Size(158, 52)
         Me.TableLayoutPanel0.TabIndex = 0
         '
         'Button0
         '
         Me.Button0.BackColor = System.Drawing.Color.Transparent
-        Me.Button0.ContextMenuStrip = Me.ClearColors0
         Me.Button0.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button0.FlatAppearance.BorderSize = 0
         Me.Button0.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button0.Location = New System.Drawing.Point(81, 2)
+        Me.Button0.Location = New System.Drawing.Point(80, 2)
         Me.Button0.Margin = New System.Windows.Forms.Padding(1)
         Me.Button0.Name = "Button0"
         Me.Button0.Size = New System.Drawing.Size(76, 48)
@@ -880,25 +827,13 @@ Partial Class SangoTool
         Me.Button0.Text = "Layer0"
         Me.Button0.UseVisualStyleBackColor = False
         '
-        'ClearColors0
-        '
-        Me.ClearColors0.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem0})
-        Me.ClearColors0.Name = "ContextMenuStrip1"
-        Me.ClearColors0.Size = New System.Drawing.Size(149, 26)
-        '
-        'ToolStripMenuItem0
-        '
-        Me.ToolStripMenuItem0.Name = "ToolStripMenuItem0"
-        Me.ToolStripMenuItem0.Size = New System.Drawing.Size(148, 22)
-        Me.ToolStripMenuItem0.Text = "Clear Colors"
-        '
         'PictureBox0
         '
         Me.PictureBox0.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox0.Location = New System.Drawing.Point(2, 2)
         Me.PictureBox0.Margin = New System.Windows.Forms.Padding(1)
         Me.PictureBox0.Name = "PictureBox0"
-        Me.PictureBox0.Size = New System.Drawing.Size(76, 48)
+        Me.PictureBox0.Size = New System.Drawing.Size(75, 48)
         Me.PictureBox0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox0.TabIndex = 0
         Me.PictureBox0.TabStop = False
@@ -917,17 +852,16 @@ Partial Class SangoTool
         Me.TableLayoutPanel4.RowCount = 1
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(159, 45)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(158, 45)
         Me.TableLayoutPanel4.TabIndex = 4
         '
         'Button4
         '
         Me.Button4.BackColor = System.Drawing.Color.Transparent
-        Me.Button4.ContextMenuStrip = Me.ClearColors4
         Me.Button4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button4.FlatAppearance.BorderSize = 0
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Location = New System.Drawing.Point(81, 2)
+        Me.Button4.Location = New System.Drawing.Point(80, 2)
         Me.Button4.Margin = New System.Windows.Forms.Padding(1)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(76, 41)
@@ -935,25 +869,13 @@ Partial Class SangoTool
         Me.Button4.Text = "Layer4"
         Me.Button4.UseVisualStyleBackColor = False
         '
-        'ClearColors4
-        '
-        Me.ClearColors4.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem4})
-        Me.ClearColors4.Name = "ContextMenuStrip1"
-        Me.ClearColors4.Size = New System.Drawing.Size(149, 26)
-        '
-        'ToolStripMenuItem4
-        '
-        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(148, 22)
-        Me.ToolStripMenuItem4.Text = "Clear Colors"
-        '
         'PictureBox4
         '
         Me.PictureBox4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox4.Location = New System.Drawing.Point(2, 2)
         Me.PictureBox4.Margin = New System.Windows.Forms.Padding(1)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(76, 41)
+        Me.PictureBox4.Size = New System.Drawing.Size(75, 41)
         Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox4.TabIndex = 0
         Me.PictureBox4.TabStop = False
@@ -970,6 +892,42 @@ Partial Class SangoTool
         Me.TabControl1.Size = New System.Drawing.Size(784, 561)
         Me.TabControl1.TabIndex = 0
         '
+        'Timer2
+        '
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TextBox1.Location = New System.Drawing.Point(158, 4)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ReadOnly = True
+        Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.TextBox1.Size = New System.Drawing.Size(454, 511)
+        Me.TextBox1.TabIndex = 0
+        Me.TextBox1.Text = resources.GetString("TextBox1.Text")
+        '
+        'TableLayoutPanel10
+        '
+        Me.TableLayoutPanel10.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
+        Me.TableLayoutPanel10.ColumnCount = 3
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 460.0!))
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel10.Controls.Add(Me.TextBox1, 1, 0)
+        Me.TableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel10.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel10.Name = "TableLayoutPanel10"
+        Me.TableLayoutPanel10.RowCount = 1
+        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel10.Size = New System.Drawing.Size(770, 519)
+        Me.TableLayoutPanel10.TabIndex = 1
+        '
         'SangoTool
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -981,6 +939,7 @@ Partial Class SangoTool
         Me.Name = "SangoTool"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "SangoTool"
+        Me.TabPage2.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.SplitContainerFill.Panel1.ResumeLayout(False)
         Me.SplitContainerFill.Panel2.ResumeLayout(False)
@@ -990,47 +949,42 @@ Partial Class SangoTool
         Me.SplitContainerLeft.Panel2.ResumeLayout(False)
         CType(Me.SplitContainerLeft, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainerLeft.ResumeLayout(False)
+        Me.TableLayoutPanelUP.ResumeLayout(False)
+        Me.SplitContainerPlay.Panel1.ResumeLayout(False)
+        Me.SplitContainerPlay.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainerPlay, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainerPlay.ResumeLayout(False)
+        CType(Me.PictureBoxPlay, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanelPlay.ResumeLayout(False)
         Me.TableLayoutPanelPlay.PerformLayout()
-        CType(Me.PictureBoxPlay, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBoxMian, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TableLayoutPanelDown.ResumeLayout(False)
         Me.TableLayoutPanelMian.ResumeLayout(False)
         Me.TableLayoutPanel9.ResumeLayout(False)
-        Me.ClearColors9.ResumeLayout(False)
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel8.ResumeLayout(False)
-        Me.ClearColors8.ResumeLayout(False)
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel7.ResumeLayout(False)
-        Me.ClearColors7.ResumeLayout(False)
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel6.ResumeLayout(False)
-        Me.ClearColors6.ResumeLayout(False)
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel5.ResumeLayout(False)
-        Me.ClearColors5.ResumeLayout(False)
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel3.ResumeLayout(False)
-        Me.ClearColors3.ResumeLayout(False)
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel2.ResumeLayout(False)
-        Me.ClearColors2.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.ClearColors1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel0.ResumeLayout(False)
-        Me.ClearColors0.ResumeLayout(False)
         CType(Me.PictureBox0, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel4.ResumeLayout(False)
-        Me.ClearColors4.ResumeLayout(False)
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
+        Me.TableLayoutPanel10.ResumeLayout(False)
+        Me.TableLayoutPanel10.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents BackgroundWorkerOut As System.ComponentModel.BackgroundWorker
     Friend WithEvents Timer1 As Timer
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
     Friend WithEvents BackgroundWorkerPlay As System.ComponentModel.BackgroundWorker
@@ -1039,8 +993,7 @@ Partial Class SangoTool
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents SplitContainerFill As SplitContainer
     Friend WithEvents SplitContainerLeft As SplitContainer
-    Friend WithEvents PictureBoxMian As PictureBox
-    Friend WithEvents TableLayoutPanelDown As TableLayoutPanel
+    Friend WithEvents TableLayoutPanelUP As TableLayoutPanel
     Friend WithEvents ButtonPlay As Button
     Friend WithEvents ButtonSave As Button
     Friend WithEvents ButtonNew As Button
@@ -1080,28 +1033,19 @@ Partial Class SangoTool
     Friend WithEvents Button4 As Button
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents TabControl1 As TabControl
-    Friend WithEvents ClearColors0 As ContextMenuStrip
-    Friend WithEvents ToolStripMenuItem0 As ToolStripMenuItem
-    Friend WithEvents ClearColors1 As ContextMenuStrip
-    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents ClearColors2 As ContextMenuStrip
-    Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
-    Friend WithEvents ClearColors3 As ContextMenuStrip
-    Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
-    Friend WithEvents ClearColors4 As ContextMenuStrip
-    Friend WithEvents ToolStripMenuItem4 As ToolStripMenuItem
-    Friend WithEvents ClearColors5 As ContextMenuStrip
-    Friend WithEvents ToolStripMenuItem5 As ToolStripMenuItem
-    Friend WithEvents ClearColors6 As ContextMenuStrip
-    Friend WithEvents ToolStripMenuItem6 As ToolStripMenuItem
-    Friend WithEvents ClearColors7 As ContextMenuStrip
-    Friend WithEvents ToolStripMenuItem7 As ToolStripMenuItem
-    Friend WithEvents ClearColors8 As ContextMenuStrip
-    Friend WithEvents ToolStripMenuItem8 As ToolStripMenuItem
-    Friend WithEvents ClearColors9 As ContextMenuStrip
-    Friend WithEvents ToolStripMenuItem9 As ToolStripMenuItem
     Friend WithEvents PictureBoxPlay As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents TableLayoutPanelPlay As TableLayoutPanel
+    Friend WithEvents SplitContainerPlay As SplitContainer
     Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents ButtonNext As Button
+    Friend WithEvents ButtonLast As Button
+    Friend WithEvents ButtonBorder As Button
+    Friend WithEvents Timer2 As Timer
+    Friend WithEvents ButtonAxis As Button
+    Friend WithEvents ButtonOffset As Button
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents TableLayoutPanel10 As TableLayoutPanel
+    Friend WithEvents TextBox1 As TextBox
 End Class

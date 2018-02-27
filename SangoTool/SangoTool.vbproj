@@ -72,6 +72,24 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ObjectColor.Designer.vb">
+      <DependentUpon>ObjectColor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectColor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Offset.Designer.vb">
+      <DependentUpon>Offset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Offset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OutObject.Designer.vb">
+      <DependentUpon>OutObject.vb</DependentUpon>
+    </Compile>
+    <Compile Include="OutObject.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SangoCore.vb" />
     <Compile Include="SangoTool.vb">
       <SubType>Form</SubType>
@@ -109,6 +127,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ObjectColor.resx">
+      <DependentUpon>ObjectColor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Offset.resx">
+      <DependentUpon>Offset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OutObject.resx">
+      <DependentUpon>OutObject.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Transform.resx">
       <DependentUpon>Transform.vb</DependentUpon>
     </EmbeddedResource>

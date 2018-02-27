@@ -30,7 +30,7 @@ Module SangoCore
         Salutelist = Salute
     End Function
 
-    Public Function RGB16To24(R5G6B5 As UInt16) As Color
+    Public Function RGB16To24(R5G6B5 As UInt16, Optional R As Int16 = 0, Optional G As Int16 = 1, Optional B As Int16 = 2) As Color
         Dim str As String = Convert.ToString(R5G6B5, 2)
         Do Until str.Length >= 16
             str = "0" + str
@@ -38,10 +38,18 @@ Module SangoCore
         Dim R5 As String = Mid(str, 1, 5)
         Dim G6 As String = Mid(str, 6, 6)
         Dim B5 As String = Mid(str, 12, 5)
-        Dim R = Convert.ToInt32(R5 + "000", 2)
-        Dim G = Convert.ToInt32(G6 + "00", 2)
-        Dim B = Convert.ToInt32(B5 + "000", 2)
-        RGB16To24 = Color.FromArgb(R, G, B)
+        'Dim R = Convert.ToInt32(R5 + "000", 2)
+        'Dim G = Convert.ToInt32(G6 + "00", 2)
+        'Dim B = Convert.ToInt32(B5 + "000", 2)
+        'RGB16To24 = Color.FromArgb(R, G, B)
+        Dim RGB As Int32() = {Convert.ToInt32(R5 + "000", 2), Convert.ToInt32(G6 + "00", 2), Convert.ToInt32(B5 + "000", 2)}
+        If R > 2 Then R = 2
+        If R < 0 Then R = 0
+        If G > 2 Then G = 2
+        If G < 0 Then G = 0
+        If B > 2 Then B = 2
+        If B < 0 Then B = 0
+        RGB16To24 = Color.FromArgb(RGB(R), RGB(G), RGB(B))
     End Function
 
     Public Function RGB24To16(Color As Color) As UInt16
@@ -134,7 +142,7 @@ Module SangoCore
         GetSubPath = SubPathList
     End Function
 
-    Public Function SHPToBitmap(shpfile As String, Optional shpfile2 As String = "") As Bitmap
+    Public Function SHPToBitmap(shpfile As String, Optional shpfile2 As String = "", Optional R As Int32 = 0, Optional G As Int32 = 1, Optional B As Int32 = 2) As Bitmap
         If Not IO.File.Exists(shpfile) Then shpfile = shpfile2
         If IO.File.Exists(shpfile) Then
             Dim fs As New FileStream(shpfile, FileMode.Open)
@@ -172,7 +180,7 @@ Module SangoCore
                         fs.Seek(Data, SeekOrigin.Begin)
                         For I = begin To begin + lenght - 1
                             Dim R5G6B5 As UInt16 = br.ReadUInt16
-                            SHPToBitmap.SetPixel(I, L, RGB16To24(R5G6B5))
+                            SHPToBitmap.SetPixel(I, L, RGB16To24(R5G6B5, R, G, B))
                         Next
                         fs.Seek(Position, SeekOrigin.Begin)
                         fs.Seek(2, SeekOrigin.Current)
@@ -185,7 +193,7 @@ Module SangoCore
                         Dim lenght As Int16 = br.ReadInt16
                         For I = begin To begin + lenght - 1
                             Dim R5G6B5 As UInt16 = br.ReadUInt16
-                            SHPToBitmap.SetPixel(I, L, RGB16To24(R5G6B5))
+                            SHPToBitmap.SetPixel(I, L, RGB16To24(R5G6B5, R, G, B))
                         Next
                     Loop
                 End If
@@ -197,14 +205,14 @@ Module SangoCore
         End If
     End Function
 
-    Public Function BitmapToSHP(bitmap As Bitmap, shpfile As String) As Boolean
+    Public Function BitmapToSHP(bitmap As Bitmap, shpfile As String, Optional POSX As Int32 = 0, Optional POSY As Int32 = 0) As Boolean
         If bitmap Is Nothing Then bitmap = New Bitmap(1, 1)
         Dim fs As New FileStream(shpfile, FileMode.Create)
         Dim bw As New BinaryWriter(fs)
         Dim Width As Int32 = bitmap.Width
         Dim Height As Int32 = bitmap.Height
-        Dim POSX As Int32 = 0
-        Dim POSY As Int32 = 0
+        'Dim POSX As Int32 = 0
+        'Dim POSY As Int32 = 0
         Dim Line As Int32()
         Dim Salute As Byte() = Salutelist(8)
         Dim Header As Byte() = {84, 76, 72, 83, Salute(0), Salute(1), Salute(2), Salute(3), Salute(4), Salute(5), Salute(6), Salute(7), 0, 0, 0, 0, 173, 80, 183, 113}
