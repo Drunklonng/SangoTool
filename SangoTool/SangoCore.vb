@@ -142,6 +142,80 @@ Module SangoCore
         GetSubPath = SubPathList
     End Function
 
+    Public Function Calculator(PointA As Int32(), PointB As Int16(), AlphaA As Int32, AlphaB As Int32) As Int32()
+        If PointB(2) = 1 And PointB(3) = 1 And AlphaB = 0 Then
+        Else
+            If PointA(2) = 1 And PointA(3) = 1 And AlphaA = 0 Then
+                PointA = {PointB(0), PointB(1), 1, 1}
+            End If
+            If PointB(2) - PointB(0) > PointA(2) - PointA(0) Then
+                Dim increment As Int16 = (PointB(2) - PointB(0)) - (PointA(2) - PointA(0))
+                PointA(2) = PointA(2) + increment
+            End If
+            If PointB(3) - PointB(1) > PointA(3) - PointA(1) Then
+                Dim increment As Int16 = (PointB(3) - PointB(1)) - (PointA(3) - PointA(1))
+                PointA(3) = PointA(3) + increment
+            End If
+            If PointB(0) > PointA(0) Then
+                PointA(2) = PointA(2) + (PointB(0) - PointA(0))
+                PointA(0) = PointA(0) + (PointB(0) - PointA(0))
+            End If
+            If PointB(1) > PointA(1) Then
+                PointA(3) = PointA(3) + (PointB(1) - PointA(1))
+                PointA(1) = PointA(1) + (PointB(1) - PointA(1))
+            End If
+        End If
+        Calculator = PointA
+    End Function
+
+    Public Function BitmapTransform(OriginalBitmap As Bitmap, Flip As Boolean, Zoom As Boolean, AntiAliasing As Boolean, ZoomRate As Double) As Bitmap
+        If Flip Then
+            If AntiAliasing = True Then
+                OriginalBitmap.RotateFlip(RotateFlipType.RotateNoneFlipX)
+            Else
+                Dim FlipBitmap As Bitmap = New Bitmap(OriginalBitmap.Width, OriginalBitmap.Height)
+                For y = 0 To FlipBitmap.Height - 1
+                    For x = 0 To FlipBitmap.Width - 1
+                        FlipBitmap.SetPixel(FlipBitmap.Width - 1 - x, y, OriginalBitmap.GetPixel(x, y))
+                    Next
+                Next
+                OriginalBitmap = FlipBitmap
+            End If
+        End If
+        If Zoom Then
+            Dim ZoomBitmapSize As New Size(Convert.ToInt16(OriginalBitmap.Width * ZoomRate), Convert.ToInt16(OriginalBitmap.Height * ZoomRate))
+            If AntiAliasing = True Then
+                OriginalBitmap = New Bitmap(OriginalBitmap, ZoomBitmapSize)
+            Else
+                Dim ZoomBitmap As Bitmap = New Bitmap(ZoomBitmapSize.Width, ZoomBitmapSize.Height)
+                For y = 1 To ZoomBitmap.Height
+                    For x = 1 To ZoomBitmap.Width
+                        Dim x2 As Int16 = x / ZoomBitmap.Width * OriginalBitmap.Width - 1
+                        Dim y2 As Int16 = y / ZoomBitmap.Height * OriginalBitmap.Height - 1
+                        ZoomBitmap.SetPixel(x - 1, y - 1, OriginalBitmap.GetPixel(x2, y2)）
+                    Next
+                Next
+                OriginalBitmap = ZoomBitmap
+            End If
+            For i = 0 To 1
+            Next
+        End If
+        BitmapTransform = OriginalBitmap
+    End Function
+
+    Public Function PointTransform(OriginalPoint As Int32(), Flip As Boolean, Zoom As Boolean, AntiAliasing As Boolean, ZoomRate As Double) As Int32()
+        If Flip Then
+            OriginalPoint(0) = OriginalPoint(2) - OriginalPoint(0)
+        End If
+        If Zoom Then
+            For i = 0 To 1
+                OriginalPoint(i) = Convert.ToInt16((OriginalPoint(i) + 1） * ZoomRate - 1)
+                OriginalPoint(i + 2) = Convert.ToInt16(OriginalPoint(i + 2) * ZoomRate)
+            Next
+        End If
+        PointTransform = OriginalPoint
+    End Function
+
     Public Function SHPToBitmap(shpfile As String, Optional shpfile2 As String = "", Optional R As Int32 = 0, Optional G As Int32 = 1, Optional B As Int32 = 2) As Bitmap
         If Not IO.File.Exists(shpfile) Then shpfile = shpfile2
         If IO.File.Exists(shpfile) Then

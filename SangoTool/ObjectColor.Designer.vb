@@ -41,16 +41,16 @@ Partial Class ObjectColor
         Me.Label5 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.NumericUpDownR = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDownG = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDownB = New System.Windows.Forms.NumericUpDown()
         Me.TransparentON = New System.Windows.Forms.RadioButton()
         Me.TransparentOFF = New System.Windows.Forms.RadioButton()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.NumericUpDownR = New System.Windows.Forms.NumericUpDown()
+        Me.NumericUpDownG = New System.Windows.Forms.NumericUpDown()
+        Me.NumericUpDownB = New System.Windows.Forms.NumericUpDown()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -79,7 +79,7 @@ Partial Class ObjectColor
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(369, 27)
         Me.TableLayoutPanel1.TabIndex = 0
         '
@@ -318,56 +318,6 @@ Partial Class ObjectColor
         Me.TableLayoutPanel4.Size = New System.Drawing.Size(289, 27)
         Me.TableLayoutPanel4.TabIndex = 6
         '
-        'TableLayoutPanel5
-        '
-        Me.TableLayoutPanel5.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
-        Me.TableLayoutPanel5.ColumnCount = 6
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel5.Controls.Add(Me.Label9, 4, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.Label8, 2, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.NumericUpDownR, 1, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.NumericUpDownG, 3, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.NumericUpDownB, 5, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.Label7, 0, 0)
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(12, 61)
-        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
-        Me.TableLayoutPanel5.RowCount = 1
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(289, 27)
-        Me.TableLayoutPanel5.TabIndex = 7
-        '
-        'NumericUpDownR
-        '
-        Me.NumericUpDownR.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.NumericUpDownR.Location = New System.Drawing.Point(37, 4)
-        Me.NumericUpDownR.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
-        Me.NumericUpDownR.Name = "NumericUpDownR"
-        Me.NumericUpDownR.Size = New System.Drawing.Size(55, 21)
-        Me.NumericUpDownR.TabIndex = 0
-        '
-        'NumericUpDownG
-        '
-        Me.NumericUpDownG.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.NumericUpDownG.Location = New System.Drawing.Point(132, 4)
-        Me.NumericUpDownG.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
-        Me.NumericUpDownG.Name = "NumericUpDownG"
-        Me.NumericUpDownG.Size = New System.Drawing.Size(55, 21)
-        Me.NumericUpDownG.TabIndex = 1
-        '
-        'NumericUpDownB
-        '
-        Me.NumericUpDownB.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.NumericUpDownB.Location = New System.Drawing.Point(227, 4)
-        Me.NumericUpDownB.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
-        Me.NumericUpDownB.Name = "NumericUpDownB"
-        Me.NumericUpDownB.Size = New System.Drawing.Size(58, 21)
-        Me.NumericUpDownB.TabIndex = 2
-        '
         'TransparentON
         '
         Me.TransparentON.AutoSize = True
@@ -404,6 +354,80 @@ Partial Class ObjectColor
         Me.Label6.Text = "Transparent :"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'TableLayoutPanel5
+        '
+        Me.TableLayoutPanel5.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
+        Me.TableLayoutPanel5.ColumnCount = 6
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel5.Controls.Add(Me.Label9, 4, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.Label8, 2, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.NumericUpDownR, 1, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.NumericUpDownG, 3, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.NumericUpDownB, 5, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.Label7, 0, 0)
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(12, 61)
+        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
+        Me.TableLayoutPanel5.RowCount = 1
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(289, 27)
+        Me.TableLayoutPanel5.TabIndex = 7
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label9.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label9.Location = New System.Drawing.Point(196, 1)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(26, 25)
+        Me.Label9.TabIndex = 5
+        Me.Label9.Text = "B:"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label8.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label8.Location = New System.Drawing.Point(100, 1)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(26, 25)
+        Me.Label8.TabIndex = 4
+        Me.Label8.Text = "G:"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'NumericUpDownR
+        '
+        Me.NumericUpDownR.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.NumericUpDownR.Location = New System.Drawing.Point(37, 4)
+        Me.NumericUpDownR.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
+        Me.NumericUpDownR.Name = "NumericUpDownR"
+        Me.NumericUpDownR.Size = New System.Drawing.Size(56, 21)
+        Me.NumericUpDownR.TabIndex = 0
+        '
+        'NumericUpDownG
+        '
+        Me.NumericUpDownG.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.NumericUpDownG.Location = New System.Drawing.Point(133, 4)
+        Me.NumericUpDownG.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
+        Me.NumericUpDownG.Name = "NumericUpDownG"
+        Me.NumericUpDownG.Size = New System.Drawing.Size(56, 21)
+        Me.NumericUpDownG.TabIndex = 1
+        '
+        'NumericUpDownB
+        '
+        Me.NumericUpDownB.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.NumericUpDownB.Location = New System.Drawing.Point(229, 4)
+        Me.NumericUpDownB.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
+        Me.NumericUpDownB.Name = "NumericUpDownB"
+        Me.NumericUpDownB.Size = New System.Drawing.Size(56, 21)
+        Me.NumericUpDownB.TabIndex = 2
+        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -415,30 +439,6 @@ Partial Class ObjectColor
         Me.Label7.TabIndex = 3
         Me.Label7.Text = "R:"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label8.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label8.Location = New System.Drawing.Point(99, 1)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(26, 25)
-        Me.Label8.TabIndex = 4
-        Me.Label8.Text = "G:"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label9.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label9.Location = New System.Drawing.Point(194, 1)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(26, 25)
-        Me.Label9.TabIndex = 5
-        Me.Label9.Text = "B:"
-        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ObjectColor
         '

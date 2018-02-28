@@ -30,6 +30,8 @@ Partial Class SangoTool
         Me.BackgroundWorkerPlay = New System.ComponentModel.BackgroundWorker()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TableLayoutPanel10 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.SplitContainerFill = New System.Windows.Forms.SplitContainer()
         Me.SplitContainerLeft = New System.Windows.Forms.SplitContainer()
@@ -86,9 +88,9 @@ Partial Class SangoTool
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TableLayoutPanel10 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.TabPage2.SuspendLayout()
+        Me.TableLayoutPanel10.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.SplitContainerFill, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerFill.Panel1.SuspendLayout()
@@ -127,7 +129,6 @@ Partial Class SangoTool
         Me.TableLayoutPanel4.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
-        Me.TableLayoutPanel10.SuspendLayout()
         Me.SuspendLayout()
         '
         'BackgroundWorkerOut
@@ -150,6 +151,35 @@ Partial Class SangoTool
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "License"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'TableLayoutPanel10
+        '
+        Me.TableLayoutPanel10.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
+        Me.TableLayoutPanel10.ColumnCount = 3
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 460.0!))
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel10.Controls.Add(Me.TextBox1, 1, 0)
+        Me.TableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel10.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel10.Name = "TableLayoutPanel10"
+        Me.TableLayoutPanel10.RowCount = 1
+        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel10.Size = New System.Drawing.Size(770, 519)
+        Me.TableLayoutPanel10.TabIndex = 1
+        '
+        'TextBox1
+        '
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TextBox1.Location = New System.Drawing.Point(158, 4)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ReadOnly = True
+        Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.TextBox1.Size = New System.Drawing.Size(454, 511)
+        Me.TextBox1.TabIndex = 0
+        Me.TextBox1.Text = resources.GetString("TextBox1.Text")
         '
         'TabPage1
         '
@@ -899,34 +929,8 @@ Partial Class SangoTool
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'TextBox1
+        'Timer3
         '
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBox1.Location = New System.Drawing.Point(158, 4)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TextBox1.Size = New System.Drawing.Size(454, 511)
-        Me.TextBox1.TabIndex = 0
-        Me.TextBox1.Text = resources.GetString("TextBox1.Text")
-        '
-        'TableLayoutPanel10
-        '
-        Me.TableLayoutPanel10.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
-        Me.TableLayoutPanel10.ColumnCount = 3
-        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 460.0!))
-        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel10.Controls.Add(Me.TextBox1, 1, 0)
-        Me.TableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel10.Location = New System.Drawing.Point(3, 3)
-        Me.TableLayoutPanel10.Name = "TableLayoutPanel10"
-        Me.TableLayoutPanel10.RowCount = 1
-        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel10.Size = New System.Drawing.Size(770, 519)
-        Me.TableLayoutPanel10.TabIndex = 1
         '
         'SangoTool
         '
@@ -940,6 +944,8 @@ Partial Class SangoTool
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "SangoTool"
         Me.TabPage2.ResumeLayout(False)
+        Me.TableLayoutPanel10.ResumeLayout(False)
+        Me.TableLayoutPanel10.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
         Me.SplitContainerFill.Panel1.ResumeLayout(False)
         Me.SplitContainerFill.Panel2.ResumeLayout(False)
@@ -979,8 +985,6 @@ Partial Class SangoTool
         Me.TableLayoutPanel4.ResumeLayout(False)
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
-        Me.TableLayoutPanel10.ResumeLayout(False)
-        Me.TableLayoutPanel10.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1048,4 +1052,5 @@ Partial Class SangoTool
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents TableLayoutPanel10 As TableLayoutPanel
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Timer3 As Timer
 End Class
