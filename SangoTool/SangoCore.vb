@@ -91,7 +91,16 @@ Module SangoCore
         Dim CenterPoint As Int16() = {0, 0, 1, 1}
         If Not IO.File.Exists(shpfile) Then shpfile = shpfile2
         If IO.File.Exists(shpfile) Then
-            Dim fs As New FileStream(shpfile, FileMode.Open)
+            Dim Readfailed As Boolean = False
+            Dim fs As FileStream = Nothing
+            Do
+                Try
+                    fs = New FileStream(shpfile, FileMode.Open)
+                    Readfailed = False
+                Catch ' ex As Exception
+                    Readfailed = True
+                End Try
+            Loop While Readfailed = True
             Dim br As New BinaryReader(fs)
             fs.Seek(20, SeekOrigin.Begin)
             CenterPoint(2) = br.ReadInt32
@@ -219,7 +228,16 @@ Module SangoCore
     Public Function SHPToBitmap(shpfile As String, Optional shpfile2 As String = "", Optional R As Int32 = 0, Optional G As Int32 = 1, Optional B As Int32 = 2) As Bitmap
         If Not IO.File.Exists(shpfile) Then shpfile = shpfile2
         If IO.File.Exists(shpfile) Then
-            Dim fs As New FileStream(shpfile, FileMode.Open)
+            Dim Readfailed As Boolean = False
+            Dim fs As FileStream = Nothing
+            Do
+                Try
+                    fs = New FileStream(shpfile, FileMode.Open)
+                    Readfailed = False
+                Catch ' ex As Exception
+                    Readfailed = True
+                End Try
+            Loop While Readfailed = True
             Dim br As New BinaryReader(fs)
             Dim Width As Int32
             Dim Height As Int32

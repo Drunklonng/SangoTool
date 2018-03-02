@@ -22,6 +22,7 @@ Partial Class Transform
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Transform))
         Me.ZoomTrue = New System.Windows.Forms.RadioButton()
         Me.ZoomFalse = New System.Windows.Forms.RadioButton()
         Me.FlipTrue = New System.Windows.Forms.RadioButton()
@@ -322,6 +323,7 @@ Partial Class Transform
         Me.Controls.Add(Me.TableLayoutPanel3)
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(600, 350)
         Me.MinimizeBox = False

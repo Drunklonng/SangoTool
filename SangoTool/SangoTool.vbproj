@@ -46,6 +46,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>SangoTool.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -72,6 +75,19 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include=".Designer.vb">
+      <DependentUpon>Shadow.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shadow.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewObject.Designer.vb">
+      <DependentUpon>NewObject.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NewObject.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ObjectColor.Designer.vb">
       <DependentUpon>ObjectColor.vb</DependentUpon>
     </Compile>
@@ -127,6 +143,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Shadow.resx">
+      <DependentUpon>Shadow.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewObject.resx">
+      <DependentUpon>NewObject.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ObjectColor.resx">
       <DependentUpon>ObjectColor.vb</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +185,12 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DrunkLoong_2-min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SangoTool.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -28,7 +28,19 @@
         If IO.Directory.GetFiles(Path, "*.shp").Count > 0 Then
             File = IO.Directory.GetFiles(Path, "*.shp")(0)
         End If
-        Dim FileName As String() = {File, SubFile}
+        Dim FileName As String()
+        Dim strlist As String() = {"A", "B", "D", "F", "H", "R", "W"}
+        Dim IncludeSubPath As Boolean = False
+        For i = 0 To strlist.Count - 1
+            If IO.Directory.Exists(Path + "\" + strlist(i) + "01") Then
+                IncludeSubPath = True
+            End If
+        Next
+        If IncludeSubPath Then
+            FileName = {SubFile, File}
+        Else
+            FileName = {File, SubFile}
+        End If
         GetFileName = FileName
     End Function
 
@@ -115,12 +127,7 @@
                 PictureBox0.Image = Null
                 SelectPath(Index) = ""
             Else
-                Try
-                    PictureBox0.Image = SHPToBitmap(GetFileName(PathList(Index) + Path0(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path0(SelectedIndices(0) - 1))(1))
-                Catch
-                    PictureBox0.Image = CreateImage("IsBusy", 96, 96, "#ffffff")
-                End Try
-                'PictureBox0.Image = SHPToBitmap(GetFileName(PathList(Index) + Path0(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path0(SelectedIndices(0) - 1))(1))
+                PictureBox0.Image = SHPToBitmap(GetFileName(PathList(Index) + Path0(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path0(SelectedIndices(0) - 1))(1))
                 SelectPath(Index) = Path0(SelectedIndices(0) - 1)
             End If
         End If
@@ -130,45 +137,46 @@
         If BackgroundWorker0.IsBusy Then Exit Sub
         Dim Index As Int16 = 0
         FolderBrowserDialog1.SelectedPath = GetINI("SelectObject", "Path" + Index.ToString, "", Config)
-        FolderBrowserDialog1.ShowDialog()
-        PathList(Index) = FolderBrowserDialog1.SelectedPath
-        WriteINI("SelectObject", "Path" + Index.ToString, PathList(Index), Config)
-        Dim TempPath = IO.Directory.GetDirectories(PathList(Index))
-        Path0 = {}
-        ListView0.Items.Clear()
-        ImageList0.Images.Clear()
-        ListView0.Items.Add("NULL")
-        ImageList0.Images.Add("NULL", CreateImage("NULL", 96, 96))
-        ListView0.Items.Item(0).ImageIndex = 0
-        PictureBox0.Image = Null
-        SelectPath(Index) = ""
-        For i = 0 To TempPath.Count - 1
-            Dim str As String = ""
-            Dim a = 0
-            Do
-                a = a + 1
-                str = TempPath(i)(TempPath(i).Length - a) + str
-            Loop Until TempPath(i)(TempPath(i).Length - a) = "\"
-            If IO.Directory.Exists(TempPath(i) + "\F") Or IO.Directory.Exists(TempPath(i) + "\M") Then
-                If IO.Directory.Exists(TempPath(i) + "\F") Then
+        If FolderBrowserDialog1.ShowDialog() = DialogResult.OK Then
+            PathList(Index) = FolderBrowserDialog1.SelectedPath
+            WriteINI("SelectObject", "Path" + Index.ToString, PathList(Index), Config)
+            Dim TempPath = IO.Directory.GetDirectories(PathList(Index))
+            Path0 = {}
+            ListView0.Items.Clear()
+            ImageList0.Images.Clear()
+            ListView0.Items.Add("NULL")
+            ImageList0.Images.Add("NULL", CreateImage("NULL", 96, 96))
+            ListView0.Items.Item(0).ImageIndex = 0
+            PictureBox0.Image = Null
+            SelectPath(Index) = ""
+            For i = 0 To TempPath.Count - 1
+                Dim str As String = ""
+                Dim a = 0
+                Do
+                    a = a + 1
+                    str = TempPath(i)(TempPath(i).Length - a) + str
+                Loop Until TempPath(i)(TempPath(i).Length - a) = "\"
+                If IO.Directory.Exists(TempPath(i) + "\F") Or IO.Directory.Exists(TempPath(i) + "\M") Then
+                    If IO.Directory.Exists(TempPath(i) + "\F") Then
+                        ReDim Preserve Path0(Path0.Count)
+                        Path0(Path0.Count - 1) = str + "\F"
+                    End If
+                    If IO.Directory.Exists(TempPath(i) + "\M") Then
+                        ReDim Preserve Path0(Path0.Count)
+                        Path0(Path0.Count - 1) = str + "\M"
+                    End If
+                Else
                     ReDim Preserve Path0(Path0.Count)
-                    Path0(Path0.Count - 1) = str + "\F"
+                    Path0(Path0.Count - 1) = str
                 End If
-                If IO.Directory.Exists(TempPath(i) + "\M") Then
-                    ReDim Preserve Path0(Path0.Count)
-                    Path0(Path0.Count - 1) = str + "\M"
-                End If
-            Else
-                ReDim Preserve Path0(Path0.Count)
-                Path0(Path0.Count - 1) = str
-            End If
-        Next
-        For i = 0 To Path0.Count - 1
-            ListView0.Items.Add(Path0(i))
-            ImageList0.Images.Add(Path0(i), Loading)
-            ListView0.Items.Item(i + 1).ImageIndex = i + 1
-        Next
-        BackgroundWorker0.RunWorkerAsync()
+            Next
+            For i = 0 To Path0.Count - 1
+                ListView0.Items.Add(Path0(i))
+                ImageList0.Images.Add(Path0(i), Loading)
+                ListView0.Items.Item(i + 1).ImageIndex = i + 1
+            Next
+            BackgroundWorker0.RunWorkerAsync()
+        End If
     End Sub
 
     Private Sub Button0_clear_Click(sender As Object, e As EventArgs) Handles Button0_clear.Click
@@ -214,11 +222,7 @@
                 PictureBox1.Image = Null
                 SelectPath(Index) = ""
             Else
-                Try
-                    PictureBox1.Image = SHPToBitmap(GetFileName(PathList(Index) + Path1(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path1(SelectedIndices(0) - 1))(1))
-                Catch
-                    PictureBox1.Image = CreateImage("IsBusy", 96, 96, "#ffffff")
-                End Try
+                PictureBox1.Image = SHPToBitmap(GetFileName(PathList(Index) + Path1(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path1(SelectedIndices(0) - 1))(1))
                 SelectPath(Index) = Path1(SelectedIndices(0) - 1)
             End If
         End If
@@ -311,12 +315,7 @@
                 PictureBox2.Image = Null
                 SelectPath(Index) = ""
             Else
-                Try
-                    PictureBox2.Image = SHPToBitmap(GetFileName(PathList(Index) + Path2(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path2(SelectedIndices(0) - 1))(1))
-                Catch
-                    PictureBox2.Image = CreateImage("IsBusy", 96, 96, "#ffffff")
-                End Try
-                'PictureBox2.Image = SHPToBitmap(GetFileName(PathList(Index) + Path2(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path2(SelectedIndices(0) - 1))(1))
+                PictureBox2.Image = SHPToBitmap(GetFileName(PathList(Index) + Path2(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path2(SelectedIndices(0) - 1))(1))
                 SelectPath(Index) = Path2(SelectedIndices(0) - 1)
             End If
         End If
@@ -409,12 +408,7 @@
                 PictureBox3.Image = Null
                 SelectPath(Index) = ""
             Else
-                Try
-                    PictureBox3.Image = SHPToBitmap(GetFileName(PathList(Index) + Path3(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path3(SelectedIndices(0) - 1))(1))
-                Catch
-                    PictureBox3.Image = CreateImage("IsBusy", 96, 96, "#ffffff")
-                End Try
-                'PictureBox3.Image = SHPToBitmap(GetFileName(PathList(Index) + Path3(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path3(SelectedIndices(0) - 1))(1))
+                PictureBox3.Image = SHPToBitmap(GetFileName(PathList(Index) + Path3(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path3(SelectedIndices(0) - 1))(1))
                 SelectPath(Index) = Path3(SelectedIndices(0) - 1)
             End If
         End If
@@ -507,12 +501,7 @@
                 PictureBox4.Image = Null
                 SelectPath(Index) = ""
             Else
-                Try
-                    PictureBox4.Image = SHPToBitmap(GetFileName(PathList(Index) + Path4(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path4(SelectedIndices(0) - 1))(1))
-                Catch
-                    PictureBox4.Image = CreateImage("IsBusy", 96, 96, "#ffffff")
-                End Try
-                'PictureBox4.Image = SHPToBitmap(GetFileName(PathList(Index) + Path4(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path4(SelectedIndices(0) - 1))(1))
+                PictureBox4.Image = SHPToBitmap(GetFileName(PathList(Index) + Path4(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path4(SelectedIndices(0) - 1))(1))
                 SelectPath(Index) = Path4(SelectedIndices(0) - 1)
             End If
         End If
@@ -605,12 +594,7 @@
                 PictureBox5.Image = Null
                 SelectPath(Index) = ""
             Else
-                Try
-                    PictureBox5.Image = SHPToBitmap(GetFileName(PathList(Index) + Path5(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path5(SelectedIndices(0) - 1))(1))
-                Catch
-                    PictureBox5.Image = CreateImage("IsBusy", 96, 96, "#ffffff")
-                End Try
-                'PictureBox5.Image = SHPToBitmap(GetFileName(PathList(Index) + Path5(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path5(SelectedIndices(0) - 1))(1))
+                PictureBox5.Image = SHPToBitmap(GetFileName(PathList(Index) + Path5(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path5(SelectedIndices(0) - 1))(1))
                 SelectPath(Index) = Path5(SelectedIndices(0) - 1)
             End If
         End If
@@ -703,12 +687,7 @@
                 PictureBox6.Image = Null
                 SelectPath(Index) = ""
             Else
-                Try
-                    PictureBox6.Image = SHPToBitmap(GetFileName(PathList(Index) + Path6(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path6(SelectedIndices(0) - 1))(1))
-                Catch
-                    PictureBox6.Image = CreateImage("IsBusy", 96, 96, "#ffffff")
-                End Try
-                'PictureBox6.Image = SHPToBitmap(GetFileName(PathList(Index) + Path6(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path6(SelectedIndices(0) - 1))(1))
+                PictureBox6.Image = SHPToBitmap(GetFileName(PathList(Index) + Path6(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path6(SelectedIndices(0) - 1))(1))
                 SelectPath(Index) = Path6(SelectedIndices(0) - 1)
             End If
         End If
@@ -801,12 +780,7 @@
                 PictureBox7.Image = Null
                 SelectPath(Index) = ""
             Else
-                Try
-                    PictureBox7.Image = SHPToBitmap(GetFileName(PathList(Index) + Path7(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path7(SelectedIndices(0) - 1))(1))
-                Catch
-                    PictureBox7.Image = CreateImage("IsBusy", 96, 96, "#ffffff")
-                End Try
-                'PictureBox7.Image = SHPToBitmap(GetFileName(PathList(Index) + Path7(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path7(SelectedIndices(0) - 1))(1))
+                PictureBox7.Image = SHPToBitmap(GetFileName(PathList(Index) + Path7(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path7(SelectedIndices(0) - 1))(1))
                 SelectPath(Index) = Path7(SelectedIndices(0) - 1)
             End If
         End If
@@ -899,12 +873,7 @@
                 PictureBox8.Image = Null
                 SelectPath(Index) = ""
             Else
-                Try
-                    PictureBox8.Image = SHPToBitmap(GetFileName(PathList(Index) + Path8(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path8(SelectedIndices(0) - 1))(1))
-                Catch
-                    PictureBox8.Image = CreateImage("IsBusy", 96, 96, "#ffffff")
-                End Try
-                'PictureBox8.Image = SHPToBitmap(GetFileName(PathList(Index) + Path8(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path8(SelectedIndices(0) - 1))(1))
+                PictureBox8.Image = SHPToBitmap(GetFileName(PathList(Index) + Path8(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path8(SelectedIndices(0) - 1))(1))
                 SelectPath(Index) = Path8(SelectedIndices(0) - 1)
             End If
         End If
@@ -997,12 +966,7 @@
                 PictureBox9.Image = Null
                 SelectPath(Index) = ""
             Else
-                Try
-                    PictureBox9.Image = SHPToBitmap(GetFileName(PathList(Index) + Path9(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path9(SelectedIndices(0) - 1))(1))
-                Catch
-                    PictureBox9.Image = CreateImage("IsBusy", 96, 96, "#ffffff")
-                End Try
-                'PictureBox9.Image = SHPToBitmap(GetFileName(PathList(Index) + Path9(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path9(SelectedIndices(0) - 1))(1))
+                PictureBox9.Image = SHPToBitmap(GetFileName(PathList(Index) + Path9(SelectedIndices(0) - 1))(0), GetFileName(PathList(Index) + Path9(SelectedIndices(0) - 1))(1))
                 SelectPath(Index) = Path9(SelectedIndices(0) - 1)
             End If
         End If

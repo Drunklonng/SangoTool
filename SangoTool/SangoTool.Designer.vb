@@ -29,10 +29,10 @@ Partial Class SangoTool
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.BackgroundWorkerPlay = New System.ComponentModel.BackgroundWorker()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.License = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel10 = New System.Windows.Forms.TableLayoutPanel()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.ObjectTool = New System.Windows.Forms.TabPage()
         Me.SplitContainerFill = New System.Windows.Forms.SplitContainer()
         Me.SplitContainerLeft = New System.Windows.Forms.SplitContainer()
         Me.TableLayoutPanelUP = New System.Windows.Forms.TableLayoutPanel()
@@ -44,9 +44,16 @@ Partial Class SangoTool
         Me.ButtonOutput = New System.Windows.Forms.Button()
         Me.ButtonOffset = New System.Windows.Forms.Button()
         Me.SplitContainerPlay = New System.Windows.Forms.SplitContainer()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.BackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LastTo0ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Last10ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EndToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBoxPlay = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanelPlay = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Playback = New System.Windows.Forms.Label()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.ButtonPlay = New System.Windows.Forms.Button()
         Me.ButtonNext = New System.Windows.Forms.Button()
@@ -85,13 +92,41 @@ Partial Class SangoTool
         Me.Button4 = New System.Windows.Forms.Button()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.ImageTool = New System.Windows.Forms.TabPage()
+        Me.TableLayoutPanel12 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.FontTool = New System.Windows.Forms.TabPage()
+        Me.TableLayoutPanel13 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.MapTool = New System.Windows.Forms.TabPage()
+        Me.TableLayoutPanel14 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.ScriptTool = New System.Windows.Forms.TabPage()
+        Me.TableLayoutPanel15 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Readme = New System.Windows.Forms.TabPage()
+        Me.TableLayoutPanel11 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.TableLayoutPanel16 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.LinkLabel5 = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox10 = New System.Windows.Forms.PictureBox()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabel4 = New System.Windows.Forms.LinkLabel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.LinkLabel3 = New System.Windows.Forms.LinkLabel()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
-        Me.TabPage2.SuspendLayout()
+        Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
+        Me.License.SuspendLayout()
         Me.TableLayoutPanel10.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
+        Me.ObjectTool.SuspendLayout()
         CType(Me.SplitContainerFill, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerFill.Panel1.SuspendLayout()
         Me.SplitContainerFill.Panel2.SuspendLayout()
@@ -105,6 +140,7 @@ Partial Class SangoTool
         Me.SplitContainerPlay.Panel1.SuspendLayout()
         Me.SplitContainerPlay.Panel2.SuspendLayout()
         Me.SplitContainerPlay.SuspendLayout()
+        Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.PictureBoxPlay, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanelPlay.SuspendLayout()
         Me.TableLayoutPanelMian.SuspendLayout()
@@ -129,6 +165,19 @@ Partial Class SangoTool
         Me.TableLayoutPanel4.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
+        Me.ImageTool.SuspendLayout()
+        Me.TableLayoutPanel12.SuspendLayout()
+        Me.FontTool.SuspendLayout()
+        Me.TableLayoutPanel13.SuspendLayout()
+        Me.MapTool.SuspendLayout()
+        Me.TableLayoutPanel14.SuspendLayout()
+        Me.ScriptTool.SuspendLayout()
+        Me.TableLayoutPanel15.SuspendLayout()
+        Me.Readme.SuspendLayout()
+        Me.TableLayoutPanel11.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        Me.TableLayoutPanel16.SuspendLayout()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BackgroundWorkerOut
@@ -141,16 +190,16 @@ Partial Class SangoTool
         'BackgroundWorkerPlay
         '
         '
-        'TabPage2
+        'License
         '
-        Me.TabPage2.Controls.Add(Me.TableLayoutPanel10)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 32)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(776, 525)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "License"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        Me.License.Controls.Add(Me.TableLayoutPanel10)
+        Me.License.Location = New System.Drawing.Point(4, 32)
+        Me.License.Name = "License"
+        Me.License.Padding = New System.Windows.Forms.Padding(3)
+        Me.License.Size = New System.Drawing.Size(776, 525)
+        Me.License.TabIndex = 1
+        Me.License.Text = "License"
+        Me.License.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel10
         '
@@ -181,16 +230,16 @@ Partial Class SangoTool
         Me.TextBox1.TabIndex = 0
         Me.TextBox1.Text = resources.GetString("TextBox1.Text")
         '
-        'TabPage1
+        'ObjectTool
         '
-        Me.TabPage1.Controls.Add(Me.SplitContainerFill)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 32)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(776, 525)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "ObjectTool"
-        Me.TabPage1.UseVisualStyleBackColor = True
+        Me.ObjectTool.Controls.Add(Me.SplitContainerFill)
+        Me.ObjectTool.Location = New System.Drawing.Point(4, 32)
+        Me.ObjectTool.Name = "ObjectTool"
+        Me.ObjectTool.Padding = New System.Windows.Forms.Padding(3)
+        Me.ObjectTool.Size = New System.Drawing.Size(776, 525)
+        Me.ObjectTool.TabIndex = 0
+        Me.ObjectTool.Text = "ObjectTool"
+        Me.ObjectTool.UseVisualStyleBackColor = True
         '
         'SplitContainerFill
         '
@@ -343,6 +392,7 @@ Partial Class SangoTool
         '
         'SplitContainerPlay.Panel1
         '
+        Me.SplitContainerPlay.Panel1.ContextMenuStrip = Me.ContextMenuStrip1
         Me.SplitContainerPlay.Panel1.Controls.Add(Me.PictureBoxPlay)
         '
         'SplitContainerPlay.Panel2
@@ -351,6 +401,49 @@ Partial Class SangoTool
         Me.SplitContainerPlay.Size = New System.Drawing.Size(600, 470)
         Me.SplitContainerPlay.SplitterDistance = 425
         Me.SplitContainerPlay.TabIndex = 4
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BackToolStripMenuItem, Me.LastTo0ToolStripMenuItem, Me.Last10ToolStripMenuItem, Me.ToolStripMenuItem2, Me.ToolStripMenuItem3, Me.EndToolStripMenuItem})
+        Me.ContextMenuStrip1.Margin = New System.Windows.Forms.Padding(100)
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(110, 136)
+        '
+        'BackToolStripMenuItem
+        '
+        Me.BackToolStripMenuItem.Name = "BackToolStripMenuItem"
+        Me.BackToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
+        Me.BackToolStripMenuItem.Text = "Begin"
+        '
+        'LastTo0ToolStripMenuItem
+        '
+        Me.LastTo0ToolStripMenuItem.Name = "LastTo0ToolStripMenuItem"
+        Me.LastTo0ToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
+        Me.LastTo0ToolStripMenuItem.Text = "-50"
+        '
+        'Last10ToolStripMenuItem
+        '
+        Me.Last10ToolStripMenuItem.Name = "Last10ToolStripMenuItem"
+        Me.Last10ToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
+        Me.Last10ToolStripMenuItem.Text = "-10"
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(109, 22)
+        Me.ToolStripMenuItem2.Text = "+10"
+        '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(109, 22)
+        Me.ToolStripMenuItem3.Text = "+50"
+        '
+        'EndToolStripMenuItem
+        '
+        Me.EndToolStripMenuItem.Name = "EndToolStripMenuItem"
+        Me.EndToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
+        Me.EndToolStripMenuItem.Text = "End"
         '
         'PictureBoxPlay
         '
@@ -370,7 +463,7 @@ Partial Class SangoTool
         Me.TableLayoutPanelPlay.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
         Me.TableLayoutPanelPlay.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
         Me.TableLayoutPanelPlay.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
-        Me.TableLayoutPanelPlay.Controls.Add(Me.Label1, 6, 0)
+        Me.TableLayoutPanelPlay.Controls.Add(Me.Playback, 6, 0)
         Me.TableLayoutPanelPlay.Controls.Add(Me.ProgressBar1, 5, 0)
         Me.TableLayoutPanelPlay.Controls.Add(Me.ButtonPlay, 3, 0)
         Me.TableLayoutPanelPlay.Controls.Add(Me.ButtonNext, 4, 0)
@@ -385,18 +478,18 @@ Partial Class SangoTool
         Me.TableLayoutPanelPlay.Size = New System.Drawing.Size(598, 39)
         Me.TableLayoutPanelPlay.TabIndex = 3
         '
-        'Label1
+        'Playback
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label1.Location = New System.Drawing.Point(513, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label1.Size = New System.Drawing.Size(82, 39)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "0/0"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Playback.AutoSize = True
+        Me.Playback.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Playback.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Playback.Location = New System.Drawing.Point(513, 0)
+        Me.Playback.Name = "Playback"
+        Me.Playback.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Playback.Size = New System.Drawing.Size(82, 39)
+        Me.Playback.TabIndex = 2
+        Me.Playback.Text = "0/0"
+        Me.Playback.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ProgressBar1
         '
@@ -428,6 +521,7 @@ Partial Class SangoTool
         '
         'ButtonLast
         '
+        Me.ButtonLast.ContextMenuStrip = Me.ContextMenuStrip1
         Me.ButtonLast.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ButtonLast.Location = New System.Drawing.Point(173, 3)
         Me.ButtonLast.Name = "ButtonLast"
@@ -912,8 +1006,13 @@ Partial Class SangoTool
         '
         'TabControl1
         '
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.ObjectTool)
+        Me.TabControl1.Controls.Add(Me.ImageTool)
+        Me.TabControl1.Controls.Add(Me.FontTool)
+        Me.TabControl1.Controls.Add(Me.MapTool)
+        Me.TabControl1.Controls.Add(Me.ScriptTool)
+        Me.TabControl1.Controls.Add(Me.License)
+        Me.TabControl1.Controls.Add(Me.Readme)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.ItemSize = New System.Drawing.Size(100, 28)
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
@@ -922,15 +1021,392 @@ Partial Class SangoTool
         Me.TabControl1.Size = New System.Drawing.Size(784, 561)
         Me.TabControl1.TabIndex = 0
         '
+        'ImageTool
+        '
+        Me.ImageTool.Controls.Add(Me.TableLayoutPanel12)
+        Me.ImageTool.Location = New System.Drawing.Point(4, 32)
+        Me.ImageTool.Name = "ImageTool"
+        Me.ImageTool.Size = New System.Drawing.Size(776, 525)
+        Me.ImageTool.TabIndex = 6
+        Me.ImageTool.Text = "ImageTool"
+        Me.ImageTool.UseVisualStyleBackColor = True
+        '
+        'TableLayoutPanel12
+        '
+        Me.TableLayoutPanel12.ColumnCount = 3
+        Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
+        Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.14035!))
+        Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
+        Me.TableLayoutPanel12.Controls.Add(Me.Label1, 1, 1)
+        Me.TableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel12.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel12.Name = "TableLayoutPanel12"
+        Me.TableLayoutPanel12.RowCount = 3
+        Me.TableLayoutPanel12.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
+        Me.TableLayoutPanel12.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.24242!))
+        Me.TableLayoutPanel12.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
+        Me.TableLayoutPanel12.Size = New System.Drawing.Size(776, 525)
+        Me.TableLayoutPanel12.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label1.Location = New System.Drawing.Point(173, 198)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(429, 127)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "is developing"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'FontTool
+        '
+        Me.FontTool.Controls.Add(Me.TableLayoutPanel13)
+        Me.FontTool.Location = New System.Drawing.Point(4, 32)
+        Me.FontTool.Name = "FontTool"
+        Me.FontTool.Size = New System.Drawing.Size(776, 525)
+        Me.FontTool.TabIndex = 5
+        Me.FontTool.Text = "FontTool"
+        Me.FontTool.UseVisualStyleBackColor = True
+        '
+        'TableLayoutPanel13
+        '
+        Me.TableLayoutPanel13.ColumnCount = 3
+        Me.TableLayoutPanel13.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
+        Me.TableLayoutPanel13.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.14035!))
+        Me.TableLayoutPanel13.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
+        Me.TableLayoutPanel13.Controls.Add(Me.Label2, 1, 1)
+        Me.TableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel13.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel13.Name = "TableLayoutPanel13"
+        Me.TableLayoutPanel13.RowCount = 3
+        Me.TableLayoutPanel13.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
+        Me.TableLayoutPanel13.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.24242!))
+        Me.TableLayoutPanel13.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
+        Me.TableLayoutPanel13.Size = New System.Drawing.Size(776, 525)
+        Me.TableLayoutPanel13.TabIndex = 2
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label2.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label2.Location = New System.Drawing.Point(173, 198)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(429, 127)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "is developing"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'MapTool
+        '
+        Me.MapTool.Controls.Add(Me.TableLayoutPanel14)
+        Me.MapTool.Location = New System.Drawing.Point(4, 32)
+        Me.MapTool.Name = "MapTool"
+        Me.MapTool.Size = New System.Drawing.Size(776, 525)
+        Me.MapTool.TabIndex = 4
+        Me.MapTool.Text = "MapTool"
+        Me.MapTool.UseVisualStyleBackColor = True
+        '
+        'TableLayoutPanel14
+        '
+        Me.TableLayoutPanel14.ColumnCount = 3
+        Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
+        Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.14035!))
+        Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
+        Me.TableLayoutPanel14.Controls.Add(Me.Label3, 1, 1)
+        Me.TableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel14.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel14.Name = "TableLayoutPanel14"
+        Me.TableLayoutPanel14.RowCount = 3
+        Me.TableLayoutPanel14.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
+        Me.TableLayoutPanel14.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.24242!))
+        Me.TableLayoutPanel14.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
+        Me.TableLayoutPanel14.Size = New System.Drawing.Size(776, 525)
+        Me.TableLayoutPanel14.TabIndex = 2
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label3.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label3.Location = New System.Drawing.Point(173, 198)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(429, 127)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "is developing"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'ScriptTool
+        '
+        Me.ScriptTool.Controls.Add(Me.TableLayoutPanel15)
+        Me.ScriptTool.Location = New System.Drawing.Point(4, 32)
+        Me.ScriptTool.Name = "ScriptTool"
+        Me.ScriptTool.Padding = New System.Windows.Forms.Padding(3)
+        Me.ScriptTool.Size = New System.Drawing.Size(776, 525)
+        Me.ScriptTool.TabIndex = 3
+        Me.ScriptTool.Text = "ScriptTool"
+        Me.ScriptTool.UseVisualStyleBackColor = True
+        '
+        'TableLayoutPanel15
+        '
+        Me.TableLayoutPanel15.ColumnCount = 3
+        Me.TableLayoutPanel15.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
+        Me.TableLayoutPanel15.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.14035!))
+        Me.TableLayoutPanel15.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
+        Me.TableLayoutPanel15.Controls.Add(Me.Label4, 1, 1)
+        Me.TableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel15.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel15.Name = "TableLayoutPanel15"
+        Me.TableLayoutPanel15.RowCount = 3
+        Me.TableLayoutPanel15.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
+        Me.TableLayoutPanel15.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.24242!))
+        Me.TableLayoutPanel15.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
+        Me.TableLayoutPanel15.Size = New System.Drawing.Size(770, 519)
+        Me.TableLayoutPanel15.TabIndex = 2
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label4.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label4.Location = New System.Drawing.Point(171, 196)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(426, 125)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "is developing"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Readme
+        '
+        Me.Readme.Controls.Add(Me.TableLayoutPanel11)
+        Me.Readme.Location = New System.Drawing.Point(4, 32)
+        Me.Readme.Name = "Readme"
+        Me.Readme.Padding = New System.Windows.Forms.Padding(3)
+        Me.Readme.Size = New System.Drawing.Size(776, 525)
+        Me.Readme.TabIndex = 2
+        Me.Readme.Text = "Readme"
+        Me.Readme.UseVisualStyleBackColor = True
+        '
+        'TableLayoutPanel11
+        '
+        Me.TableLayoutPanel11.ColumnCount = 3
+        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 400.0!))
+        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel11.Controls.Add(Me.Panel1, 1, 1)
+        Me.TableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel11.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel11.Name = "TableLayoutPanel11"
+        Me.TableLayoutPanel11.RowCount = 3
+        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 350.0!))
+        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel11.Size = New System.Drawing.Size(770, 519)
+        Me.TableLayoutPanel11.TabIndex = 3
+        '
+        'Panel1
+        '
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.TableLayoutPanel16)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(188, 87)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(394, 344)
+        Me.Panel1.TabIndex = 0
+        '
+        'TableLayoutPanel16
+        '
+        Me.TableLayoutPanel16.ColumnCount = 2
+        Me.TableLayoutPanel16.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel16.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel16.Controls.Add(Me.Label9, 0, 3)
+        Me.TableLayoutPanel16.Controls.Add(Me.LinkLabel5, 1, 3)
+        Me.TableLayoutPanel16.Controls.Add(Me.PictureBox10, 0, 0)
+        Me.TableLayoutPanel16.Controls.Add(Me.LinkLabel1, 1, 1)
+        Me.TableLayoutPanel16.Controls.Add(Me.LinkLabel2, 1, 2)
+        Me.TableLayoutPanel16.Controls.Add(Me.LinkLabel4, 1, 4)
+        Me.TableLayoutPanel16.Controls.Add(Me.Label5, 0, 1)
+        Me.TableLayoutPanel16.Controls.Add(Me.Label6, 0, 2)
+        Me.TableLayoutPanel16.Controls.Add(Me.Label8, 0, 4)
+        Me.TableLayoutPanel16.Controls.Add(Me.Label7, 0, 5)
+        Me.TableLayoutPanel16.Controls.Add(Me.LinkLabel3, 1, 5)
+        Me.TableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel16.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel16.Margin = New System.Windows.Forms.Padding(9)
+        Me.TableLayoutPanel16.Name = "TableLayoutPanel16"
+        Me.TableLayoutPanel16.Padding = New System.Windows.Forms.Padding(9)
+        Me.TableLayoutPanel16.RowCount = 6
+        Me.TableLayoutPanel16.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 180.0!))
+        Me.TableLayoutPanel16.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel16.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel16.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel16.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel16.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel16.Size = New System.Drawing.Size(392, 342)
+        Me.TableLayoutPanel16.TabIndex = 0
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label9.Location = New System.Drawing.Point(109, 251)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(100, 0, 3, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(84, 31)
+        Me.Label9.TabIndex = 9
+        Me.Label9.Text = "TIM :"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LinkLabel5
+        '
+        Me.LinkLabel5.AutoSize = True
+        Me.LinkLabel5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LinkLabel5.Location = New System.Drawing.Point(199, 251)
+        Me.LinkLabel5.Name = "LinkLabel5"
+        Me.LinkLabel5.Size = New System.Drawing.Size(181, 31)
+        Me.LinkLabel5.TabIndex = 10
+        Me.LinkLabel5.TabStop = True
+        Me.LinkLabel5.Text = "1097811376"
+        Me.LinkLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'PictureBox10
+        '
+        Me.PictureBox10.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TableLayoutPanel16.SetColumnSpan(Me.PictureBox10, 2)
+        Me.PictureBox10.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox10.Image = Global.SangoTool.My.Resources.Resources.DrunkLoong_2_min
+        Me.PictureBox10.Location = New System.Drawing.Point(99, 18)
+        Me.PictureBox10.Margin = New System.Windows.Forms.Padding(90, 9, 90, 9)
+        Me.PictureBox10.Name = "PictureBox10"
+        Me.PictureBox10.Size = New System.Drawing.Size(194, 162)
+        Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox10.TabIndex = 0
+        Me.PictureBox10.TabStop = False
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LinkLabel1.Location = New System.Drawing.Point(199, 189)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(181, 31)
+        Me.LinkLabel1.TabIndex = 1
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "Drunklonng"
+        Me.LinkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LinkLabel2
+        '
+        Me.LinkLabel2.AutoSize = True
+        Me.LinkLabel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LinkLabel2.LinkArea = New System.Windows.Forms.LinkArea(0, 10)
+        Me.LinkLabel2.Location = New System.Drawing.Point(199, 220)
+        Me.LinkLabel2.Name = "LinkLabel2"
+        Me.LinkLabel2.Size = New System.Drawing.Size(181, 31)
+        Me.LinkLabel2.TabIndex = 2
+        Me.LinkLabel2.TabStop = True
+        Me.LinkLabel2.Text = "1097811376"
+        Me.LinkLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LinkLabel4
+        '
+        Me.LinkLabel4.AutoSize = True
+        Me.LinkLabel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LinkLabel4.Location = New System.Drawing.Point(199, 282)
+        Me.LinkLabel4.Name = "LinkLabel4"
+        Me.LinkLabel4.Size = New System.Drawing.Size(181, 31)
+        Me.LinkLabel4.TabIndex = 4
+        Me.LinkLabel4.TabStop = True
+        Me.LinkLabel4.Text = "mail@sango.ink"
+        Me.LinkLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label5.Location = New System.Drawing.Point(109, 189)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(100, 0, 3, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(84, 31)
+        Me.Label5.TabIndex = 5
+        Me.Label5.Text = "GitHub :"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label6.Location = New System.Drawing.Point(109, 220)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(100, 0, 3, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(84, 31)
+        Me.Label6.TabIndex = 6
+        Me.Label6.Text = "Baidu :"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label8.Location = New System.Drawing.Point(109, 282)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(100, 0, 3, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(84, 31)
+        Me.Label8.TabIndex = 8
+        Me.Label8.Text = "Email :"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label7.Location = New System.Drawing.Point(109, 313)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(100, 0, 3, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(84, 20)
+        Me.Label7.TabIndex = 7
+        Me.Label7.Text = "Download :"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LinkLabel3
+        '
+        Me.LinkLabel3.AutoSize = True
+        Me.LinkLabel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LinkLabel3.Location = New System.Drawing.Point(199, 313)
+        Me.LinkLabel3.Name = "LinkLabel3"
+        Me.LinkLabel3.Size = New System.Drawing.Size(181, 20)
+        Me.LinkLabel3.TabIndex = 3
+        Me.LinkLabel3.TabStop = True
+        Me.LinkLabel3.Text = "sango.ys168.com"
+        Me.LinkLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'Timer2
         '
         '
         'OpenFileDialog1
         '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        Me.OpenFileDialog1.DefaultExt = "*.object"
+        Me.OpenFileDialog1.Filter = "Object File|*.object"
+        '
+        'SaveFileDialog1
+        '
+        Me.SaveFileDialog1.DefaultExt = "*.object"
+        Me.SaveFileDialog1.Filter = "Object File|*.object"
         '
         'Timer3
         '
+        '
+        'OpenFileDialog2
+        '
+        Me.OpenFileDialog2.DefaultExt = "*.shp"
+        Me.OpenFileDialog2.Filter = "Shadow File|*.shp"
         '
         'SangoTool
         '
@@ -938,15 +1414,16 @@ Partial Class SangoTool
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(784, 561)
         Me.Controls.Add(Me.TabControl1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(1920, 1080)
         Me.MinimumSize = New System.Drawing.Size(800, 600)
         Me.Name = "SangoTool"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "SangoTool"
-        Me.TabPage2.ResumeLayout(False)
+        Me.License.ResumeLayout(False)
         Me.TableLayoutPanel10.ResumeLayout(False)
         Me.TableLayoutPanel10.PerformLayout()
-        Me.TabPage1.ResumeLayout(False)
+        Me.ObjectTool.ResumeLayout(False)
         Me.SplitContainerFill.Panel1.ResumeLayout(False)
         Me.SplitContainerFill.Panel2.ResumeLayout(False)
         CType(Me.SplitContainerFill, System.ComponentModel.ISupportInitialize).EndInit()
@@ -960,6 +1437,7 @@ Partial Class SangoTool
         Me.SplitContainerPlay.Panel2.ResumeLayout(False)
         CType(Me.SplitContainerPlay, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainerPlay.ResumeLayout(False)
+        Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.PictureBoxPlay, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanelPlay.ResumeLayout(False)
         Me.TableLayoutPanelPlay.PerformLayout()
@@ -985,6 +1463,24 @@ Partial Class SangoTool
         Me.TableLayoutPanel4.ResumeLayout(False)
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
+        Me.ImageTool.ResumeLayout(False)
+        Me.TableLayoutPanel12.ResumeLayout(False)
+        Me.TableLayoutPanel12.PerformLayout()
+        Me.FontTool.ResumeLayout(False)
+        Me.TableLayoutPanel13.ResumeLayout(False)
+        Me.TableLayoutPanel13.PerformLayout()
+        Me.MapTool.ResumeLayout(False)
+        Me.TableLayoutPanel14.ResumeLayout(False)
+        Me.TableLayoutPanel14.PerformLayout()
+        Me.ScriptTool.ResumeLayout(False)
+        Me.TableLayoutPanel15.ResumeLayout(False)
+        Me.TableLayoutPanel15.PerformLayout()
+        Me.Readme.ResumeLayout(False)
+        Me.TableLayoutPanel11.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        Me.TableLayoutPanel16.ResumeLayout(False)
+        Me.TableLayoutPanel16.PerformLayout()
+        CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -993,8 +1489,8 @@ Partial Class SangoTool
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
     Friend WithEvents BackgroundWorkerPlay As System.ComponentModel.BackgroundWorker
     Friend WithEvents ColorDialog1 As ColorDialog
-    Friend WithEvents TabPage2 As TabPage
-    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents License As TabPage
+    Friend WithEvents ObjectTool As TabPage
     Friend WithEvents SplitContainerFill As SplitContainer
     Friend WithEvents SplitContainerLeft As SplitContainer
     Friend WithEvents TableLayoutPanelUP As TableLayoutPanel
@@ -1038,7 +1534,7 @@ Partial Class SangoTool
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents PictureBoxPlay As PictureBox
-    Friend WithEvents Label1 As Label
+    Friend WithEvents Playback As Label
     Friend WithEvents TableLayoutPanelPlay As TableLayoutPanel
     Friend WithEvents SplitContainerPlay As SplitContainer
     Friend WithEvents ProgressBar1 As ProgressBar
@@ -1053,4 +1549,39 @@ Partial Class SangoTool
     Friend WithEvents TableLayoutPanel10 As TableLayoutPanel
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Timer3 As Timer
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents Last10ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LastTo0ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BackToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
+    Friend WithEvents EndToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OpenFileDialog2 As OpenFileDialog
+    Friend WithEvents Readme As TabPage
+    Friend WithEvents ScriptTool As TabPage
+    Friend WithEvents ImageTool As TabPage
+    Friend WithEvents TableLayoutPanel12 As TableLayoutPanel
+    Friend WithEvents Label1 As Label
+    Friend WithEvents FontTool As TabPage
+    Friend WithEvents TableLayoutPanel13 As TableLayoutPanel
+    Friend WithEvents Label2 As Label
+    Friend WithEvents MapTool As TabPage
+    Friend WithEvents TableLayoutPanel14 As TableLayoutPanel
+    Friend WithEvents Label3 As Label
+    Friend WithEvents TableLayoutPanel15 As TableLayoutPanel
+    Friend WithEvents Label4 As Label
+    Friend WithEvents TableLayoutPanel11 As TableLayoutPanel
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents TableLayoutPanel16 As TableLayoutPanel
+    Friend WithEvents PictureBox10 As PictureBox
+    Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents LinkLabel2 As LinkLabel
+    Friend WithEvents LinkLabel3 As LinkLabel
+    Friend WithEvents LinkLabel4 As LinkLabel
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents LinkLabel5 As LinkLabel
 End Class

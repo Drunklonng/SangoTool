@@ -22,6 +22,7 @@ Partial Class Offset
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Offset))
         Me.NumericUpDownX9 = New System.Windows.Forms.NumericUpDown()
         Me.NumericUpDownXALL = New System.Windows.Forms.NumericUpDown()
         Me.NumericUpDownX4 = New System.Windows.Forms.NumericUpDown()
@@ -745,8 +746,13 @@ Partial Class Offset
         Me.Controls.Add(Me.Label24)
         Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(448, 476)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(448, 476)
         Me.Name = "Offset"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Offset"
         CType(Me.NumericUpDownX9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDownXALL, System.ComponentModel.ISupportInitialize).EndInit()

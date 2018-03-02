@@ -23,6 +23,7 @@ Partial Class OutObject
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(OutObject))
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.MergeShadowsTrue = New System.Windows.Forms.RadioButton()
@@ -35,10 +36,10 @@ Partial Class OutObject
         Me.Button2 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -204,11 +205,8 @@ Partial Class OutObject
         Me.SplitContainer1.Panel2.Controls.Add(Me.TableLayoutPanel3)
         Me.SplitContainer1.Panel2Collapsed = True
         Me.SplitContainer1.Size = New System.Drawing.Size(300, 115)
-        Me.SplitContainer1.SplitterDistance = 128
+        Me.SplitContainer1.SplitterDistance = 90
         Me.SplitContainer1.TabIndex = 11
-        '
-        'Timer1
-        '
         '
         'TableLayoutPanel3
         '
@@ -245,14 +243,22 @@ Partial Class OutObject
         Me.Label3.Text = "100%"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Timer1
+        '
+        '
         'OutObject
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(326, 143)
         Me.Controls.Add(Me.SplitContainer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(342, 182)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(342, 182)
         Me.Name = "OutObject"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "OutObject"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
