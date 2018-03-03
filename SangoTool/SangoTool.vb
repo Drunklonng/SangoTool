@@ -195,9 +195,6 @@
                 p = 0
                 PlayRendering = False
             End If
-            If BackgroundWorkerOut.IsBusy Then
-                If p = OutProgress + 1 Then p = OutProgress
-            End If
             If SingleShadow Then
                 Dim shpfile As String = ""
                 If DeathShadow(p) = False Then
@@ -333,9 +330,6 @@
             Next
         Next
         For p = 0 To OutBitmap.Count - 1
-            If BackgroundWorkerPlay.IsBusy Then
-                If p = PlayFrame(0) + 1 Then p = PlayFrame(0)
-            End If
             Dim CoverBitmap = New Bitmap(1, 1)
             Dim CoverPoint = {0, 0, 1, 1}
             Dim ShadowsPoint = {0, 0, 1, 1}

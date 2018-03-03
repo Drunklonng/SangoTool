@@ -315,7 +315,7 @@ Partial Class Transform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(407, 168)
+        Me.ClientSize = New System.Drawing.Size(408, 169)
         Me.Controls.Add(Me.TableLayoutPanel5)
         Me.Controls.Add(Me.TableLayoutPanel4)
         Me.Controls.Add(Me.Button2)
@@ -325,9 +325,9 @@ Partial Class Transform
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(600, 350)
+        Me.MaximumSize = New System.Drawing.Size(424, 208)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(200, 150)
+        Me.MinimumSize = New System.Drawing.Size(424, 208)
         Me.Name = "Transform"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Transform"

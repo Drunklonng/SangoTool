@@ -38,10 +38,6 @@ Module SangoCore
         Dim R5 As String = Mid(str, 1, 5)
         Dim G6 As String = Mid(str, 6, 6)
         Dim B5 As String = Mid(str, 12, 5)
-        'Dim R = Convert.ToInt32(R5 + "000", 2)
-        'Dim G = Convert.ToInt32(G6 + "00", 2)
-        'Dim B = Convert.ToInt32(B5 + "000", 2)
-        'RGB16To24 = Color.FromArgb(R, G, B)
         Dim RGB As Int32() = {Convert.ToInt32(R5 + "000", 2), Convert.ToInt32(G6 + "00", 2), Convert.ToInt32(B5 + "000", 2)}
         If R > 2 Then R = 2
         If R < 0 Then R = 0
@@ -100,6 +96,7 @@ Module SangoCore
                 Catch ' ex As Exception
                     Readfailed = True
                 End Try
+                Windows.Forms.Application.DoEvents()
             Loop While Readfailed = True
             Dim br As New BinaryReader(fs)
             fs.Seek(20, SeekOrigin.Begin)
@@ -237,6 +234,7 @@ Module SangoCore
                 Catch ' ex As Exception
                     Readfailed = True
                 End Try
+                Windows.Forms.Application.DoEvents()
             Loop While Readfailed = True
             Dim br As New BinaryReader(fs)
             Dim Width As Int32

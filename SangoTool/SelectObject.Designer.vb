@@ -206,7 +206,7 @@ Partial Class SelectObject
         Me.ListView0.Location = New System.Drawing.Point(0, 0)
         Me.ListView0.MultiSelect = False
         Me.ListView0.Name = "ListView0"
-        Me.ListView0.Size = New System.Drawing.Size(616, 517)
+        Me.ListView0.Size = New System.Drawing.Size(593, 517)
         Me.ListView0.SmallImageList = Me.ImageList0
         Me.ListView0.TabIndex = 0
         Me.ListView0.UseCompatibleStateImageBehavior = False
@@ -226,7 +226,7 @@ Partial Class SelectObject
         Me.Button0.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button0.Location = New System.Drawing.Point(4, 261)
         Me.Button0.Name = "Button0"
-        Me.Button0.Size = New System.Drawing.Size(138, 44)
+        Me.Button0.Size = New System.Drawing.Size(161, 44)
         Me.Button0.TabIndex = 1
         Me.Button0.Text = "Load"
         Me.Button0.UseVisualStyleBackColor = True
@@ -236,7 +236,7 @@ Partial Class SelectObject
         Me.Button0_clear.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button0_clear.Location = New System.Drawing.Point(4, 312)
         Me.Button0_clear.Name = "Button0_clear"
-        Me.Button0_clear.Size = New System.Drawing.Size(138, 44)
+        Me.Button0_clear.Size = New System.Drawing.Size(161, 44)
         Me.Button0_clear.TabIndex = 2
         Me.Button0_clear.Text = "Clear"
         Me.Button0_clear.UseVisualStyleBackColor = True
@@ -246,6 +246,7 @@ Partial Class SelectObject
         Me.SplitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
+        Me.SplitContainer1.IsSplitterFixed = True
         Me.SplitContainer1.Location = New System.Drawing.Point(3, 3)
         Me.SplitContainer1.Name = "SplitContainer1"
         '
@@ -257,7 +258,7 @@ Partial Class SelectObject
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.TableLayoutPanel1)
         Me.SplitContainer1.Size = New System.Drawing.Size(770, 519)
-        Me.SplitContainer1.SplitterDistance = 618
+        Me.SplitContainer1.SplitterDistance = 595
         Me.SplitContainer1.TabIndex = 3
         '
         'TableLayoutPanel1
@@ -278,7 +279,7 @@ Partial Class SelectObject
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(146, 517)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(169, 517)
         Me.TableLayoutPanel1.TabIndex = 3
         '
         'PictureBox0
@@ -286,7 +287,7 @@ Partial Class SelectObject
         Me.PictureBox0.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox0.Location = New System.Drawing.Point(4, 4)
         Me.PictureBox0.Name = "PictureBox0"
-        Me.PictureBox0.Size = New System.Drawing.Size(138, 250)
+        Me.PictureBox0.Size = New System.Drawing.Size(161, 250)
         Me.PictureBox0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.PictureBox0.TabIndex = 3
         Me.PictureBox0.TabStop = False
@@ -296,7 +297,7 @@ Partial Class SelectObject
         Me.Button0_ok.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button0_ok.Location = New System.Drawing.Point(4, 363)
         Me.Button0_ok.Name = "Button0_ok"
-        Me.Button0_ok.Size = New System.Drawing.Size(138, 44)
+        Me.Button0_ok.Size = New System.Drawing.Size(161, 44)
         Me.Button0_ok.TabIndex = 4
         Me.Button0_ok.Text = "OK"
         Me.Button0_ok.UseVisualStyleBackColor = True
