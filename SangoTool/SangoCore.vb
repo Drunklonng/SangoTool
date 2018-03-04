@@ -15,20 +15,21 @@ Module SangoCore
         WriteINI = WritePrivateProfileString(Section, AppName, lpDefault, FileName)
     End Function
 
-    Public Function Salutelist(Length As Int16) As Byte()
-        Dim str As String() = {"梦去无痕", "拓跋飞雪", "龙潭醉鬼"}
-        Dim Rand = New System.Random()
-        Dim name As String = Strings.StrConv(str(Rand.Next(str.Length)), VbStrConv.TraditionalChinese)
-        Dim bytes = Encoding.GetEncoding(950).GetBytes(name)
-        Dim Salute As Byte()
-        ReDim Salute(Length - 1)
-        For i = 0 To Salute.Length - 1
-            If i < bytes.Length Then
-                Salute(i) = bytes(i)
-            End If
-        Next
-        Salutelist = Salute
-    End Function
+    'Public Function Salutelist(Length As Int16) As Byte()
+    '    Dim namelist As String() = {"梦去无痕", "拓跋飞雪", "龙潭醉鬼"}
+    '    Dim str As String() = {"宇峻奥汀"}
+    '    Dim Rand = New System.Random()
+    '    Dim name As String = Strings.StrConv(str(Rand.Next(str.Length)), VbStrConv.TraditionalChinese)
+    '    Dim bytes = Encoding.GetEncoding(950).GetBytes(name)
+    '    Dim Salute As Byte()
+    '    ReDim Salute(Length - 1)
+    '    For i = 0 To Salute.Length - 1
+    '        If i < bytes.Length Then
+    '            Salute(i) = bytes(i)
+    '        End If
+    '    Next
+    '    Salutelist = Salute
+    'End Function
 
     Public Function RGB16To24(R5G6B5 As UInt16, Optional R As Int16 = 0, Optional G As Int16 = 1, Optional B As Int16 = 2) As Color
         Dim str As String = Convert.ToString(R5G6B5, 2)
@@ -301,11 +302,9 @@ Module SangoCore
         Dim bw As New BinaryWriter(fs)
         Dim Width As Int32 = bitmap.Width
         Dim Height As Int32 = bitmap.Height
-        'Dim POSX As Int32 = 0
-        'Dim POSY As Int32 = 0
         Dim Line As Int32()
-        Dim Salute As Byte() = Salutelist(8)
-        Dim Header As Byte() = {84, 76, 72, 83, Salute(0), Salute(1), Salute(2), Salute(3), Salute(4), Salute(5), Salute(6), Salute(7), 0, 0, 0, 0, 173, 80, 183, 113}
+        'Dim Salute As Byte() = Salutelist(8)
+        Dim Header As Byte() = {84, 76, 72, 83, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
         bw.Write(Header)
         bw.Write(Width)
         bw.Write(Height)
@@ -315,6 +314,7 @@ Module SangoCore
         For L = 0 To Line.Count - 1
             bw.Write({0, 0, 0, 0})
         Next
+        bw.Write({115, 97, 110, 103, 111, 46, 121, 115, 49, 54, 56, 46, 99, 111, 109, 0})
         For L = 0 To Line.Count - 1
             Line(L) = fs.Position
             Dim begin As Int16() = {}

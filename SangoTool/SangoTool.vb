@@ -479,6 +479,20 @@
             CoverBitmap.Dispose()
             OutProgress = p
         Next
+
+        Dim str As String = ""
+        Dim a As Int16 = 1
+        Do
+            str = OutputPath(OutputPath.Length - a) + str
+            a = a + 1
+        Loop Until OutputPath(OutputPath.Length - a) = "\"
+        If str = "" Then
+            str = "\" + "Preview.png"
+        Else
+            str = "\" + str + ".png"
+        End If
+
+        OutBitmap(0).Save(OutputPath + str)
         For i = 0 To OutTempBitmap.Count - 1
             OutTempBitmap(i).Dispose()
         Next
@@ -675,6 +689,12 @@
                             SubPath(i) = ""
                         Next
                     End If
+                    If FileList.Count = 0 Then
+                        FileList = {""}
+                    End If
+                    If SubPath.Count = 0 Then
+                        SubPath = {""}
+                    End If
                     ReDim DeathShadow(FileList.Count - 1)
                     For i = 0 To FileList.Count - 1
                         DeathShadow(i) = False
@@ -715,7 +735,11 @@
                     OutPoint(i) = {0, 0, 1, 1}
                 Next
                 PlayFrame(1) = PlayBitmap.Count - 1
-                ProgressBar1.Maximum = PlayBitmap.Count - 1
+                If PlayBitmap.Count > 0 Then
+                    ProgressBar1.Maximum = PlayBitmap.Count - 1
+                Else
+                    ProgressBar1.Maximum = 0
+                End If
                 PictureBox0.Image = CreateImage("Empty", 80, 40, "#ffffff")
                 PictureBox1.Image = CreateImage("Empty", 80, 40, "#ffffff")
                 PictureBox2.Image = CreateImage("Empty", 80, 40, "#ffffff")
@@ -727,6 +751,24 @@
                 PictureBox8.Image = CreateImage("Empty", 80, 40, "#ffffff")
                 PictureBox9.Image = CreateImage("Empty", 80, 40, "#ffffff")
                 If NewObject.RadioButton3.Checked Then
+                    If IO.Directory.Exists(ImportPath + "\shadow") Then
+                        SingleShadow = False
+                        ShadowPath = ImportPath
+                        TempBitmap(TempBitmap.Count - 1).Dispose()
+                        TempBitmap(TempBitmap.Count - 1) = SHPToBitmap(ShadowPath + "\shadow" + FileList(0))
+                        PointList(TempBitmap.Count - 1) = GetCenterPoint(ShadowPath + "\shadow" + FileList(0))
+                    ElseIf IO.File.Exists(ImportPath + "\S.SHP") OrElse IO.File.Exists(ImportPath + "\S01.SHP") Then
+                        SingleShadow = True
+                        SingleShadowFile = {ImportPath + "\S.SHP", ImportPath + "\S01.SHP"}
+                        TempBitmap(TempBitmap.Count - 1).Dispose()
+                        If DeathShadow(0) Then
+                            TempBitmap(TempBitmap.Count - 1) = SHPToBitmap(SingleShadowFile(1))
+                            PointList(TempBitmap.Count - 1) = GetCenterPoint(SingleShadowFile(1))
+                        Else
+                            TempBitmap(TempBitmap.Count - 1) = SHPToBitmap(SingleShadowFile(0))
+                            PointList(TempBitmap.Count - 1) = GetCenterPoint(SingleShadowFile(0))
+                        End If
+                    End If
                     Dim ImportIndex = 4
                     TempPath(ImportIndex) = ImportPath
                     Dim shpfile As String = ImportPath + SubPath(0) + FileList(0)
@@ -739,7 +781,9 @@
                     TempBitmap(ImportIndex * 2 + 1).Dispose()
                     TempBitmap(ImportIndex * 2 + 1) = SHPToBitmap(covfile, covfile2)
                     PointList(ImportIndex * 2 + 1) = GetCenterPoint(covfile, covfile2)
-                    PictureBox4.Image = TempBitmap(ImportIndex * 2)
+                    If FileList(0) <> "" Then
+                        PictureBox4.Image = TempBitmap(ImportIndex * 2)
+                    End If
                 End If
                 Button0.BackColor = TempColor(0)
                 Button1.BackColor = TempColor(1)
@@ -765,7 +809,11 @@
             If IO.File.Exists(OpenFileDialog1.FileName) Then
                 Dim FileNumber As Int16 = GetINI("File", "FileNumber", -1, OpenFileDialog1.FileName)
                 PlayFrame(1) = FileNumber
-                ProgressBar1.Maximum = FileNumber - 1
+                If FileNumber > 0 Then
+                    ProgressBar1.Maximum = FileNumber - 1
+                Else
+                    ProgressBar1.Maximum = 0
+                End If
                 ReDim SubPath(FileNumber)
                 ReDim FileList(FileNumber)
                 ReDim DeathShadow(FileNumber)
@@ -938,13 +986,19 @@
     End Sub
 
     Private Sub ButtonOutput_Click(sender As Object, e As EventArgs) Handles ButtonOutput.Click
+        OutObject.FolderBrowserDialog1.SelectedPath = GetINI("OutObject", "OutputPath", "", Application.StartupPath + "\SangoTool.ini")
         OutObject.ShowDialog()
         If OutObject.SplitContainer1.Panel1Collapsed Then
             If Not BackgroundWorkerOut.IsBusy Then
                 MergeShadows = OutObject.MergeShadowsTrue.Checked
                 MergeCover = OutObject.MergeCoverTrue.Checked
                 OutputPath = OutObject.FolderBrowserDialog1.SelectedPath
-                OutObject.ProgressBar1.Maximum = OutBitmap.Count - 1
+                WriteINI("OutObject", "OutputPath", OutputPath, Application.StartupPath + "\SangoTool.ini")
+                If OutBitmap.Count > 0 Then
+                    OutObject.ProgressBar1.Maximum = OutBitmap.Count - 1
+                Else
+                    OutObject.ProgressBar1.Maximum = 0
+                End If
                 BackgroundWorkerOut.RunWorkerAsync()
                 Timer3.Enabled = True
             End If
@@ -1049,6 +1103,7 @@
                 TempBitmap(TempBitmap.Count - 1) = SHPToBitmap(shpfile, shpfile2)
                 PointList(PointList.Count - 1) = GetCenterPoint(shpfile, shpfile2)
             End If
+            Refreshing()
         End If
     End Sub
 
