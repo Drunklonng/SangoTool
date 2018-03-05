@@ -38,6 +38,15 @@
     Dim MergeCover As Boolean = False
     Dim OffsetList = {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0},
                       {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}}
+
+    '------------------------ImageTool------------------------------------
+    Dim ImagePath As String
+    Dim ImageViewPath As String
+    Dim ImageViewList As String()
+    Dim ImageFilePath As String = ""
+    Dim FormatThread As Int32 = 0
+    'Dim FormatToFileList As String()
+    '------------------------PlaySound------------------------------------
     Private Declare Auto Function PlaySound Lib "winmm.dll" (ByVal lpszSoundName As String, ByVal hModule As Integer, ByVal dwFlags As Integer) As Integer
     Const SND_FILENAME As Integer = &H20000
     Const SND_ALIAS As Integer = &H10000
@@ -53,6 +62,7 @@
             If Timer1.Enabled = False Then
                 UpDataPicture(Point, PictureBoxPlay, Bitmap)
             End If
+            SetBoxSize()
         End If
     End Sub
 
@@ -479,7 +489,6 @@
             CoverBitmap.Dispose()
             OutProgress = p
         Next
-
         Dim str As String = ""
         Dim a As Int16 = 1
         Do
@@ -491,7 +500,6 @@
         Else
             str = "\" + str + ".png"
         End If
-
         OutBitmap(0).Save(OutputPath + str)
         For i = 0 To OutTempBitmap.Count - 1
             OutTempBitmap(i).Dispose()
@@ -1530,7 +1538,6 @@
         GoToFrame(PlayFrame(1))
     End Sub
 
-
     '--------------------------------------------------------------------------------------------------------------------
     '                                                 Readme
     '--------------------------------------------------------------------------------------------------------------------
@@ -1553,5 +1560,212 @@
 
     Private Sub LinkLabel5_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel5.LinkClicked
         System.Diagnostics.Process.Start("https://shang.qq.com/wpa/qunwpa?idkey=5ba0549bc99074274cd153e3df087e9d870cdfb7d1cb15324cbb62c93a4b88ea")
+    End Sub
+
+    '--------------------------------------------------------------------------------------------------------------------
+    '                                                ImageTool
+    '--------------------------------------------------------------------------------------------------------------------
+
+    Private Sub TreeViewImagePath_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeViewImagePath.AfterSelect
+        Dim subpath As String() = IO.Directory.GetDirectories(ImagePath + "\" + TreeViewImagePath.SelectedNode.FullPath)
+        For i = 0 To subpath.Count - 1
+            Dim str As String = ""
+            Dim a As Int16 = 1
+            Do
+                str = subpath(i)(subpath(i).Length - a) + str
+                a = a + 1
+            Loop Until subpath(i)(subpath(i).Length - a) = "\"
+            TreeViewImagePath.SelectedNode.Nodes.Add(str)
+        Next
+        If ImageViewPath <> ImagePath + "\" + TreeViewImagePath.SelectedNode.FullPath Then
+            ImageViewPath = ImagePath + "\" + TreeViewImagePath.SelectedNode.FullPath
+            UpdataViewList(ImageViewPath)
+        End If
+    End Sub
+
+    Private Sub UpdataViewList(path As String)
+        ListViewImage.Items.Clear()
+        ImageList1.Images.Clear()
+        ImageViewList = {}
+        Dim ImageFileList As String() = IO.Directory.GetFiles(path)
+        Dim Imageshp As Bitmap = CreateImage("shp", 32, 32, "#ffffff")
+        For i = 0 To ImageFileList.Count - 1
+            Dim Ext As String = Strings.StrConv(IO.Path.GetExtension(ImageFileList(i)), VbStrConv.Uppercase)
+            If Ext = ".SHP" Then
+                ReDim Preserve ImageViewList(ImageViewList.Count)
+                ImageViewList(ImageViewList.Count - 1) = ImageFileList(i)
+                ListViewImage.Items.Add(IO.Path.GetFileName(ImageFileList(i)))
+                ImageList1.Images.Add(Imageshp)
+                ListViewImage.Items(ListViewImage.Items.Count - 1).ImageIndex = ImageList1.Images.Count - 1
+            ElseIf Ext = ".PNG" OrElse Ext = ".JPG" OrElse Ext = ".BMP" Then
+                ReDim Preserve ImageViewList(ImageViewList.Count)
+                ImageViewList(ImageViewList.Count - 1) = ImageFileList(i)
+                ListViewImage.Items.Add(IO.Path.GetFileName(ImageFileList(i)))
+                If My.Computer.FileSystem.GetFileInfo(ImageFileList(i)).Length > 5242880 Then
+                    ImageList1.Images.Add(CreateImage("", 32, 32, "#f0f0f0"))
+                Else
+                    ImageList1.Images.Add(Bitmap.FromFile(ImageFileList(i)))
+                End If
+                ListViewImage.Items(ListViewImage.Items.Count - 1).ImageIndex = ImageList1.Images.Count - 1
+            End If
+        Next
+    End Sub
+
+    Private Sub ButtonImagePath_Click(sender As Object, e As EventArgs) Handles ButtonImagePath.Click
+        FolderBrowserDialog1.SelectedPath = GetINI("ImageTool", "ImagePath", "", Application.StartupPath + "\SangoTool.ini")
+        If FolderBrowserDialog1.ShowDialog() = DialogResult.OK Then
+            ImagePath = FolderBrowserDialog1.SelectedPath
+            TextBoxImagePath.Text = ImagePath
+            WriteINI("ImageTool", "ImagePath", ImagePath, Application.StartupPath + "\SangoTool.ini")
+            TreeViewImagePath.Nodes.Clear()
+            Dim subpath As String() = IO.Directory.GetDirectories(ImagePath)
+            For i = 0 To subpath.Count - 1
+                Dim str As String = ""
+                Dim a As Int16 = 1
+                Do
+                    str = subpath(i)(subpath(i).Length - a) + str
+                    a = a + 1
+                Loop Until subpath(i)(subpath(i).Length - a) = "\"
+                TreeViewImagePath.Nodes.Add(str)
+            Next
+        End If
+    End Sub
+
+    Private Sub ListViewImage_DoubleClick(sender As Object, e As EventArgs) Handles ListViewImage.DoubleClick
+        If ListViewImage.SelectedIndices.Count = 1 Then
+            ImageFilePath = ImageViewList(ListViewImage.SelectedIndices(0))
+            Dim Ext As String = Strings.StrConv(IO.Path.GetExtension(ImageFilePath), VbStrConv.Uppercase)
+            If Ext = ".SHP" Then
+                PictureBoxImageView.Image = CreateImage("Loading", 80, 40, "#ffffff")
+                SetBoxSize()
+                PictureBoxImageView.Image = SHPToBitmap(ImageFilePath)
+            ElseIf Ext = ".PNG" OrElse Ext = ".JPG" OrElse Ext = ".BMP" Then
+                If My.Computer.FileSystem.GetFileInfo(ImageFilePath).Length > 5242880 Then
+                    ImageFilePath = ""
+                    PictureBoxImageView.Image = Nothing
+                    MsgBox("File is too large!")
+                Else
+                    PictureBoxImageView.Image = Bitmap.FromFile(ImageFilePath)
+                End If
+            End If
+            SetBoxSize()
+        End If
+    End Sub
+
+    Private Sub SetBoxSize()
+        PictureBoxImageView.Height = SplitContainer2.Panel1.Height - 2
+        PictureBoxImageView.Width = SplitContainer2.Panel1.Width - 2
+        If ImageFilePath <> "" Then
+            If PictureBoxImageView.Image.Height > PictureBoxImageView.Height Then
+                PictureBoxImageView.Height = PictureBoxImageView.Image.Height
+            End If
+            If PictureBoxImageView.Image.Width > PictureBoxImageView.Width Then
+                PictureBoxImageView.Width = PictureBoxImageView.Image.Width
+            End If
+        End If
+    End Sub
+
+    Private Sub SelectAllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SelectAllToolStripMenuItem.Click
+        For i = 0 To ListViewImage.Items.Count - 1
+            ListViewImage.Items(i).Selected = True
+        Next
+    End Sub
+
+    Private Sub FormatToToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FormatToToolStripMenuItem.Click
+        If ListViewImage.SelectedIndices.Count <> 0 Then
+            If FormatTo.ShowDialog() = DialogResult.OK Then
+                Dim FormatToPath As String = Nothing
+                Dim FormatToFileList As String()
+                ReDim FormatToFileList(ListViewImage.SelectedIndices.Count - 1)
+                For i = 0 To FormatToFileList.Count - 1
+                    FormatToFileList(i) = ImageViewList(ListViewImage.SelectedIndices(i))
+                Next
+                If FormatTo.CurrentDirectory.Checked Then
+                    FormatToPath = ImageViewPath
+                End If
+                If FormatTo.SelectDirectory.Checked Then
+                    FolderBrowserDialog1.SelectedPath = GetINI("ImageTool", "FormatToPath", "", Application.StartupPath + "\SangoTool.ini")
+                    FolderBrowserDialog1.ShowDialog()
+                    FormatToPath = FolderBrowserDialog1.SelectedPath
+                    WriteINI("ImageTool", "FormatToPath", FormatToPath, Application.StartupPath + "\SangoTool.ini")
+                End If
+                If FormatThread = 0 Then
+                    ProgressBarFormat.Maximum = FormatToFileList.Count
+                    ProgressBarFormat.Value = 0
+                Else
+                    ProgressBarFormat.Maximum = ProgressBarFormat.Maximum + FormatToFileList.Count
+                End If
+                LabelFormat.Text = ProgressBarFormat.Value.ToString + "/" + ProgressBarFormat.Maximum.ToString
+                FormatThread = FormatThread + 1
+                If FormatTo.PNGTOSHP.Checked Then
+                    For i = 0 To FormatToFileList.Count - 1
+                        Dim Ext As String = Strings.StrConv(IO.Path.GetExtension(FormatToFileList(i)), VbStrConv.Uppercase)
+                        If Ext <> ".SHP" Then
+                            If FormatTo.WithOffset.Checked Then
+                                Dim OffsetX As Int32 = GetINI("Offset", "X", 0, FormatToFileList(i) + ".info.ini")
+                                Dim OffsetY As Int32 = GetINI("Offset", "Y", 0, FormatToFileList(i) + ".info.ini")
+                                BitmapToSHP(Bitmap.FromFile(FormatToFileList(i)), FormatToPath + "\" + IO.Path.GetFileNameWithoutExtension(FormatToFileList(i)) + ".shp", OffsetX, OffsetY)
+                            Else
+                                BitmapToSHP(Bitmap.FromFile(FormatToFileList(i)), FormatToPath + "\" + IO.Path.GetFileNameWithoutExtension(FormatToFileList(i)) + ".shp")
+                            End If
+                        End If
+                        ProgressBarFormat.Value = ProgressBarFormat.Value + 1
+                        LabelFormat.Text = ProgressBarFormat.Value.ToString + "/" + ProgressBarFormat.Maximum.ToString
+                    Next
+                End If
+                If FormatTo.SHPTOPNG.Checked Then
+                    For i = 0 To FormatToFileList.Count - 1
+                        Dim Ext As String = Strings.StrConv(IO.Path.GetExtension(FormatToFileList(i)), VbStrConv.Uppercase)
+                        If Ext = ".SHP" Then
+                            SHPToBitmap(FormatToFileList(i)).Save(FormatToPath + "\" + IO.Path.GetFileNameWithoutExtension(FormatToFileList(i)) + ".png")
+                            If FormatTo.WithOffset.Checked Then
+                                Dim point = GetCenterPoint(FormatToFileList(i))
+                                WriteINI("Offset", "X", point(0), FormatToPath + "\" + IO.Path.GetFileNameWithoutExtension(FormatToFileList(i)) + ".png.info.ini")
+                                WriteINI("Offset", "Y", point(1), FormatToPath + "\" + IO.Path.GetFileNameWithoutExtension(FormatToFileList(i)) + ".png.info.ini")
+                            End If
+                        End If
+                        ProgressBarFormat.Value = ProgressBarFormat.Value + 1
+                        LabelFormat.Text = ProgressBarFormat.Value.ToString + "/" + ProgressBarFormat.Maximum.ToString
+                    Next
+                End If
+                FormatThread = FormatThread - 1
+                If FormatThread = 0 Then
+                    ProgressBarFormat.Value = 0
+                    ProgressBarFormat.Maximum = 0
+                    LabelFormat.Text = ProgressBarFormat.Value.ToString + "/" + ProgressBarFormat.Maximum.ToString
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub ReloadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReloadToolStripMenuItem.Click
+        UpdataViewList(ImageViewPath)
+    End Sub
+
+    Private Sub OpenInExplorerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenInExplorerToolStripMenuItem.Click
+        If IO.Directory.Exists(ImageViewPath) Then
+            System.Diagnostics.Process.Start(ImageViewPath)
+        End If
+    End Sub
+
+    Private Sub PictureBoxImageView_DoubleClick(sender As Object, e As EventArgs) Handles PictureBoxImageView.DoubleClick
+        If IO.File.Exists(ImageFilePath) Then
+            Dim Ext As String = Strings.StrConv(IO.Path.GetExtension(ImageFilePath), VbStrConv.Uppercase)
+            If Ext = ".SHP" Then
+                ImageOffset.ImageOffsetX.Value = GetCenterPoint(ImageFilePath)(0)
+                ImageOffset.ImageOffsetY.Value = GetCenterPoint(ImageFilePath)(1)
+            ElseIf Ext = ".PNG" OrElse Ext = ".JPG" OrElse Ext = ".BMP" Then
+                ImageOffset.ImageOffsetX.Value = GetINI("Offset", "X", 0, ImageFilePath + ".info.ini")
+                ImageOffset.ImageOffsetY.Value = GetINI("Offset", "Y", 0, ImageFilePath + ".info.ini")
+            End If
+            If ImageOffset.ShowDialog() = DialogResult.OK Then
+                If Ext = ".SHP" Then
+                    SetCenterPoint(ImageFilePath, ImageOffset.ImageOffsetX.Value, ImageOffset.ImageOffsetY.Value)
+                ElseIf Ext = ".PNG" OrElse Ext = ".JPG" OrElse Ext = ".BMP" Then
+                    WriteINI("Offset", "X", ImageOffset.ImageOffsetX.Value, ImageFilePath + ".info.ini")
+                    WriteINI("Offset", "Y", ImageOffset.ImageOffsetY.Value, ImageFilePath + ".info.ini")
+                End If
+            End If
+        End If
     End Sub
 End Class

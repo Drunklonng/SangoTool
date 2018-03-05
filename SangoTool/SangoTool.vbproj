@@ -82,6 +82,18 @@
       <DependentUpon>Shadow.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormatTo.Designer.vb">
+      <DependentUpon>FormatTo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormatTo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageOffset.Designer.vb">
+      <DependentUpon>ImageOffset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ImageOffset.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Shadow.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +158,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormatTo.resx">
+      <DependentUpon>FormatTo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageOffset.resx">
+      <DependentUpon>ImageOffset.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Shadow.resx">
       <DependentUpon>Shadow.vb</DependentUpon>
     </EmbeddedResource>

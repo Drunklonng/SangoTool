@@ -84,6 +84,29 @@ Module SangoCore
         g.Dispose()
     End Function
 
+    Public Function SetCenterPoint(shpfile As String, POSX As Int32, POSY As Int32) As Boolean
+        If IO.File.Exists(shpfile) Then
+            Dim Readfailed As Boolean = False
+            Dim fs As FileStream = Nothing
+            Do
+                Try
+                    fs = New FileStream(shpfile, FileMode.Open)
+                    Readfailed = False
+                Catch ' ex As Exception
+                    Readfailed = True
+                End Try
+                Windows.Forms.Application.DoEvents()
+            Loop While Readfailed = True
+            Dim bw As New BinaryWriter(fs)
+            fs.Seek(28, SeekOrigin.Begin)
+            bw.Write(POSX)
+            bw.Write(POSY)
+            bw.Close()
+            fs.Close()
+        End If
+        SetCenterPoint = True
+    End Function
+
     Public Function GetCenterPoint(shpfile As String, Optional shpfile2 As String = "") As Int16()
         Dim CenterPoint As Int16() = {0, 0, 1, 1}
         If Not IO.File.Exists(shpfile) Then shpfile = shpfile2
@@ -115,7 +138,7 @@ Module SangoCore
         Dim SubPath As String() = IO.Directory.GetDirectories(Path)
         Dim FileList As String() = {}
         For i = 0 To SubPath.Count - 1
-            Dim SubFileList As String() = IO.Directory.GetFiles(SubPath(i))
+            Dim SubFileList As String() = IO.Directory.GetFiles(SubPath(i), "*.shp")
             For o = 0 To SubFileList.Count - 1
                 ReDim Preserve FileList(FileList.Count)
                 Dim str As String = ""
@@ -140,7 +163,7 @@ Module SangoCore
                 str = SubPath(i)(SubPath(i).Length - a) + str
                 a = a + 1
             Loop Until SubPath(i)(SubPath(i).Length - a) = "\"
-            Dim SubFileList As String() = IO.Directory.GetFiles(SubPath(i))
+            Dim SubFileList As String() = IO.Directory.GetFiles(SubPath(i), "*.shp")
             For o = 0 To SubFileList.Count - 1
                 ReDim Preserve SubPathList(SubPathList.Count)
                 SubPathList(SubPathList.Count - 1) = "\" + str
@@ -244,51 +267,61 @@ Module SangoCore
             Dim POSY As Int32
             Dim Line As Int32()
             Dim Index As Boolean
-            fs.Seek(13, SeekOrigin.Begin)
-            Index = br.ReadBoolean
-            fs.Seek(20, SeekOrigin.Begin)
-            Width = br.ReadInt32
-            Height = br.ReadInt32
-            POSX = br.ReadInt32
-            POSY = br.ReadInt32
-            If Index = True Then fs.Seek(80, SeekOrigin.Begin)
-            ReDim Line(Height - 1)
-            For L = 0 To Line.Count - 1
-                Line(L) = br.ReadInt32
-            Next
-            SHPToBitmap = New Bitmap(Width, Height)
-            For L = 0 To Line.Count - 1
-                If Index = True Then
-                    Dim Position As Int32
-                    fs.Seek(Line(L), SeekOrigin.Begin)
-                    fs.Seek(2, SeekOrigin.Current)
-                    Do Until br.ReadUInt16 = 65535
-                        fs.Seek(-4, SeekOrigin.Current)
-                        Dim lenght As Int16 = br.ReadInt16
-                        Dim begin As Int16 = br.ReadInt16
-                        Dim Data As Int32 = br.ReadInt32
-                        Position = fs.Position
-                        fs.Seek(Data, SeekOrigin.Begin)
-                        For I = begin To begin + lenght - 1
-                            Dim R5G6B5 As UInt16 = br.ReadUInt16
-                            SHPToBitmap.SetPixel(I, L, RGB16To24(R5G6B5, R, G, B))
-                        Next
-                        fs.Seek(Position, SeekOrigin.Begin)
+            Dim Head As Byte()
+            If fs.Length > 36 Then
+                Head = br.ReadBytes(4) '{84, 76, 72, 83}
+            Else
+                Head = {0, 0, 0, 0}
+            End If
+            If Head(0) = 84 AndAlso Head(1) = 76 AndAlso Head(2) = 72 AndAlso Head(3) = 83 Then
+                fs.Seek(13, SeekOrigin.Begin)
+                Index = br.ReadBoolean
+                fs.Seek(20, SeekOrigin.Begin)
+                Width = br.ReadInt32
+                Height = br.ReadInt32
+                POSX = br.ReadInt32
+                POSY = br.ReadInt32
+                If Index = True Then fs.Seek(80, SeekOrigin.Begin)
+                ReDim Line(Height - 1)
+                For L = 0 To Line.Count - 1
+                    Line(L) = br.ReadInt32
+                Next
+                SHPToBitmap = New Bitmap(Width, Height)
+                For L = 0 To Line.Count - 1
+                    If Index = True Then
+                        Dim Position As Int32
+                        fs.Seek(Line(L), SeekOrigin.Begin)
                         fs.Seek(2, SeekOrigin.Current)
-                    Loop
-                Else
-                    fs.Seek(Line(L), SeekOrigin.Begin)
-                    Do Until br.ReadUInt16 = 65535
-                        fs.Seek(-2, SeekOrigin.Current)
-                        Dim begin As Int16 = br.ReadInt16
-                        Dim lenght As Int16 = br.ReadInt16
-                        For I = begin To begin + lenght - 1
-                            Dim R5G6B5 As UInt16 = br.ReadUInt16
-                            SHPToBitmap.SetPixel(I, L, RGB16To24(R5G6B5, R, G, B))
-                        Next
-                    Loop
-                End If
-            Next
+                        Do Until br.ReadUInt16 = 65535
+                            fs.Seek(-4, SeekOrigin.Current)
+                            Dim lenght As Int16 = br.ReadInt16
+                            Dim begin As Int16 = br.ReadInt16
+                            Dim Data As Int32 = br.ReadInt32
+                            Position = fs.Position
+                            fs.Seek(Data, SeekOrigin.Begin)
+                            For I = begin To begin + lenght - 1
+                                Dim R5G6B5 As UInt16 = br.ReadUInt16
+                                SHPToBitmap.SetPixel(I, L, RGB16To24(R5G6B5, R, G, B))
+                            Next
+                            fs.Seek(Position, SeekOrigin.Begin)
+                            fs.Seek(2, SeekOrigin.Current)
+                        Loop
+                    Else
+                        fs.Seek(Line(L), SeekOrigin.Begin)
+                        Do Until br.ReadUInt16 = 65535
+                            fs.Seek(-2, SeekOrigin.Current)
+                            Dim begin As Int16 = br.ReadInt16
+                            Dim lenght As Int16 = br.ReadInt16
+                            For I = begin To begin + lenght - 1
+                                Dim R5G6B5 As UInt16 = br.ReadUInt16
+                                SHPToBitmap.SetPixel(I, L, RGB16To24(R5G6B5, R, G, B))
+                            Next
+                        Loop
+                    End If
+                Next
+            Else
+                SHPToBitmap = New Bitmap(1, 1)
+            End If
             br.Close()
             fs.Close()
         Else

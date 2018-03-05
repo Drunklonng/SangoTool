@@ -93,8 +93,22 @@ Partial Class SangoTool
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.ImageTool = New System.Windows.Forms.TabPage()
+        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.TableLayoutPanel12 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TreeViewImagePath = New System.Windows.Forms.TreeView()
+        Me.TextBoxImagePath = New System.Windows.Forms.TextBox()
+        Me.ProgressBarFormat = New System.Windows.Forms.ProgressBar()
+        Me.LabelFormat = New System.Windows.Forms.Label()
+        Me.ButtonImagePath = New System.Windows.Forms.Button()
+        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.PictureBoxImageView = New System.Windows.Forms.PictureBox()
+        Me.ListViewImage = New System.Windows.Forms.ListView()
+        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ReloadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SelectAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FormatToToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenInExplorerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.FontTool = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel13 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -166,7 +180,17 @@ Partial Class SangoTool
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.ImageTool.SuspendLayout()
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer1.Panel1.SuspendLayout()
+        Me.SplitContainer1.Panel2.SuspendLayout()
+        Me.SplitContainer1.SuspendLayout()
         Me.TableLayoutPanel12.SuspendLayout()
+        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer2.Panel1.SuspendLayout()
+        Me.SplitContainer2.Panel2.SuspendLayout()
+        Me.SplitContainer2.SuspendLayout()
+        CType(Me.PictureBoxImageView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip2.SuspendLayout()
         Me.FontTool.SuspendLayout()
         Me.TableLayoutPanel13.SuspendLayout()
         Me.MapTool.SuspendLayout()
@@ -1023,7 +1047,7 @@ Partial Class SangoTool
         '
         'ImageTool
         '
-        Me.ImageTool.Controls.Add(Me.TableLayoutPanel12)
+        Me.ImageTool.Controls.Add(Me.SplitContainer1)
         Me.ImageTool.Location = New System.Drawing.Point(4, 32)
         Me.ImageTool.Name = "ImageTool"
         Me.ImageTool.Size = New System.Drawing.Size(776, 525)
@@ -1031,35 +1055,175 @@ Partial Class SangoTool
         Me.ImageTool.Text = "ImageTool"
         Me.ImageTool.UseVisualStyleBackColor = True
         '
+        'SplitContainer1
+        '
+        Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
+        Me.SplitContainer1.IsSplitterFixed = True
+        Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer1.Name = "SplitContainer1"
+        '
+        'SplitContainer1.Panel1
+        '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.TableLayoutPanel12)
+        '
+        'SplitContainer1.Panel2
+        '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
+        Me.SplitContainer1.Size = New System.Drawing.Size(776, 525)
+        Me.SplitContainer1.SplitterDistance = 220
+        Me.SplitContainer1.TabIndex = 4
+        '
         'TableLayoutPanel12
         '
         Me.TableLayoutPanel12.ColumnCount = 3
-        Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
-        Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.14035!))
-        Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
-        Me.TableLayoutPanel12.Controls.Add(Me.Label1, 1, 1)
+        Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
+        Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel12.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel12.Controls.Add(Me.TreeViewImagePath, 0, 1)
+        Me.TableLayoutPanel12.Controls.Add(Me.TextBoxImagePath, 0, 0)
+        Me.TableLayoutPanel12.Controls.Add(Me.ProgressBarFormat, 0, 2)
+        Me.TableLayoutPanel12.Controls.Add(Me.LabelFormat, 1, 2)
+        Me.TableLayoutPanel12.Controls.Add(Me.ButtonImagePath, 2, 0)
         Me.TableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel12.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel12.Name = "TableLayoutPanel12"
         Me.TableLayoutPanel12.RowCount = 3
-        Me.TableLayoutPanel12.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
-        Me.TableLayoutPanel12.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.24242!))
-        Me.TableLayoutPanel12.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
-        Me.TableLayoutPanel12.Size = New System.Drawing.Size(776, 525)
-        Me.TableLayoutPanel12.TabIndex = 1
+        Me.TableLayoutPanel12.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28.0!))
+        Me.TableLayoutPanel12.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel12.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
+        Me.TableLayoutPanel12.Size = New System.Drawing.Size(220, 525)
+        Me.TableLayoutPanel12.TabIndex = 0
         '
-        'Label1
+        'TreeViewImagePath
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label1.Location = New System.Drawing.Point(173, 198)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(429, 127)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "is developing"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.TableLayoutPanel12.SetColumnSpan(Me.TreeViewImagePath, 3)
+        Me.TreeViewImagePath.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TreeViewImagePath.Location = New System.Drawing.Point(3, 31)
+        Me.TreeViewImagePath.Name = "TreeViewImagePath"
+        Me.TreeViewImagePath.Size = New System.Drawing.Size(214, 459)
+        Me.TreeViewImagePath.TabIndex = 1
+        '
+        'TextBoxImagePath
+        '
+        Me.TableLayoutPanel12.SetColumnSpan(Me.TextBoxImagePath, 2)
+        Me.TextBoxImagePath.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TextBoxImagePath.Location = New System.Drawing.Point(3, 3)
+        Me.TextBoxImagePath.Name = "TextBoxImagePath"
+        Me.TextBoxImagePath.ReadOnly = True
+        Me.TextBoxImagePath.Size = New System.Drawing.Size(170, 21)
+        Me.TextBoxImagePath.TabIndex = 3
+        '
+        'ProgressBarFormat
+        '
+        Me.ProgressBarFormat.Location = New System.Drawing.Point(3, 496)
+        Me.ProgressBarFormat.Name = "ProgressBarFormat"
+        Me.ProgressBarFormat.Size = New System.Drawing.Size(126, 26)
+        Me.ProgressBarFormat.TabIndex = 4
+        '
+        'LabelFormat
+        '
+        Me.LabelFormat.AutoSize = True
+        Me.LabelFormat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TableLayoutPanel12.SetColumnSpan(Me.LabelFormat, 2)
+        Me.LabelFormat.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabelFormat.Location = New System.Drawing.Point(135, 496)
+        Me.LabelFormat.Margin = New System.Windows.Forms.Padding(3)
+        Me.LabelFormat.Name = "LabelFormat"
+        Me.LabelFormat.Size = New System.Drawing.Size(82, 26)
+        Me.LabelFormat.TabIndex = 5
+        Me.LabelFormat.Text = "0/0"
+        Me.LabelFormat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'ButtonImagePath
+        '
+        Me.ButtonImagePath.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonImagePath.Location = New System.Drawing.Point(179, 3)
+        Me.ButtonImagePath.Name = "ButtonImagePath"
+        Me.ButtonImagePath.Size = New System.Drawing.Size(38, 22)
+        Me.ButtonImagePath.TabIndex = 2
+        Me.ButtonImagePath.Text = "Path"
+        Me.ButtonImagePath.UseVisualStyleBackColor = True
+        '
+        'SplitContainer2
+        '
+        Me.SplitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
+        Me.SplitContainer2.IsSplitterFixed = True
+        Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer2.Name = "SplitContainer2"
+        Me.SplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainer2.Panel1
+        '
+        Me.SplitContainer2.Panel1.AutoScroll = True
+        Me.SplitContainer2.Panel1.Controls.Add(Me.PictureBoxImageView)
+        '
+        'SplitContainer2.Panel2
+        '
+        Me.SplitContainer2.Panel2.Controls.Add(Me.ListViewImage)
+        Me.SplitContainer2.Size = New System.Drawing.Size(552, 525)
+        Me.SplitContainer2.SplitterDistance = 300
+        Me.SplitContainer2.TabIndex = 0
+        '
+        'PictureBoxImageView
+        '
+        Me.PictureBoxImageView.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBoxImageView.Name = "PictureBoxImageView"
+        Me.PictureBoxImageView.Size = New System.Drawing.Size(550, 298)
+        Me.PictureBoxImageView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBoxImageView.TabIndex = 0
+        Me.PictureBoxImageView.TabStop = False
+        '
+        'ListViewImage
+        '
+        Me.ListViewImage.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ListViewImage.ContextMenuStrip = Me.ContextMenuStrip2
+        Me.ListViewImage.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListViewImage.LargeImageList = Me.ImageList1
+        Me.ListViewImage.Location = New System.Drawing.Point(0, 0)
+        Me.ListViewImage.Name = "ListViewImage"
+        Me.ListViewImage.Size = New System.Drawing.Size(550, 219)
+        Me.ListViewImage.SmallImageList = Me.ImageList1
+        Me.ListViewImage.TabIndex = 0
+        Me.ListViewImage.UseCompatibleStateImageBehavior = False
+        '
+        'ContextMenuStrip2
+        '
+        Me.ContextMenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReloadToolStripMenuItem, Me.SelectAllToolStripMenuItem, Me.FormatToToolStripMenuItem, Me.OpenInExplorerToolStripMenuItem})
+        Me.ContextMenuStrip2.Name = "ContextMenuStrip2"
+        Me.ContextMenuStrip2.Size = New System.Drawing.Size(176, 92)
+        '
+        'ReloadToolStripMenuItem
+        '
+        Me.ReloadToolStripMenuItem.Name = "ReloadToolStripMenuItem"
+        Me.ReloadToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+        Me.ReloadToolStripMenuItem.Text = "Reload"
+        '
+        'SelectAllToolStripMenuItem
+        '
+        Me.SelectAllToolStripMenuItem.Name = "SelectAllToolStripMenuItem"
+        Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+        Me.SelectAllToolStripMenuItem.Text = "Select All"
+        '
+        'FormatToToolStripMenuItem
+        '
+        Me.FormatToToolStripMenuItem.Name = "FormatToToolStripMenuItem"
+        Me.FormatToToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+        Me.FormatToToolStripMenuItem.Text = "Format to"
+        '
+        'OpenInExplorerToolStripMenuItem
+        '
+        Me.OpenInExplorerToolStripMenuItem.Name = "OpenInExplorerToolStripMenuItem"
+        Me.OpenInExplorerToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+        Me.OpenInExplorerToolStripMenuItem.Text = "Open in Explorer"
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        Me.ImageList1.ImageSize = New System.Drawing.Size(32, 32)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
         '
         'FontTool
         '
@@ -1464,8 +1628,18 @@ Partial Class SangoTool
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.ImageTool.ResumeLayout(False)
+        Me.SplitContainer1.Panel1.ResumeLayout(False)
+        Me.SplitContainer1.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer1.ResumeLayout(False)
         Me.TableLayoutPanel12.ResumeLayout(False)
         Me.TableLayoutPanel12.PerformLayout()
+        Me.SplitContainer2.Panel1.ResumeLayout(False)
+        Me.SplitContainer2.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer2.ResumeLayout(False)
+        CType(Me.PictureBoxImageView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip2.ResumeLayout(False)
         Me.FontTool.ResumeLayout(False)
         Me.TableLayoutPanel13.ResumeLayout(False)
         Me.TableLayoutPanel13.PerformLayout()
@@ -1560,8 +1734,6 @@ Partial Class SangoTool
     Friend WithEvents Readme As TabPage
     Friend WithEvents ScriptTool As TabPage
     Friend WithEvents ImageTool As TabPage
-    Friend WithEvents TableLayoutPanel12 As TableLayoutPanel
-    Friend WithEvents Label1 As Label
     Friend WithEvents FontTool As TabPage
     Friend WithEvents TableLayoutPanel13 As TableLayoutPanel
     Friend WithEvents Label2 As Label
@@ -1584,4 +1756,20 @@ Partial Class SangoTool
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents LinkLabel5 As LinkLabel
+    Friend WithEvents SplitContainer1 As SplitContainer
+    Friend WithEvents TableLayoutPanel12 As TableLayoutPanel
+    Friend WithEvents ButtonImagePath As Button
+    Friend WithEvents TreeViewImagePath As TreeView
+    Friend WithEvents TextBoxImagePath As TextBox
+    Friend WithEvents SplitContainer2 As SplitContainer
+    Friend WithEvents PictureBoxImageView As PictureBox
+    Friend WithEvents ListViewImage As ListView
+    Friend WithEvents ContextMenuStrip2 As ContextMenuStrip
+    Friend WithEvents ReloadToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SelectAllToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FormatToToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ImageList1 As ImageList
+    Friend WithEvents ProgressBarFormat As ProgressBar
+    Friend WithEvents LabelFormat As Label
+    Friend WithEvents OpenInExplorerToolStripMenuItem As ToolStripMenuItem
 End Class
