@@ -1568,15 +1568,17 @@
 
     Private Sub TreeViewImagePath_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeViewImagePath.AfterSelect
         Dim subpath As String() = IO.Directory.GetDirectories(ImagePath + "\" + TreeViewImagePath.SelectedNode.FullPath)
-        For i = 0 To subpath.Count - 1
-            Dim str As String = ""
-            Dim a As Int16 = 1
-            Do
-                str = subpath(i)(subpath(i).Length - a) + str
-                a = a + 1
-            Loop Until subpath(i)(subpath(i).Length - a) = "\"
-            TreeViewImagePath.SelectedNode.Nodes.Add(str)
-        Next
+        If TreeViewImagePath.SelectedNode.Nodes.Count = 0 Then
+            For i = 0 To subpath.Count - 1
+                Dim str As String = ""
+                Dim a As Int16 = 1
+                Do
+                    str = subpath(i)(subpath(i).Length - a) + str
+                    a = a + 1
+                Loop Until subpath(i)(subpath(i).Length - a) = "\"
+                TreeViewImagePath.SelectedNode.Nodes.Add(str)
+            Next
+        End If
         If ImageViewPath <> ImagePath + "\" + TreeViewImagePath.SelectedNode.FullPath Then
             ImageViewPath = ImagePath + "\" + TreeViewImagePath.SelectedNode.FullPath
             UpdataViewList(ImageViewPath)
@@ -1711,6 +1713,7 @@
                         End If
                         ProgressBarFormat.Value = ProgressBarFormat.Value + 1
                         LabelFormat.Text = ProgressBarFormat.Value.ToString + "/" + ProgressBarFormat.Maximum.ToString
+                        Windows.Forms.Application.DoEvents()
                     Next
                 End If
                 If FormatTo.SHPTOPNG.Checked Then
@@ -1726,6 +1729,7 @@
                         End If
                         ProgressBarFormat.Value = ProgressBarFormat.Value + 1
                         LabelFormat.Text = ProgressBarFormat.Value.ToString + "/" + ProgressBarFormat.Maximum.ToString
+                        Windows.Forms.Application.DoEvents()
                     Next
                 End If
                 FormatThread = FormatThread - 1
@@ -1754,16 +1758,55 @@
             If Ext = ".SHP" Then
                 ImageOffset.ImageOffsetX.Value = GetCenterPoint(ImageFilePath)(0)
                 ImageOffset.ImageOffsetY.Value = GetCenterPoint(ImageFilePath)(1)
-            ElseIf Ext = ".PNG" OrElse Ext = ".JPG" OrElse Ext = ".BMP" Then
+            Else 'If Ext = ".PNG" OrElse Ext = ".JPG" OrElse Ext = ".BMP" Then
                 ImageOffset.ImageOffsetX.Value = GetINI("Offset", "X", 0, ImageFilePath + ".info.ini")
                 ImageOffset.ImageOffsetY.Value = GetINI("Offset", "Y", 0, ImageFilePath + ".info.ini")
             End If
             If ImageOffset.ShowDialog() = DialogResult.OK Then
                 If Ext = ".SHP" Then
                     SetCenterPoint(ImageFilePath, ImageOffset.ImageOffsetX.Value, ImageOffset.ImageOffsetY.Value)
-                ElseIf Ext = ".PNG" OrElse Ext = ".JPG" OrElse Ext = ".BMP" Then
+                Else 'If Ext = ".PNG" OrElse Ext = ".JPG" OrElse Ext = ".BMP" Then
                     WriteINI("Offset", "X", ImageOffset.ImageOffsetX.Value, ImageFilePath + ".info.ini")
                     WriteINI("Offset", "Y", ImageOffset.ImageOffsetY.Value, ImageFilePath + ".info.ini")
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub SetOffsetToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SetOffsetToolStripMenuItem.Click
+        If ListViewImage.SelectedIndices.Count = 1 Then
+            If IO.File.Exists(ImageViewList(ListViewImage.SelectedIndices(0))) Then
+                Dim Ext As String = Strings.StrConv(IO.Path.GetExtension(ImageViewList(ListViewImage.SelectedIndices(0))), VbStrConv.Uppercase)
+                If Ext = ".SHP" Then
+                    ImageOffset.ImageOffsetX.Value = GetCenterPoint(ImageViewList(ListViewImage.SelectedIndices(0)))(0)
+                    ImageOffset.ImageOffsetY.Value = GetCenterPoint(ImageViewList(ListViewImage.SelectedIndices(0)))(1)
+                Else 'If Ext = ".PNG" OrElse Ext = ".JPG" OrElse Ext = ".BMP" Then
+                    ImageOffset.ImageOffsetX.Value = GetINI("Offset", "X", 0, ImageViewList(ListViewImage.SelectedIndices(0)) + ".info.ini")
+                    ImageOffset.ImageOffsetY.Value = GetINI("Offset", "Y", 0, ImageViewList(ListViewImage.SelectedIndices(0)) + ".info.ini")
+                End If
+                If ImageOffset.ShowDialog() = DialogResult.OK Then
+                    If Ext = ".SHP" Then
+                        SetCenterPoint(ImageViewList(ListViewImage.SelectedIndices(0)), ImageOffset.ImageOffsetX.Value, ImageOffset.ImageOffsetY.Value)
+                    Else 'If Ext = ".PNG" OrElse Ext = ".JPG" OrElse Ext = ".BMP" Then
+                        WriteINI("Offset", "X", ImageOffset.ImageOffsetX.Value, ImageViewList(ListViewImage.SelectedIndices(0)) + ".info.ini")
+                        WriteINI("Offset", "Y", ImageOffset.ImageOffsetY.Value, ImageViewList(ListViewImage.SelectedIndices(0)) + ".info.ini")
+                    End If
+                End If
+            End If
+        ElseIf ListViewImage.SelectedIndices.Count > 1 Then
+            If MsgBox("Set all " + ListViewImage.SelectedIndices.Count.ToString + " files ?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                ImageOffset.ImageOffsetX.Value = 0
+                ImageOffset.ImageOffsetY.Value = 0
+                If ImageOffset.ShowDialog() = DialogResult.OK Then
+                    For i = 0 To ListViewImage.SelectedIndices.Count - 1
+                        Dim Ext As String = Strings.StrConv(IO.Path.GetExtension(ImageViewList(ListViewImage.SelectedIndices(i))), VbStrConv.Uppercase)
+                        If Ext = ".SHP" Then
+                            SetCenterPoint(ImageViewList(ListViewImage.SelectedIndices(0)), ImageOffset.ImageOffsetX.Value, ImageOffset.ImageOffsetY.Value)
+                        ElseIf Ext = ".PNG" OrElse Ext = ".JPG" OrElse Ext = ".BMP" Then
+                            WriteINI("Offset", "X", ImageOffset.ImageOffsetX.Value, ImageViewList(ListViewImage.SelectedIndices(i)) + ".info.ini")
+                            WriteINI("Offset", "Y", ImageOffset.ImageOffsetY.Value, ImageViewList(ListViewImage.SelectedIndices(i)) + ".info.ini")
+                        End If
+                    Next
                 End If
             End If
         End If

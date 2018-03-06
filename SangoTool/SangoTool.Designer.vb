@@ -138,6 +138,7 @@ Partial Class SangoTool
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
+        Me.SetOffsetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.License.SuspendLayout()
         Me.TableLayoutPanel10.SuspendLayout()
         Me.ObjectTool.SuspendLayout()
@@ -1117,6 +1118,7 @@ Partial Class SangoTool
         'ProgressBarFormat
         '
         Me.ProgressBarFormat.Location = New System.Drawing.Point(3, 496)
+        Me.ProgressBarFormat.MarqueeAnimationSpeed = 5
         Me.ProgressBarFormat.Name = "ProgressBarFormat"
         Me.ProgressBarFormat.Size = New System.Drawing.Size(126, 26)
         Me.ProgressBarFormat.TabIndex = 4
@@ -1191,9 +1193,9 @@ Partial Class SangoTool
         '
         'ContextMenuStrip2
         '
-        Me.ContextMenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReloadToolStripMenuItem, Me.SelectAllToolStripMenuItem, Me.FormatToToolStripMenuItem, Me.OpenInExplorerToolStripMenuItem})
+        Me.ContextMenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReloadToolStripMenuItem, Me.SelectAllToolStripMenuItem, Me.FormatToToolStripMenuItem, Me.SetOffsetToolStripMenuItem, Me.OpenInExplorerToolStripMenuItem})
         Me.ContextMenuStrip2.Name = "ContextMenuStrip2"
-        Me.ContextMenuStrip2.Size = New System.Drawing.Size(176, 92)
+        Me.ContextMenuStrip2.Size = New System.Drawing.Size(176, 114)
         '
         'ReloadToolStripMenuItem
         '
@@ -1572,6 +1574,12 @@ Partial Class SangoTool
         Me.OpenFileDialog2.DefaultExt = "*.shp"
         Me.OpenFileDialog2.Filter = "Shadow File|*.shp"
         '
+        'SetOffsetToolStripMenuItem
+        '
+        Me.SetOffsetToolStripMenuItem.Name = "SetOffsetToolStripMenuItem"
+        Me.SetOffsetToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+        Me.SetOffsetToolStripMenuItem.Text = "Set Offset"
+        '
         'SangoTool
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -1772,4 +1780,5 @@ Partial Class SangoTool
     Friend WithEvents ProgressBarFormat As ProgressBar
     Friend WithEvents LabelFormat As Label
     Friend WithEvents OpenInExplorerToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SetOffsetToolStripMenuItem As ToolStripMenuItem
 End Class
