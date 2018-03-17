@@ -392,4 +392,52 @@ Module SangoCore
         BitmapToSHP = True
     End Function
 
+    Public Function BitmapToSmallMap(bitmap As Bitmap, shpfile As String) As Boolean
+        If bitmap Is Nothing Then
+            bitmap = New Bitmap(382, 270)
+        ElseIf bitmap.Height <> 270 OrElse bitmap.Width <> 382 Then
+            bitmap = New Bitmap(bitmap, 382, 270)
+        End If
+        Dim fs As New FileStream(shpfile, FileMode.Create)
+        Dim bw As New BinaryWriter(fs)
+        For L = 0 To bitmap.Height - 1
+            For I = 0 To bitmap.Width - 1
+                Dim R5G6B5 As UInt16 = RGB24To16(bitmap.GetPixel(I, L))
+                bw.Write(R5G6B5)
+            Next
+        Next
+        bw.Close()
+        fs.Close()
+        BitmapToSmallMap = True
+    End Function
+
+    Public Function SmallMapToBitmap(shpfile As String) As Bitmap
+        SmallMapToBitmap = New Bitmap(382, 270)
+        If IO.File.Exists(shpfile) Then
+            Dim Readfailed As Boolean = False
+            Dim fs As FileStream = Nothing
+            Do
+                Try
+                    fs = New FileStream(shpfile, FileMode.Open)
+                    Readfailed = False
+                Catch ' ex As Exception
+                    Readfailed = True
+                End Try
+                Windows.Forms.Application.DoEvents()
+            Loop While Readfailed = True
+            Dim br As New BinaryReader(fs)
+            Dim y = 0
+            Do
+                Dim x = 0
+                Do
+                    Dim R5G6B5 As UInt16 = br.ReadUInt16
+                    SmallMapToBitmap.SetPixel(x, y, RGB16To24(R5G6B5))
+                    x = x + 1
+                Loop Until x >= 382
+                y = y + 1
+            Loop Until y >= 270
+            br.Close()
+            fs.Close()
+        End If
+    End Function
 End Module

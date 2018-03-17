@@ -107,6 +107,7 @@ Partial Class SangoTool
         Me.ReloadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SelectAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FormatToToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SetOffsetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenInExplorerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.FontTool = New System.Windows.Forms.TabPage()
@@ -114,7 +115,6 @@ Partial Class SangoTool
         Me.Label2 = New System.Windows.Forms.Label()
         Me.MapTool = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel14 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.ScriptTool = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel15 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -138,7 +138,7 @@ Partial Class SangoTool
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
-        Me.SetOffsetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ButtonSmallMap = New System.Windows.Forms.Button()
         Me.License.SuspendLayout()
         Me.TableLayoutPanel10.SuspendLayout()
         Me.ObjectTool.SuspendLayout()
@@ -1215,6 +1215,12 @@ Partial Class SangoTool
         Me.FormatToToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.FormatToToolStripMenuItem.Text = "Format to"
         '
+        'SetOffsetToolStripMenuItem
+        '
+        Me.SetOffsetToolStripMenuItem.Name = "SetOffsetToolStripMenuItem"
+        Me.SetOffsetToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+        Me.SetOffsetToolStripMenuItem.Text = "Set Offset"
+        '
         'OpenInExplorerToolStripMenuItem
         '
         Me.OpenInExplorerToolStripMenuItem.Name = "OpenInExplorerToolStripMenuItem"
@@ -1283,7 +1289,7 @@ Partial Class SangoTool
         Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
         Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.14035!))
         Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
-        Me.TableLayoutPanel14.Controls.Add(Me.Label3, 1, 1)
+        Me.TableLayoutPanel14.Controls.Add(Me.ButtonSmallMap, 1, 1)
         Me.TableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel14.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel14.Name = "TableLayoutPanel14"
@@ -1293,19 +1299,6 @@ Partial Class SangoTool
         Me.TableLayoutPanel14.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
         Me.TableLayoutPanel14.Size = New System.Drawing.Size(776, 525)
         Me.TableLayoutPanel14.TabIndex = 2
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label3.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label3.Location = New System.Drawing.Point(173, 198)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(429, 127)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "is developing"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ScriptTool
         '
@@ -1574,11 +1567,14 @@ Partial Class SangoTool
         Me.OpenFileDialog2.DefaultExt = "*.shp"
         Me.OpenFileDialog2.Filter = "Shadow File|*.shp"
         '
-        'SetOffsetToolStripMenuItem
+        'ButtonSmallMap
         '
-        Me.SetOffsetToolStripMenuItem.Name = "SetOffsetToolStripMenuItem"
-        Me.SetOffsetToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
-        Me.SetOffsetToolStripMenuItem.Text = "Set Offset"
+        Me.ButtonSmallMap.Location = New System.Drawing.Point(173, 201)
+        Me.ButtonSmallMap.Name = "ButtonSmallMap"
+        Me.ButtonSmallMap.Size = New System.Drawing.Size(429, 121)
+        Me.ButtonSmallMap.TabIndex = 0
+        Me.ButtonSmallMap.Text = "SmallMap"
+        Me.ButtonSmallMap.UseVisualStyleBackColor = True
         '
         'SangoTool
         '
@@ -1653,7 +1649,6 @@ Partial Class SangoTool
         Me.TableLayoutPanel13.PerformLayout()
         Me.MapTool.ResumeLayout(False)
         Me.TableLayoutPanel14.ResumeLayout(False)
-        Me.TableLayoutPanel14.PerformLayout()
         Me.ScriptTool.ResumeLayout(False)
         Me.TableLayoutPanel15.ResumeLayout(False)
         Me.TableLayoutPanel15.PerformLayout()
@@ -1747,7 +1742,6 @@ Partial Class SangoTool
     Friend WithEvents Label2 As Label
     Friend WithEvents MapTool As TabPage
     Friend WithEvents TableLayoutPanel14 As TableLayoutPanel
-    Friend WithEvents Label3 As Label
     Friend WithEvents TableLayoutPanel15 As TableLayoutPanel
     Friend WithEvents Label4 As Label
     Friend WithEvents TableLayoutPanel11 As TableLayoutPanel
@@ -1781,4 +1775,5 @@ Partial Class SangoTool
     Friend WithEvents LabelFormat As Label
     Friend WithEvents OpenInExplorerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SetOffsetToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ButtonSmallMap As Button
 End Class
