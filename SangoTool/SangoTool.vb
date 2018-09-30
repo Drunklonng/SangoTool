@@ -1815,4 +1815,12 @@
     Private Sub ButtonSmallMap_Click(sender As Object, e As EventArgs) Handles ButtonSmallMap.Click
         SmallMap.ShowDialog()
     End Sub
+
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        FontTo.ShowDialog()
+    End Sub
+
+    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
+        ToFont.ShowDialog()
+    End Sub
 End Class

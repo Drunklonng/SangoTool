@@ -97,6 +97,12 @@
       <DependentUpon>Shadow.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FontToBitmap.Designer.vb">
+      <DependentUpon>FontToBitmap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FontToBitmap.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormatTo.Designer.vb">
       <DependentUpon>FormatTo.vb</DependentUpon>
     </Compile>
@@ -171,6 +177,12 @@
     <Compile Include="SmallMap.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="BitmapToFont.Designer.vb">
+      <DependentUpon>BitmapToFont.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BitmapToFont.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Transform.Designer.vb">
       <DependentUpon>Transform.vb</DependentUpon>
     </Compile>
@@ -179,6 +191,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BitmapToFont.resx">
+      <DependentUpon>BitmapToFont.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontToBitmap.resx">
+      <DependentUpon>FontToBitmap.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormatTo.resx">
       <DependentUpon>FormatTo.vb</DependentUpon>
     </EmbeddedResource>
