@@ -47,7 +47,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  使用此强类型资源类，为所有资源查找
+        '''  重写当前线程的 CurrentUICulture 属性
         '''  重写当前线程的 CurrentUICulture 属性。
         '''</summary>
         <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
@@ -63,9 +63,9 @@ Namespace My.Resources
         '''<summary>
         '''  查找 System.Drawing.Bitmap 类型的本地化资源。
         '''</summary>
-        Friend ReadOnly Property DrunkLoong_2_min() As System.Drawing.Bitmap
+        Friend ReadOnly Property WeChat() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("DrunkLoong_2-min", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("WeChat", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

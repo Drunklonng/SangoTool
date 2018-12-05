@@ -24,34 +24,34 @@ Partial Class ObjectColor
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ObjectColor))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.LabelChannel1 = New System.Windows.Forms.Label()
         Me.RedFromRed = New System.Windows.Forms.RadioButton()
         Me.RedFromGreen = New System.Windows.Forms.RadioButton()
         Me.RedFromBlue = New System.Windows.Forms.RadioButton()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.LabelChannel2 = New System.Windows.Forms.Label()
         Me.GreenFromRed = New System.Windows.Forms.RadioButton()
         Me.GreenFromGreen = New System.Windows.Forms.RadioButton()
         Me.GreenFromBlue = New System.Windows.Forms.RadioButton()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.LabelChannel3 = New System.Windows.Forms.Label()
         Me.BlueFromRed = New System.Windows.Forms.RadioButton()
         Me.BlueFromGreen = New System.Windows.Forms.RadioButton()
         Me.BlueFromBlue = New System.Windows.Forms.RadioButton()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.TransparentON = New System.Windows.Forms.RadioButton()
         Me.TransparentOFF = New System.Windows.Forms.RadioButton()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.LabelTransparent = New System.Windows.Forms.Label()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.LabelB = New System.Windows.Forms.Label()
+        Me.LabelG = New System.Windows.Forms.Label()
         Me.NumericUpDownR = New System.Windows.Forms.NumericUpDown()
         Me.NumericUpDownG = New System.Windows.Forms.NumericUpDown()
         Me.NumericUpDownB = New System.Windows.Forms.NumericUpDown()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.LabelR = New System.Windows.Forms.Label()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -72,7 +72,7 @@ Partial Class ObjectColor
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.LabelChannel1, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.RedFromRed, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.RedFromGreen, 2, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.RedFromBlue, 3, 0)
@@ -84,17 +84,17 @@ Partial Class ObjectColor
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(369, 27)
         Me.TableLayoutPanel1.TabIndex = 0
         '
-        'Label1
+        'LabelChannel1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label1.Location = New System.Drawing.Point(4, 1)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(139, 25)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Red Channel :"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelChannel1.AutoSize = True
+        Me.LabelChannel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabelChannel1.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.LabelChannel1.Location = New System.Drawing.Point(4, 1)
+        Me.LabelChannel1.Name = "LabelChannel1"
+        Me.LabelChannel1.Size = New System.Drawing.Size(139, 25)
+        Me.LabelChannel1.TabIndex = 0
+        Me.LabelChannel1.Text = "Red Channel :"
+        Me.LabelChannel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'RedFromRed
         '
@@ -142,7 +142,7 @@ Partial Class ObjectColor
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.Label2, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.LabelChannel2, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.GreenFromRed, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.GreenFromGreen, 2, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.GreenFromBlue, 3, 0)
@@ -153,17 +153,17 @@ Partial Class ObjectColor
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(369, 27)
         Me.TableLayoutPanel2.TabIndex = 1
         '
-        'Label2
+        'LabelChannel2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label2.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label2.Location = New System.Drawing.Point(4, 1)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(139, 25)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Green Channel :"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelChannel2.AutoSize = True
+        Me.LabelChannel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabelChannel2.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.LabelChannel2.Location = New System.Drawing.Point(4, 1)
+        Me.LabelChannel2.Name = "LabelChannel2"
+        Me.LabelChannel2.Size = New System.Drawing.Size(139, 25)
+        Me.LabelChannel2.TabIndex = 0
+        Me.LabelChannel2.Text = "Green Channel :"
+        Me.LabelChannel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'GreenFromRed
         '
@@ -211,7 +211,7 @@ Partial Class ObjectColor
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.Label3, 0, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.LabelChannel3, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.BlueFromRed, 1, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.BlueFromGreen, 2, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.BlueFromBlue, 3, 0)
@@ -222,17 +222,17 @@ Partial Class ObjectColor
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(369, 27)
         Me.TableLayoutPanel3.TabIndex = 2
         '
-        'Label3
+        'LabelChannel3
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label3.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label3.Location = New System.Drawing.Point(4, 1)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(139, 25)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "Blue Channel :"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelChannel3.AutoSize = True
+        Me.LabelChannel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabelChannel3.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.LabelChannel3.Location = New System.Drawing.Point(4, 1)
+        Me.LabelChannel3.Name = "LabelChannel3"
+        Me.LabelChannel3.Size = New System.Drawing.Size(139, 25)
+        Me.LabelChannel3.TabIndex = 0
+        Me.LabelChannel3.Text = "Blue Channel :"
+        Me.LabelChannel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'BlueFromRed
         '
@@ -272,25 +272,25 @@ Partial Class ObjectColor
         Me.BlueFromBlue.Text = "Blue"
         Me.BlueFromBlue.UseVisualStyleBackColor = True
         '
-        'Label4
+        'Label2
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label4.Location = New System.Drawing.Point(12, 102)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(152, 16)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Channel Exchange :"
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label2.Location = New System.Drawing.Point(12, 102)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(152, 16)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Channel Exchange :"
         '
-        'Label5
+        'Label1
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label5.Location = New System.Drawing.Point(12, 9)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(128, 16)
-        Me.Label5.TabIndex = 4
-        Me.Label5.Text = "Faction Color :"
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(128, 16)
+        Me.Label1.TabIndex = 4
+        Me.Label1.Text = "Faction Color :"
         '
         'PictureBox1
         '
@@ -311,7 +311,7 @@ Partial Class ObjectColor
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel4.Controls.Add(Me.TransparentON, 1, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.TransparentOFF, 2, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.Label6, 0, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.LabelTransparent, 0, 0)
         Me.TableLayoutPanel4.Location = New System.Drawing.Point(12, 28)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 1
@@ -343,17 +343,17 @@ Partial Class ObjectColor
         Me.TransparentOFF.Text = "OFF"
         Me.TransparentOFF.UseVisualStyleBackColor = True
         '
-        'Label6
+        'LabelTransparent
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label6.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label6.Location = New System.Drawing.Point(4, 1)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(136, 25)
-        Me.Label6.TabIndex = 2
-        Me.Label6.Text = "Transparent :"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelTransparent.AutoSize = True
+        Me.LabelTransparent.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabelTransparent.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.LabelTransparent.Location = New System.Drawing.Point(4, 1)
+        Me.LabelTransparent.Name = "LabelTransparent"
+        Me.LabelTransparent.Size = New System.Drawing.Size(136, 25)
+        Me.LabelTransparent.TabIndex = 2
+        Me.LabelTransparent.Text = "Transparent :"
+        Me.LabelTransparent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'TableLayoutPanel5
         '
@@ -365,12 +365,12 @@ Partial Class ObjectColor
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel5.Controls.Add(Me.Label9, 4, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.Label8, 2, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.LabelB, 4, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.LabelG, 2, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.NumericUpDownR, 1, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.NumericUpDownG, 3, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.NumericUpDownB, 5, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.Label7, 0, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.LabelR, 0, 0)
         Me.TableLayoutPanel5.Location = New System.Drawing.Point(12, 61)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 1
@@ -378,29 +378,29 @@ Partial Class ObjectColor
         Me.TableLayoutPanel5.Size = New System.Drawing.Size(289, 27)
         Me.TableLayoutPanel5.TabIndex = 7
         '
-        'Label9
+        'LabelB
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label9.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label9.Location = New System.Drawing.Point(196, 1)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(26, 25)
-        Me.Label9.TabIndex = 5
-        Me.Label9.Text = "B:"
-        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LabelB.AutoSize = True
+        Me.LabelB.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabelB.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.LabelB.Location = New System.Drawing.Point(196, 1)
+        Me.LabelB.Name = "LabelB"
+        Me.LabelB.Size = New System.Drawing.Size(26, 25)
+        Me.LabelB.TabIndex = 5
+        Me.LabelB.Text = "B:"
+        Me.LabelB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label8
+        'LabelG
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label8.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label8.Location = New System.Drawing.Point(100, 1)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(26, 25)
-        Me.Label8.TabIndex = 4
-        Me.Label8.Text = "G:"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LabelG.AutoSize = True
+        Me.LabelG.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabelG.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.LabelG.Location = New System.Drawing.Point(100, 1)
+        Me.LabelG.Name = "LabelG"
+        Me.LabelG.Size = New System.Drawing.Size(26, 25)
+        Me.LabelG.TabIndex = 4
+        Me.LabelG.Text = "G:"
+        Me.LabelG.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'NumericUpDownR
         '
@@ -429,17 +429,17 @@ Partial Class ObjectColor
         Me.NumericUpDownB.Size = New System.Drawing.Size(56, 21)
         Me.NumericUpDownB.TabIndex = 2
         '
-        'Label7
+        'LabelR
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label7.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label7.Location = New System.Drawing.Point(4, 1)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(26, 25)
-        Me.Label7.TabIndex = 3
-        Me.Label7.Text = "R:"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LabelR.AutoSize = True
+        Me.LabelR.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabelR.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.LabelR.Location = New System.Drawing.Point(4, 1)
+        Me.LabelR.Name = "LabelR"
+        Me.LabelR.Size = New System.Drawing.Size(26, 25)
+        Me.LabelR.TabIndex = 3
+        Me.LabelR.Text = "R:"
+        Me.LabelR.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'ObjectColor
         '
@@ -449,8 +449,8 @@ Partial Class ObjectColor
         Me.Controls.Add(Me.TableLayoutPanel5)
         Me.Controls.Add(Me.TableLayoutPanel4)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TableLayoutPanel3)
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.TableLayoutPanel1)
@@ -482,33 +482,33 @@ Partial Class ObjectColor
     End Sub
 
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents Label1 As Label
+    Friend WithEvents LabelChannel1 As Label
     Friend WithEvents RedFromRed As RadioButton
     Friend WithEvents RedFromGreen As RadioButton
     Friend WithEvents RedFromBlue As RadioButton
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents Label2 As Label
+    Friend WithEvents LabelChannel2 As Label
     Friend WithEvents GreenFromRed As RadioButton
     Friend WithEvents GreenFromGreen As RadioButton
     Friend WithEvents GreenFromBlue As RadioButton
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
-    Friend WithEvents Label3 As Label
+    Friend WithEvents LabelChannel3 As Label
     Friend WithEvents BlueFromRed As RadioButton
     Friend WithEvents BlueFromGreen As RadioButton
     Friend WithEvents BlueFromBlue As RadioButton
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label5 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
     Friend WithEvents TransparentON As RadioButton
     Friend WithEvents TransparentOFF As RadioButton
-    Friend WithEvents Label6 As Label
+    Friend WithEvents LabelTransparent As Label
     Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label8 As Label
+    Friend WithEvents LabelB As Label
+    Friend WithEvents LabelG As Label
     Friend WithEvents NumericUpDownR As NumericUpDown
     Friend WithEvents NumericUpDownG As NumericUpDown
     Friend WithEvents NumericUpDownB As NumericUpDown
-    Friend WithEvents Label7 As Label
+    Friend WithEvents LabelR As Label
     Friend WithEvents ColorDialog1 As ColorDialog
 End Class

@@ -34,27 +34,27 @@ Partial Class Offset
         Me.NumericUpDownX7 = New System.Windows.Forms.NumericUpDown()
         Me.NumericUpDownX1 = New System.Windows.Forms.NumericUpDown()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label209 = New System.Windows.Forms.Label()
+        Me.Label208 = New System.Windows.Forms.Label()
+        Me.Label207 = New System.Windows.Forms.Label()
+        Me.Label206 = New System.Windows.Forms.Label()
+        Me.Label205 = New System.Windows.Forms.Label()
+        Me.Label204 = New System.Windows.Forms.Label()
+        Me.Label203 = New System.Windows.Forms.Label()
+        Me.Label202 = New System.Windows.Forms.Label()
+        Me.Label201 = New System.Windows.Forms.Label()
+        Me.Label200 = New System.Windows.Forms.Label()
+        Me.Label109 = New System.Windows.Forms.Label()
+        Me.Label108 = New System.Windows.Forms.Label()
+        Me.Label107 = New System.Windows.Forms.Label()
+        Me.Label106 = New System.Windows.Forms.Label()
+        Me.Label105 = New System.Windows.Forms.Label()
+        Me.Label104 = New System.Windows.Forms.Label()
+        Me.Label103 = New System.Windows.Forms.Label()
+        Me.Label102 = New System.Windows.Forms.Label()
+        Me.Label101 = New System.Windows.Forms.Label()
+        Me.Label210 = New System.Windows.Forms.Label()
+        Me.Label110 = New System.Windows.Forms.Label()
         Me.NumericUpDownY1 = New System.Windows.Forms.NumericUpDown()
         Me.NumericUpDownY0 = New System.Windows.Forms.NumericUpDown()
         Me.NumericUpDownYALL = New System.Windows.Forms.NumericUpDown()
@@ -67,12 +67,12 @@ Partial Class Offset
         Me.NumericUpDownY5 = New System.Windows.Forms.NumericUpDown()
         Me.NumericUpDownY8 = New System.Windows.Forms.NumericUpDown()
         Me.NumericUpDownY9 = New System.Windows.Forms.NumericUpDown()
+        Me.Label100 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label111 = New System.Windows.Forms.Label()
+        Me.Label211 = New System.Windows.Forms.Label()
         Me.NumericUpDownDeathX = New System.Windows.Forms.NumericUpDown()
         Me.NumericUpDownDeathY = New System.Windows.Forms.NumericUpDown()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -213,27 +213,27 @@ Partial Class Offset
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.05076!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.94924!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.05076!))
-        Me.TableLayoutPanel1.Controls.Add(Me.Label22, 2, 10)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label20, 2, 9)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label18, 2, 8)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label16, 2, 7)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label14, 2, 6)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label12, 2, 5)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label10, 2, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label8, 2, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label6, 2, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label4, 2, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label21, 0, 10)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label19, 0, 9)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label17, 0, 8)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label15, 0, 7)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label13, 0, 6)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label11, 0, 5)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label9, 0, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label7, 0, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label5, 0, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label3, 2, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label2, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label209, 2, 10)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label208, 2, 9)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label207, 2, 8)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label206, 2, 7)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label205, 2, 6)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label204, 2, 5)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label203, 2, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label202, 2, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label201, 2, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label200, 2, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label109, 0, 10)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label108, 0, 9)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label107, 0, 8)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label106, 0, 7)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label105, 0, 6)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label104, 0, 5)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label103, 0, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label102, 0, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label101, 0, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label210, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label110, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.NumericUpDownY1, 3, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.NumericUpDownY0, 3, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.NumericUpDownYALL, 3, 0)
@@ -256,7 +256,7 @@ Partial Class Offset
         Me.TableLayoutPanel1.Controls.Add(Me.NumericUpDownY5, 3, 6)
         Me.TableLayoutPanel1.Controls.Add(Me.NumericUpDownY8, 3, 9)
         Me.TableLayoutPanel1.Controls.Add(Me.NumericUpDownY9, 3, 10)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label100, 0, 1)
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(12, 35)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 11
@@ -274,236 +274,236 @@ Partial Class Offset
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(407, 320)
         Me.TableLayoutPanel1.TabIndex = 10
         '
-        'Label22
+        'Label209
         '
-        Me.Label22.AutoSize = True
-        Me.Label22.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label22.Location = New System.Drawing.Point(206, 291)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(126, 28)
-        Me.Label22.TabIndex = 52
-        Me.Label22.Text = "Layer 9 offset Y"
-        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label209.AutoSize = True
+        Me.Label209.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label209.Location = New System.Drawing.Point(206, 291)
+        Me.Label209.Name = "Label209"
+        Me.Label209.Size = New System.Drawing.Size(126, 28)
+        Me.Label209.TabIndex = 52
+        Me.Label209.Text = "Layer 9 offset Y"
+        Me.Label209.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label20
+        'Label208
         '
-        Me.Label20.AutoSize = True
-        Me.Label20.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label20.Location = New System.Drawing.Point(206, 262)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(126, 28)
-        Me.Label20.TabIndex = 51
-        Me.Label20.Text = "Layer 8 offset Y"
-        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label208.AutoSize = True
+        Me.Label208.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label208.Location = New System.Drawing.Point(206, 262)
+        Me.Label208.Name = "Label208"
+        Me.Label208.Size = New System.Drawing.Size(126, 28)
+        Me.Label208.TabIndex = 51
+        Me.Label208.Text = "Layer 8 offset Y"
+        Me.Label208.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label18
+        'Label207
         '
-        Me.Label18.AutoSize = True
-        Me.Label18.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label18.Location = New System.Drawing.Point(206, 233)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(126, 28)
-        Me.Label18.TabIndex = 50
-        Me.Label18.Text = "Layer 7 offset Y"
-        Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label207.AutoSize = True
+        Me.Label207.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label207.Location = New System.Drawing.Point(206, 233)
+        Me.Label207.Name = "Label207"
+        Me.Label207.Size = New System.Drawing.Size(126, 28)
+        Me.Label207.TabIndex = 50
+        Me.Label207.Text = "Layer 7 offset Y"
+        Me.Label207.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label16
+        'Label206
         '
-        Me.Label16.AutoSize = True
-        Me.Label16.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label16.Location = New System.Drawing.Point(206, 204)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(126, 28)
-        Me.Label16.TabIndex = 49
-        Me.Label16.Text = "Layer 6 offset Y"
-        Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label206.AutoSize = True
+        Me.Label206.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label206.Location = New System.Drawing.Point(206, 204)
+        Me.Label206.Name = "Label206"
+        Me.Label206.Size = New System.Drawing.Size(126, 28)
+        Me.Label206.TabIndex = 49
+        Me.Label206.Text = "Layer 6 offset Y"
+        Me.Label206.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label14
+        'Label205
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label14.Location = New System.Drawing.Point(206, 175)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(126, 28)
-        Me.Label14.TabIndex = 48
-        Me.Label14.Text = "Layer 5 offset Y"
-        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label205.AutoSize = True
+        Me.Label205.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label205.Location = New System.Drawing.Point(206, 175)
+        Me.Label205.Name = "Label205"
+        Me.Label205.Size = New System.Drawing.Size(126, 28)
+        Me.Label205.TabIndex = 48
+        Me.Label205.Text = "Layer 5 offset Y"
+        Me.Label205.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label12
+        'Label204
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label12.Location = New System.Drawing.Point(206, 146)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(126, 28)
-        Me.Label12.TabIndex = 47
-        Me.Label12.Text = "Layer 4 offset Y"
-        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label204.AutoSize = True
+        Me.Label204.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label204.Location = New System.Drawing.Point(206, 146)
+        Me.Label204.Name = "Label204"
+        Me.Label204.Size = New System.Drawing.Size(126, 28)
+        Me.Label204.TabIndex = 47
+        Me.Label204.Text = "Layer 4 offset Y"
+        Me.Label204.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label10
+        'Label203
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label10.Location = New System.Drawing.Point(206, 117)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(126, 28)
-        Me.Label10.TabIndex = 46
-        Me.Label10.Text = "Layer 3 offset Y"
-        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label203.AutoSize = True
+        Me.Label203.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label203.Location = New System.Drawing.Point(206, 117)
+        Me.Label203.Name = "Label203"
+        Me.Label203.Size = New System.Drawing.Size(126, 28)
+        Me.Label203.TabIndex = 46
+        Me.Label203.Text = "Layer 3 offset Y"
+        Me.Label203.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label8
+        'Label202
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label8.Location = New System.Drawing.Point(206, 88)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(126, 28)
-        Me.Label8.TabIndex = 45
-        Me.Label8.Text = "Layer 2 offset Y"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label202.AutoSize = True
+        Me.Label202.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label202.Location = New System.Drawing.Point(206, 88)
+        Me.Label202.Name = "Label202"
+        Me.Label202.Size = New System.Drawing.Size(126, 28)
+        Me.Label202.TabIndex = 45
+        Me.Label202.Text = "Layer 2 offset Y"
+        Me.Label202.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label6
+        'Label201
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label6.Location = New System.Drawing.Point(206, 59)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(126, 28)
-        Me.Label6.TabIndex = 44
-        Me.Label6.Text = "Layer 1 offset Y"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label201.AutoSize = True
+        Me.Label201.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label201.Location = New System.Drawing.Point(206, 59)
+        Me.Label201.Name = "Label201"
+        Me.Label201.Size = New System.Drawing.Size(126, 28)
+        Me.Label201.TabIndex = 44
+        Me.Label201.Text = "Layer 1 offset Y"
+        Me.Label201.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label4
+        'Label200
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label4.Location = New System.Drawing.Point(206, 30)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(126, 28)
-        Me.Label4.TabIndex = 43
-        Me.Label4.Text = "Layer 0 offset Y"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label200.AutoSize = True
+        Me.Label200.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label200.Location = New System.Drawing.Point(206, 30)
+        Me.Label200.Name = "Label200"
+        Me.Label200.Size = New System.Drawing.Size(126, 28)
+        Me.Label200.TabIndex = 43
+        Me.Label200.Text = "Layer 0 offset Y"
+        Me.Label200.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label21
+        'Label109
         '
-        Me.Label21.AutoSize = True
-        Me.Label21.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label21.Location = New System.Drawing.Point(4, 291)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(126, 28)
-        Me.Label21.TabIndex = 42
-        Me.Label21.Text = "Layer 9  offset X"
-        Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label109.AutoSize = True
+        Me.Label109.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label109.Location = New System.Drawing.Point(4, 291)
+        Me.Label109.Name = "Label109"
+        Me.Label109.Size = New System.Drawing.Size(126, 28)
+        Me.Label109.TabIndex = 42
+        Me.Label109.Text = "Layer 9  offset X"
+        Me.Label109.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label19
+        'Label108
         '
-        Me.Label19.AutoSize = True
-        Me.Label19.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label19.Location = New System.Drawing.Point(4, 262)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(126, 28)
-        Me.Label19.TabIndex = 40
-        Me.Label19.Text = "Layer 8  offset X"
-        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label108.AutoSize = True
+        Me.Label108.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label108.Location = New System.Drawing.Point(4, 262)
+        Me.Label108.Name = "Label108"
+        Me.Label108.Size = New System.Drawing.Size(126, 28)
+        Me.Label108.TabIndex = 40
+        Me.Label108.Text = "Layer 8  offset X"
+        Me.Label108.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label17
+        'Label107
         '
-        Me.Label17.AutoSize = True
-        Me.Label17.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label17.Location = New System.Drawing.Point(4, 233)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(126, 28)
-        Me.Label17.TabIndex = 38
-        Me.Label17.Text = "Layer 7  offset X"
-        Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label107.AutoSize = True
+        Me.Label107.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label107.Location = New System.Drawing.Point(4, 233)
+        Me.Label107.Name = "Label107"
+        Me.Label107.Size = New System.Drawing.Size(126, 28)
+        Me.Label107.TabIndex = 38
+        Me.Label107.Text = "Layer 7  offset X"
+        Me.Label107.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label15
+        'Label106
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label15.Location = New System.Drawing.Point(4, 204)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(126, 28)
-        Me.Label15.TabIndex = 36
-        Me.Label15.Text = "Layer 6  offset X"
-        Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label106.AutoSize = True
+        Me.Label106.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label106.Location = New System.Drawing.Point(4, 204)
+        Me.Label106.Name = "Label106"
+        Me.Label106.Size = New System.Drawing.Size(126, 28)
+        Me.Label106.TabIndex = 36
+        Me.Label106.Text = "Layer 6  offset X"
+        Me.Label106.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label13
+        'Label105
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label13.Location = New System.Drawing.Point(4, 175)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(126, 28)
-        Me.Label13.TabIndex = 34
-        Me.Label13.Text = "Layer 5  offset X"
-        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label105.AutoSize = True
+        Me.Label105.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label105.Location = New System.Drawing.Point(4, 175)
+        Me.Label105.Name = "Label105"
+        Me.Label105.Size = New System.Drawing.Size(126, 28)
+        Me.Label105.TabIndex = 34
+        Me.Label105.Text = "Layer 5  offset X"
+        Me.Label105.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label11
+        'Label104
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label11.Location = New System.Drawing.Point(4, 146)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(126, 28)
-        Me.Label11.TabIndex = 32
-        Me.Label11.Text = "Layer 4  offset X"
-        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label104.AutoSize = True
+        Me.Label104.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label104.Location = New System.Drawing.Point(4, 146)
+        Me.Label104.Name = "Label104"
+        Me.Label104.Size = New System.Drawing.Size(126, 28)
+        Me.Label104.TabIndex = 32
+        Me.Label104.Text = "Layer 4  offset X"
+        Me.Label104.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label9
+        'Label103
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label9.Location = New System.Drawing.Point(4, 117)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(126, 28)
-        Me.Label9.TabIndex = 30
-        Me.Label9.Text = "Layer 3  offset X"
-        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label103.AutoSize = True
+        Me.Label103.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label103.Location = New System.Drawing.Point(4, 117)
+        Me.Label103.Name = "Label103"
+        Me.Label103.Size = New System.Drawing.Size(126, 28)
+        Me.Label103.TabIndex = 30
+        Me.Label103.Text = "Layer 3  offset X"
+        Me.Label103.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label7
+        'Label102
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label7.Location = New System.Drawing.Point(4, 88)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(126, 28)
-        Me.Label7.TabIndex = 28
-        Me.Label7.Text = "Layer 2  offset X"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label102.AutoSize = True
+        Me.Label102.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label102.Location = New System.Drawing.Point(4, 88)
+        Me.Label102.Name = "Label102"
+        Me.Label102.Size = New System.Drawing.Size(126, 28)
+        Me.Label102.TabIndex = 28
+        Me.Label102.Text = "Layer 2  offset X"
+        Me.Label102.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label5
+        'Label101
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label5.Location = New System.Drawing.Point(4, 59)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(126, 28)
-        Me.Label5.TabIndex = 26
-        Me.Label5.Text = "Layer 1  offset X"
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label101.AutoSize = True
+        Me.Label101.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label101.Location = New System.Drawing.Point(4, 59)
+        Me.Label101.Name = "Label101"
+        Me.Label101.Size = New System.Drawing.Size(126, 28)
+        Me.Label101.TabIndex = 26
+        Me.Label101.Text = "Layer 1  offset X"
+        Me.Label101.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label3
+        'Label210
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label3.Location = New System.Drawing.Point(206, 1)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(126, 28)
-        Me.Label3.TabIndex = 24
-        Me.Label3.Text = "Layer All  offset Y"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label210.AutoSize = True
+        Me.Label210.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label210.Location = New System.Drawing.Point(206, 1)
+        Me.Label210.Name = "Label210"
+        Me.Label210.Size = New System.Drawing.Size(126, 28)
+        Me.Label210.TabIndex = 24
+        Me.Label210.Text = "Layer All  offset Y"
+        Me.Label210.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label2
+        'Label110
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label2.Location = New System.Drawing.Point(4, 1)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(126, 28)
-        Me.Label2.TabIndex = 23
-        Me.Label2.Text = "Layer All offset X"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label110.AutoSize = True
+        Me.Label110.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label110.Location = New System.Drawing.Point(4, 1)
+        Me.Label110.Name = "Label110"
+        Me.Label110.Size = New System.Drawing.Size(126, 28)
+        Me.Label110.TabIndex = 23
+        Me.Label110.Text = "Layer All offset X"
+        Me.Label110.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'NumericUpDownY1
         '
@@ -625,36 +625,36 @@ Partial Class Offset
         Me.NumericUpDownY9.Size = New System.Drawing.Size(64, 21)
         Me.NumericUpDownY9.TabIndex = 21
         '
+        'Label100
+        '
+        Me.Label100.AutoSize = True
+        Me.Label100.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label100.Location = New System.Drawing.Point(4, 30)
+        Me.Label100.Name = "Label100"
+        Me.Label100.Size = New System.Drawing.Size(126, 28)
+        Me.Label100.TabIndex = 22
+        Me.Label100.Text = "Layer 0  offset X"
+        Me.Label100.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Location = New System.Drawing.Point(4, 30)
+        Me.Label1.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label1.Location = New System.Drawing.Point(12, 12)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(126, 28)
-        Me.Label1.TabIndex = 22
-        Me.Label1.Text = "Layer 0  offset X"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label1.Size = New System.Drawing.Size(120, 16)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "Layer offset :"
         '
-        'Label23
+        'Label2
         '
-        Me.Label23.AutoSize = True
-        Me.Label23.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label23.Location = New System.Drawing.Point(12, 12)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(120, 16)
-        Me.Label23.TabIndex = 11
-        Me.Label23.Text = "Layer offset :"
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label24.Location = New System.Drawing.Point(12, 375)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(120, 16)
-        Me.Label24.TabIndex = 12
-        Me.Label24.Text = "Death offset :"
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label2.Location = New System.Drawing.Point(12, 375)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(120, 16)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "Death offset :"
         '
         'TableLayoutPanel2
         '
@@ -664,8 +664,8 @@ Partial Class Offset
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.05!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.95!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.05!))
-        Me.TableLayoutPanel2.Controls.Add(Me.Label25, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.Label26, 2, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label111, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label211, 2, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.NumericUpDownDeathX, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.NumericUpDownDeathY, 3, 0)
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(12, 397)
@@ -675,27 +675,27 @@ Partial Class Offset
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(407, 30)
         Me.TableLayoutPanel2.TabIndex = 13
         '
-        'Label25
+        'Label111
         '
-        Me.Label25.AutoSize = True
-        Me.Label25.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label25.Location = New System.Drawing.Point(4, 1)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(126, 28)
-        Me.Label25.TabIndex = 43
-        Me.Label25.Text = "Death  offset X"
-        Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label111.AutoSize = True
+        Me.Label111.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label111.Location = New System.Drawing.Point(4, 1)
+        Me.Label111.Name = "Label111"
+        Me.Label111.Size = New System.Drawing.Size(126, 28)
+        Me.Label111.TabIndex = 43
+        Me.Label111.Text = "Death  offset X"
+        Me.Label111.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label26
+        'Label211
         '
-        Me.Label26.AutoSize = True
-        Me.Label26.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label26.Location = New System.Drawing.Point(206, 1)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(126, 28)
-        Me.Label26.TabIndex = 55
-        Me.Label26.Text = "Death offset Y"
-        Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label211.AutoSize = True
+        Me.Label211.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label211.Location = New System.Drawing.Point(206, 1)
+        Me.Label211.Name = "Label211"
+        Me.Label211.Size = New System.Drawing.Size(126, 28)
+        Me.Label211.TabIndex = 55
+        Me.Label211.Text = "Death offset Y"
+        Me.Label211.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'NumericUpDownDeathX
         '
@@ -743,8 +743,8 @@ Partial Class Offset
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TableLayoutPanel2)
-        Me.Controls.Add(Me.Label24)
-        Me.Controls.Add(Me.Label23)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
@@ -810,34 +810,34 @@ Partial Class Offset
     Friend WithEvents NumericUpDownY5 As NumericUpDown
     Friend WithEvents NumericUpDownY8 As NumericUpDown
     Friend WithEvents NumericUpDownY9 As NumericUpDown
+    Friend WithEvents Label100 As Label
+    Friend WithEvents Label209 As Label
+    Friend WithEvents Label208 As Label
+    Friend WithEvents Label207 As Label
+    Friend WithEvents Label206 As Label
+    Friend WithEvents Label205 As Label
+    Friend WithEvents Label204 As Label
+    Friend WithEvents Label203 As Label
+    Friend WithEvents Label202 As Label
+    Friend WithEvents Label201 As Label
+    Friend WithEvents Label200 As Label
+    Friend WithEvents Label109 As Label
+    Friend WithEvents Label108 As Label
+    Friend WithEvents Label107 As Label
+    Friend WithEvents Label106 As Label
+    Friend WithEvents Label105 As Label
+    Friend WithEvents Label104 As Label
+    Friend WithEvents Label103 As Label
+    Friend WithEvents Label102 As Label
+    Friend WithEvents Label101 As Label
+    Friend WithEvents Label210 As Label
+    Friend WithEvents Label110 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label22 As Label
-    Friend WithEvents Label20 As Label
-    Friend WithEvents Label18 As Label
-    Friend WithEvents Label16 As Label
-    Friend WithEvents Label14 As Label
-    Friend WithEvents Label12 As Label
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label21 As Label
-    Friend WithEvents Label19 As Label
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Label15 As Label
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label23 As Label
-    Friend WithEvents Label24 As Label
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents Label25 As Label
+    Friend WithEvents Label111 As Label
     Friend WithEvents NumericUpDownDeathY As NumericUpDown
-    Friend WithEvents Label26 As Label
+    Friend WithEvents Label211 As Label
     Friend WithEvents NumericUpDownDeathX As NumericUpDown
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button

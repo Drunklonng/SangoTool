@@ -32,9 +32,9 @@ Partial Class FontTo
         Me.CheckBoxFontToBitmapBig5 = New System.Windows.Forms.CheckBox()
         Me.CheckBoxFontToBitmapGBK = New System.Windows.Forms.CheckBox()
         Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+        Me.ProgressBarFontToBitmap = New System.Windows.Forms.ProgressBar()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
-        Me.ProgressBarFontToBitmap = New System.Windows.Forms.ProgressBar()
         Me.TableLayoutPanel13.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -155,10 +155,6 @@ Partial Class FontTo
         Me.CheckBox3.Text = "UTF16"
         Me.CheckBox3.UseVisualStyleBackColor = True
         '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
         'ProgressBarFontToBitmap
         '
         Me.TableLayoutPanel13.SetColumnSpan(Me.ProgressBarFontToBitmap, 7)
@@ -166,6 +162,10 @@ Partial Class FontTo
         Me.ProgressBarFontToBitmap.Name = "ProgressBarFontToBitmap"
         Me.ProgressBarFontToBitmap.Size = New System.Drawing.Size(294, 23)
         Me.ProgressBarFontToBitmap.TabIndex = 8
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'FontTo
         '

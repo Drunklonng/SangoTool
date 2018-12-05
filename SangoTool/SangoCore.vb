@@ -15,22 +15,6 @@ Module SangoCore
         WriteINI = WritePrivateProfileString(Section, AppName, lpDefault, FileName)
     End Function
 
-    'Public Function Salutelist(Length As Int16) As Byte()
-    '    Dim namelist As String() = {"梦去无痕", "拓跋飞雪", "龙潭醉鬼"}
-    '    Dim str As String() = {"宇峻奥汀"}
-    '    Dim Rand = New System.Random()
-    '    Dim name As String = Strings.StrConv(str(Rand.Next(str.Length)), VbStrConv.TraditionalChinese)
-    '    Dim bytes = Encoding.GetEncoding(950).GetBytes(name)
-    '    Dim Salute As Byte()
-    '    ReDim Salute(Length - 1)
-    '    For i = 0 To Salute.Length - 1
-    '        If i < bytes.Length Then
-    '            Salute(i) = bytes(i)
-    '        End If
-    '    Next
-    '    Salutelist = Salute
-    'End Function
-
     Public Function RGB16To24(R5G6B5 As UInt16, Optional R As Int16 = 0, Optional G As Int16 = 1, Optional B As Int16 = 2) As Color
         Dim str As String = Convert.ToString(R5G6B5, 2)
         Do Until str.Length >= 16
@@ -441,9 +425,9 @@ Module SangoCore
         End If
     End Function
 
-    Public Function GetFontSum(fontfile As String) As Int32
-        GetFontSum = 32768
-    End Function
+    ' Public Function GetFontSum(fontfile As String) As Int32
+    '    GetFontSum = 1 '32768
+    'End Function
 
     Public Function GetFontData(fontfile As String) As Int32()
         If IO.File.Exists(fontfile) Then
@@ -513,6 +497,9 @@ Module SangoCore
             bw.Write(FontData(i))
         Next
         bw.Write({115, 97, 110, 103, 111, 46, 121, 115, 49, 54, 56, 46, 99, 111, 109, 0})
+        For i = 0 To 65535
+            bw.Write({0, 0})
+        Next
         Select Case CodePage
             Case 936
                 For big = 129 To 254
@@ -520,8 +507,10 @@ Module SangoCore
                         Dim FontString = System.Text.Encoding.GetEncoding(936).GetString({big, little})
                         Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
                         Dim FontIndex As UInt16 = GetFontIndex(FontFile, (big * 256 + little) - 32768)
-                        bw.Write({FontByteUnicode(0), FontByteUnicode(1)})
+
+                        fs.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
                         bw.Write(FontIndex)
+
                     Next
                 Next
             Case 950
@@ -530,27 +519,19 @@ Module SangoCore
                         Dim FontString = System.Text.Encoding.GetEncoding(950).GetString({big, little1})
                         Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
                         Dim FontIndex As UInt16 = GetFontIndex(FontFile, (big * 256 + little1) - 32768)
-                        bw.Write({FontByteUnicode(0), FontByteUnicode(1)})
+
+                        fs.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
                         bw.Write(FontIndex)
 
-                        Dim FontByteUnicodeSimplified = System.Text.Encoding.Unicode.GetBytes(StrConv(FontString, VbStrConv.SimplifiedChinese))
-                        If FontByteUnicodeSimplified IsNot FontByteUnicode Then
-                            bw.Write({FontByteUnicodeSimplified(0), FontByteUnicodeSimplified(1)})
-                            bw.Write(FontIndex)
-                        End If
                     Next
                     For little2 = 161 To 254
                         Dim FontString = System.Text.Encoding.GetEncoding(950).GetString({big, little2})
                         Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
                         Dim FontIndex As UInt16 = GetFontIndex(FontFile, (big * 256 + little2) - 32768)
-                        bw.Write({FontByteUnicode(0), FontByteUnicode(1)})
+
+                        fs.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
                         bw.Write(FontIndex)
 
-                        Dim FontByteUnicodeSimplified = System.Text.Encoding.Unicode.GetBytes(StrConv(FontString, VbStrConv.SimplifiedChinese))
-                        If FontByteUnicodeSimplified IsNot FontByteUnicode Then
-                            bw.Write({FontByteUnicodeSimplified(0), FontByteUnicodeSimplified(1)})
-                            bw.Write(FontIndex)
-                        End If
                     Next
                 Next
             Case Else
@@ -604,8 +585,68 @@ Module SangoCore
         Next
         fsx.Seek(48, SeekOrigin.Begin)
         Select Case CodePage
-            Case 0
+            Case 950
+                For big = 161 To 249
+                    For little1 = 64 To 126
+                        Dim FontString = System.Text.Encoding.GetEncoding(950).GetString({big, little1})
+                        Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
 
+                        fsx.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
+                        Dim FontIndex As UInt16 = br.ReadUInt16
+
+                        If FontIndex = 0 Then
+                            FontString = Strings.StrConv(FontString, VbStrConv.SimplifiedChinese)
+                            FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
+                            fsx.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
+                            FontIndex = br.ReadUInt16
+                        End If
+
+                        Dim FontEncodePos = 80 + (big * 256 + little1 - 32768) * 2
+                        fs.Seek(FontEncodePos, SeekOrigin.Begin)
+                        bw.Write(FontIndex)
+
+                    Next
+                    For little2 = 161 To 254
+                        Dim FontString = System.Text.Encoding.GetEncoding(950).GetString({big, little2})
+                        Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
+
+                        fsx.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
+                        Dim FontIndex As UInt16 = br.ReadUInt16
+
+                        If FontIndex = 0 Then
+                            FontString = Strings.StrConv(FontString, VbStrConv.SimplifiedChinese)
+                            FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
+                            fsx.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
+                            FontIndex = br.ReadUInt16
+                        End If
+
+                        Dim FontEncodePos = 80 + (big * 256 + little2 - 32768) * 2
+                        fs.Seek(FontEncodePos, SeekOrigin.Begin)
+                        bw.Write(FontIndex)
+
+                    Next
+                Next
+            Case 936
+                For big = 129 To 254
+                    For little = 64 To 254
+                        Dim FontString = System.Text.Encoding.GetEncoding(936).GetString({big, little})
+                        Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
+
+                        fsx.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
+                        Dim FontIndex As UInt16 = br.ReadUInt16
+
+                        If FontIndex = 0 Then
+                            FontString = Strings.StrConv(FontString, VbStrConv.TraditionalChinese)
+                            FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
+                            fsx.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
+                            FontIndex = br.ReadUInt16
+                        End If
+
+                        Dim FontEncodePos = 80 + (big * 256 + little - 32768) * 2
+                        fs.Seek(FontEncodePos, SeekOrigin.Begin)
+                        bw.Write(FontIndex)
+                    Next
+                Next
             Case Else
                 Do While fsx.Position < fsx.Length
                     Dim FontUTF16Big As Byte = br.ReadByte

@@ -3,4 +3,5 @@
         ButtonOK.Enabled = True
         Me.Close()
     End Sub
+
 End Class

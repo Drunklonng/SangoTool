@@ -251,9 +251,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\DrunkLoong_2-min.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\WeChat.png" />
     <Content Include="SangoTool.ico" />
   </ItemGroup>
   <ItemGroup>
