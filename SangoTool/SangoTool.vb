@@ -1938,7 +1938,29 @@
         Offset.Label210.Text = "Layer All offset Y"
         Offset.Label211.Text = "Death  offset Y"
 
-        ObjectColor.Text = ""
+        ObjectColor.Text = "ObjectColor"
+        ObjectColor.Label1.Text = "Faction Color :"
+        ObjectColor.Label2.Text = "Channel Exchange :"
+        ObjectColor.LabelTransparent.Text = "Transparent :"
+        ObjectColor.LabelR.Text = "R:"
+        ObjectColor.LabelG.Text = "G:"
+        ObjectColor.LabelB.Text = "B:"
+        ObjectColor.LabelChannel1.Text = "Red Channel :"
+        ObjectColor.LabelChannel2.Text = "Green Channel :"
+        ObjectColor.LabelChannel3.Text = "Blue Channel :"
+        ObjectColor.TransparentON.Text = "ON"
+        ObjectColor.TransparentOFF.Text = "OFF"
+        ObjectColor.RedFromRed.Text = "Red"
+        ObjectColor.RedFromGreen.Text = "Green"
+        ObjectColor.RedFromBlue.Text = "Blue"
+        ObjectColor.GreenFromRed.Text = "Red"
+        ObjectColor.GreenFromGreen.Text = "Green"
+        ObjectColor.GreenFromBlue.Text = "Blue"
+        ObjectColor.BlueFromRed.Text = "Red"
+        ObjectColor.BlueFromGreen.Text = "Green"
+        ObjectColor.BlueFromBlue.Text = "Blue"
+
+
 
     End Sub
 
