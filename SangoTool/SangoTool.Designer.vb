@@ -146,6 +146,10 @@ Partial Class SangoTool
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
+        Me.SettingTool = New System.Windows.Forms.TabPage()
+        Me.TableLayoutPanel19 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel20 = New System.Windows.Forms.TableLayoutPanel()
         Me.License.SuspendLayout()
         Me.TableLayoutPanel10.SuspendLayout()
         Me.ObjectTool.SuspendLayout()
@@ -212,6 +216,9 @@ Partial Class SangoTool
         Me.TableLayoutPanel16.SuspendLayout()
         CType(Me.PictureBoxWeChat, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel17.SuspendLayout()
+        Me.SettingTool.SuspendLayout()
+        Me.TableLayoutPanel19.SuspendLayout()
+        Me.TableLayoutPanel20.SuspendLayout()
         Me.SuspendLayout()
         '
         'BackgroundWorkerOut
@@ -1045,6 +1052,7 @@ Partial Class SangoTool
         Me.TabControl1.Controls.Add(Me.FontTool)
         Me.TabControl1.Controls.Add(Me.MapTool)
         Me.TabControl1.Controls.Add(Me.ScriptTool)
+        Me.TabControl1.Controls.Add(Me.SettingTool)
         Me.TabControl1.Controls.Add(Me.License)
         Me.TabControl1.Controls.Add(Me.Readme)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -1321,26 +1329,25 @@ Partial Class SangoTool
         'TableLayoutPanel14
         '
         Me.TableLayoutPanel14.ColumnCount = 3
-        Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
-        Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.14035!))
-        Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
-        Me.TableLayoutPanel14.Controls.Add(Me.ButtonSmallMap, 1, 1)
+        Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200.0!))
+        Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel14.Controls.Add(Me.TableLayoutPanel20, 1, 1)
         Me.TableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel14.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel14.Name = "TableLayoutPanel14"
         Me.TableLayoutPanel14.RowCount = 3
-        Me.TableLayoutPanel14.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
-        Me.TableLayoutPanel14.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.24242!))
-        Me.TableLayoutPanel14.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
+        Me.TableLayoutPanel14.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel14.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 300.0!))
+        Me.TableLayoutPanel14.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel14.Size = New System.Drawing.Size(776, 525)
         Me.TableLayoutPanel14.TabIndex = 2
         '
         'ButtonSmallMap
         '
-        Me.ButtonSmallMap.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonSmallMap.Location = New System.Drawing.Point(173, 201)
+        Me.ButtonSmallMap.Location = New System.Drawing.Point(3, 3)
         Me.ButtonSmallMap.Name = "ButtonSmallMap"
-        Me.ButtonSmallMap.Size = New System.Drawing.Size(429, 121)
+        Me.ButtonSmallMap.Size = New System.Drawing.Size(188, 52)
         Me.ButtonSmallMap.TabIndex = 0
         Me.ButtonSmallMap.Text = "SmallMap"
         Me.ButtonSmallMap.UseVisualStyleBackColor = True
@@ -1619,7 +1626,6 @@ Partial Class SangoTool
         Me.TableLayoutPanel17.Controls.Add(Me.ButtonSC, 3, 1)
         Me.TableLayoutPanel17.Controls.Add(Me.ButtonTC, 5, 1)
         Me.TableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel17.Enabled = False
         Me.TableLayoutPanel17.Location = New System.Drawing.Point(188, 462)
         Me.TableLayoutPanel17.Name = "TableLayoutPanel17"
         Me.TableLayoutPanel17.RowCount = 3
@@ -1679,6 +1685,65 @@ Partial Class SangoTool
         '
         Me.OpenFileDialog2.DefaultExt = "*.shp"
         Me.OpenFileDialog2.Filter = "Shadow File|*.shp"
+        '
+        'SettingTool
+        '
+        Me.SettingTool.Controls.Add(Me.TableLayoutPanel19)
+        Me.SettingTool.Location = New System.Drawing.Point(4, 32)
+        Me.SettingTool.Name = "SettingTool"
+        Me.SettingTool.Padding = New System.Windows.Forms.Padding(3)
+        Me.SettingTool.Size = New System.Drawing.Size(776, 525)
+        Me.SettingTool.TabIndex = 7
+        Me.SettingTool.Text = "SettingTool"
+        Me.SettingTool.UseVisualStyleBackColor = True
+        '
+        'TableLayoutPanel19
+        '
+        Me.TableLayoutPanel19.ColumnCount = 3
+        Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
+        Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.14036!))
+        Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
+        Me.TableLayoutPanel19.Controls.Add(Me.Label1, 1, 1)
+        Me.TableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel19.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel19.Name = "TableLayoutPanel19"
+        Me.TableLayoutPanel19.RowCount = 3
+        Me.TableLayoutPanel19.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
+        Me.TableLayoutPanel19.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.24242!))
+        Me.TableLayoutPanel19.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
+        Me.TableLayoutPanel19.Size = New System.Drawing.Size(770, 519)
+        Me.TableLayoutPanel19.TabIndex = 3
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label1.Location = New System.Drawing.Point(171, 196)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(426, 125)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "is developing"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TableLayoutPanel20
+        '
+        Me.TableLayoutPanel20.ColumnCount = 1
+        Me.TableLayoutPanel20.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel20.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel20.Controls.Add(Me.ButtonSmallMap, 0, 0)
+        Me.TableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel20.Location = New System.Drawing.Point(291, 115)
+        Me.TableLayoutPanel20.Name = "TableLayoutPanel20"
+        Me.TableLayoutPanel20.RowCount = 5
+        Me.TableLayoutPanel20.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel20.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel20.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel20.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel20.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel20.Size = New System.Drawing.Size(194, 294)
+        Me.TableLayoutPanel20.TabIndex = 1
         '
         'SangoTool
         '
@@ -1763,6 +1828,10 @@ Partial Class SangoTool
         Me.TableLayoutPanel16.PerformLayout()
         CType(Me.PictureBoxWeChat, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel17.ResumeLayout(False)
+        Me.SettingTool.ResumeLayout(False)
+        Me.TableLayoutPanel19.ResumeLayout(False)
+        Me.TableLayoutPanel19.PerformLayout()
+        Me.TableLayoutPanel20.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1888,4 +1957,8 @@ Partial Class SangoTool
     Friend WithEvents ButtonSC As Button
     Friend WithEvents ButtonTC As Button
     Friend WithEvents TableLayoutPanel18 As TableLayoutPanel
+    Friend WithEvents SettingTool As TabPage
+    Friend WithEvents TableLayoutPanel19 As TableLayoutPanel
+    Friend WithEvents Label1 As Label
+    Friend WithEvents TableLayoutPanel20 As TableLayoutPanel
 End Class

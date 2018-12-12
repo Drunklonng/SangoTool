@@ -31,7 +31,7 @@ Partial Class FontTo
         Me.TextBoxFontToBitmapPath = New System.Windows.Forms.TextBox()
         Me.CheckBoxFontToBitmapBig5 = New System.Windows.Forms.CheckBox()
         Me.CheckBoxFontToBitmapGBK = New System.Windows.Forms.CheckBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxFontToBitmapUTF16 = New System.Windows.Forms.CheckBox()
         Me.ProgressBarFontToBitmap = New System.Windows.Forms.ProgressBar()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
@@ -57,7 +57,7 @@ Partial Class FontTo
         Me.TableLayoutPanel13.Controls.Add(Me.TextBoxFontToBitmapPath, 1, 3)
         Me.TableLayoutPanel13.Controls.Add(Me.CheckBoxFontToBitmapBig5, 1, 5)
         Me.TableLayoutPanel13.Controls.Add(Me.CheckBoxFontToBitmapGBK, 3, 5)
-        Me.TableLayoutPanel13.Controls.Add(Me.CheckBox3, 5, 5)
+        Me.TableLayoutPanel13.Controls.Add(Me.CheckBoxFontToBitmapUTF16, 5, 5)
         Me.TableLayoutPanel13.Controls.Add(Me.ProgressBarFontToBitmap, 1, 7)
         Me.TableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel13.Location = New System.Drawing.Point(0, 0)
@@ -144,16 +144,16 @@ Partial Class FontTo
         Me.CheckBoxFontToBitmapGBK.Text = "GBK"
         Me.CheckBoxFontToBitmapGBK.UseVisualStyleBackColor = True
         '
-        'CheckBox3
+        'CheckBoxFontToBitmapUTF16
         '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Enabled = False
-        Me.CheckBox3.Location = New System.Drawing.Point(177, 103)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(54, 16)
-        Me.CheckBox3.TabIndex = 7
-        Me.CheckBox3.Text = "UTF16"
-        Me.CheckBox3.UseVisualStyleBackColor = True
+        Me.CheckBoxFontToBitmapUTF16.AutoSize = True
+        Me.CheckBoxFontToBitmapUTF16.Enabled = False
+        Me.CheckBoxFontToBitmapUTF16.Location = New System.Drawing.Point(177, 103)
+        Me.CheckBoxFontToBitmapUTF16.Name = "CheckBoxFontToBitmapUTF16"
+        Me.CheckBoxFontToBitmapUTF16.Size = New System.Drawing.Size(54, 16)
+        Me.CheckBoxFontToBitmapUTF16.TabIndex = 7
+        Me.CheckBoxFontToBitmapUTF16.Text = "UTF16"
+        Me.CheckBoxFontToBitmapUTF16.UseVisualStyleBackColor = True
         '
         'ProgressBarFontToBitmap
         '
@@ -195,7 +195,7 @@ Partial Class FontTo
     Friend WithEvents TextBoxFontToBitmapPath As TextBox
     Friend WithEvents CheckBoxFontToBitmapBig5 As CheckBox
     Friend WithEvents CheckBoxFontToBitmapGBK As CheckBox
-    Friend WithEvents CheckBox3 As CheckBox
+    Friend WithEvents CheckBoxFontToBitmapUTF16 As CheckBox
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
     Friend WithEvents ProgressBarFontToBitmap As ProgressBar

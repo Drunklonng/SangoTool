@@ -45,6 +45,7 @@
     Dim ImageViewList As String()
     Dim ImageFilePath As String = ""
     Dim FormatThread As Int32 = 0
+    Dim SetAllString As String() = {"Set all ", " files ?"}
     'Dim FormatToFileList As String()
     '------------------------PlaySound------------------------------------
     Private Declare Auto Function PlaySound Lib "winmm.dll" (ByVal lpszSoundName As String, ByVal hModule As Integer, ByVal dwFlags As Integer) As Integer
@@ -1794,7 +1795,7 @@
                 End If
             End If
         ElseIf ListViewImage.SelectedIndices.Count > 1 Then
-            If MsgBox("Set all " + ListViewImage.SelectedIndices.Count.ToString + " files ?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+            If MsgBox(SetAllString(0) + ListViewImage.SelectedIndices.Count.ToString + SetAllString(1), MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 ImageOffset.ImageOffsetX.Value = 0
                 ImageOffset.ImageOffsetY.Value = 0
                 If ImageOffset.ShowDialog() = DialogResult.OK Then
@@ -1834,224 +1835,17 @@
     '--------------------------------------------------------------------------------------------------------------------
 
     Private Sub ButtonEN_Click(sender As Object, e As EventArgs) Handles ButtonEN.Click
-        LabelWeChat.Text = "WeChat Reward"
-        LabelGitHub.Text = "GitHub :"
-        LabelBaidu.Text = "Baidu :"
-        LabelTIM.Text = "TIM :"
-        LabelEmail.Text = "Email :"
-        LabelDownload.Text = "Download :"
-
-        TabControl1.TabPages.Item(0).Text = "ObjectTool"
-        TabControl1.TabPages.Item(1).Text = "ImageTool"
-        TabControl1.TabPages.Item(2).Text = "FontTool"
-        TabControl1.TabPages.Item(3).Text = "MapTool"
-        TabControl1.TabPages.Item(4).Text = "ScriptTool"
-        TabControl1.TabPages.Item(5).Text = "License"
-        TabControl1.TabPages.Item(6).Text = "Readme"
-
-        ButtonNew.Text = "New"
-        ButtonRead.Text = "Read"
-        ButtonSave.Text = "Save"
-        ButtonOutput.Text = "Output"
-        ButtonTransform.Text = "Transform"
-        ButtonShadow.Text = "Shadow"
-        ButtonOffset.Text = "Offset"
-        ButtonBorder.Text = "Border"
-        ButtonAxis.Text = "Axis"
-        ButtonLast.Text = "Last"
-        ButtonPlay.Text = "Play"
-        ButtonNext.Text = "Next"
-        Button0.Text = "Layer0"
-        Button1.Text = "Layer1"
-        Button2.Text = "Layer2"
-        Button3.Text = "Layer3"
-        Button4.Text = "Layer4"
-        Button5.Text = "Layer5"
-        Button6.Text = "Layer6"
-        Button7.Text = "Layer7"
-        Button8.Text = "Layer8"
-        Button9.Text = "Layer9"
-
-        ButtonImagePath.Text = "Path"
-        ButtonFontToBitmap.Text = "Font To Bitmap"
-        ButtonBitmapToFont.Text = "Bitmap To Font"
-        ButtonSmallMap.Text = "SmallMap"
-
-        NewObject.Text = "NewObject"
-        NewObject.Button1.Text = "OK"
-        NewObject.RadioButton1.Text = "Default Template 1"
-        NewObject.RadioButton2.Text = "Default Template 2"
-        NewObject.RadioButton3.Text = "Import Object"
-
-        OutObject.Text = "OutObject"
-        OutObject.Button1.Text = "OUT"
-        OutObject.Button2.Text = "Path"
-        OutObject.Label1.Text = "Merge Shadows :"
-        OutObject.Label2.Text = "Merge Cover :"
-        OutObject.MergeShadowsTrue.Text = "ON"
-        OutObject.MergeShadowsFalse.Text = "OFF"
-        OutObject.MergeCoverTrue.Text = "ON"
-        OutObject.MergeCoverFalse.Text = "OFF"
-
-        Transform.Text = "Transform"
-        Transform.Label1.Text = " FLIP :"
-        Transform.Label2.Text = " ZOOM :"
-        Transform.Label3.Text = " Zoom Rate :"
-        Transform.Label4.Text = "%"
-        Transform.Label5.Text = "Anti Aliasing :"
-        Transform.ZoomTrue.Text = "ON"
-        Transform.ZoomFalse.Text = "OFF"
-        Transform.FlipTrue.Text = "ON"
-        Transform.FlipFalse.Text = "OFF"
-        Transform.AntiAliasingTrue.Text = "ON"
-        Transform.AntiAliasingFalse.Text = "OFF"
-        Transform.Button1.Text = "Clear"
-        Transform.Button2.Text = "Save"
-
-        Offset.Text = "Offset"
-        Offset.Button1.Text = "Reset"
-        Offset.Button2.Text = "Reset"
-        Offset.Label1.Text = "Layer offset :"
-        Offset.Label2.Text = "Death offset :"
-        Offset.Label100.Text = "Layer 0 offset X"
-        Offset.Label101.Text = "Layer 1 offset X"
-        Offset.Label102.Text = "Layer 2 offset X"
-        Offset.Label103.Text = "Layer 3 offset X"
-        Offset.Label104.Text = "Layer 4 offset X"
-        Offset.Label105.Text = "Layer 5 offset X"
-        Offset.Label106.Text = "Layer 6 offset X"
-        Offset.Label107.Text = "Layer 7 offset X"
-        Offset.Label108.Text = "Layer 8 offset X"
-        Offset.Label109.Text = "Layer 9 offset X"
-        Offset.Label110.Text = "Layer All offset X"
-        Offset.Label111.Text = "Death  offset X"
-        Offset.Label200.Text = "Layer 0 offset Y"
-        Offset.Label201.Text = "Layer 1 offset Y"
-        Offset.Label202.Text = "Layer 2 offset Y"
-        Offset.Label203.Text = "Layer 3 offset Y"
-        Offset.Label204.Text = "Layer 4 offset Y"
-        Offset.Label205.Text = "Layer 5 offset Y"
-        Offset.Label206.Text = "Layer 6 offset Y"
-        Offset.Label207.Text = "Layer 7 offset Y"
-        Offset.Label208.Text = "Layer 8 offset Y"
-        Offset.Label209.Text = "Layer 9 offset Y"
-        Offset.Label210.Text = "Layer All offset Y"
-        Offset.Label211.Text = "Death  offset Y"
-
-        ObjectColor.Text = "ObjectColor"
-        ObjectColor.Label1.Text = "Faction Color :"
-        ObjectColor.Label2.Text = "Channel Exchange :"
-        ObjectColor.LabelTransparent.Text = "Transparent :"
-        ObjectColor.LabelR.Text = "R:"
-        ObjectColor.LabelG.Text = "G:"
-        ObjectColor.LabelB.Text = "B:"
-        ObjectColor.LabelChannel1.Text = "Red Channel :"
-        ObjectColor.LabelChannel2.Text = "Green Channel :"
-        ObjectColor.LabelChannel3.Text = "Blue Channel :"
-        ObjectColor.TransparentON.Text = "ON"
-        ObjectColor.TransparentOFF.Text = "OFF"
-        ObjectColor.RedFromRed.Text = "Red"
-        ObjectColor.RedFromGreen.Text = "Green"
-        ObjectColor.RedFromBlue.Text = "Blue"
-        ObjectColor.GreenFromRed.Text = "Red"
-        ObjectColor.GreenFromGreen.Text = "Green"
-        ObjectColor.GreenFromBlue.Text = "Blue"
-        ObjectColor.BlueFromRed.Text = "Red"
-        ObjectColor.BlueFromGreen.Text = "Green"
-        ObjectColor.BlueFromBlue.Text = "Blue"
-
-
-
+        SetLanguage(0)
+        SetAllString = {"Set all ", " files ?"}
     End Sub
 
     Private Sub ButtonSC_Click(sender As Object, e As EventArgs) Handles ButtonSC.Click
-        LabelWeChat.Text = "微信赞赏"
-        LabelGitHub.Text = "GitHub :"
-        LabelBaidu.Text = "Baidu :"
-        LabelTIM.Text = "TIM :"
-        LabelEmail.Text = "Email :"
-        LabelDownload.Text = "Download :"
-
-        TabControl1.TabPages.Item(0).Text = "造型工具"
-        TabControl1.TabPages.Item(1).Text = "图像工具"
-        TabControl1.TabPages.Item(2).Text = "字体工具"
-        TabControl1.TabPages.Item(3).Text = "地图工具"
-        TabControl1.TabPages.Item(4).Text = "脚本工具"
-        TabControl1.TabPages.Item(5).Text = "版权许可"
-        TabControl1.TabPages.Item(6).Text = "关于"
-
-        ButtonNew.Text = "新建"
-        ButtonRead.Text = "读取"
-        ButtonSave.Text = "保存"
-        ButtonOutput.Text = "导出"
-        ButtonTransform.Text = "变换"
-        ButtonShadow.Text = "阴影"
-        ButtonOffset.Text = "偏移"
-        ButtonBorder.Text = "边框"
-        ButtonAxis.Text = "坐标"
-        ButtonLast.Text = "后退"
-        ButtonPlay.Text = "播放"
-        ButtonNext.Text = "前进"
-        Button0.Text = "图层0"
-        Button1.Text = "图层1"
-        Button2.Text = "图层2"
-        Button3.Text = "图层3"
-        Button4.Text = "图层4"
-        Button5.Text = "图层5"
-        Button6.Text = "图层6"
-        Button7.Text = "图层7"
-        Button8.Text = "图层8"
-        Button9.Text = "图层9"
-
-        ButtonImagePath.Text = "路径"
-        ButtonFontToBitmap.Text = "由字体导出图像"
-        ButtonBitmapToFont.Text = "由图像生成字体"
-        ButtonSmallMap.Text = "小地图生成工具"
-
+        SetLanguage(1)
+        SetAllString = {"是否统一设置所选 ", " 个文件的偏移值？"}
     End Sub
 
     Private Sub ButtonTC_Click(sender As Object, e As EventArgs) Handles ButtonTC.Click
-        LabelWeChat.Text = "微信讚賞"
-        LabelGitHub.Text = "GitHub :"
-        LabelBaidu.Text = "Baidu :"
-        LabelTIM.Text = "TIM :"
-        LabelEmail.Text = "Email :"
-        LabelDownload.Text = "Download :"
-
-        TabControl1.TabPages.Item(0).Text = "造型工具"
-        TabControl1.TabPages.Item(1).Text = "圖像工具"
-        TabControl1.TabPages.Item(2).Text = "字體工具"
-        TabControl1.TabPages.Item(3).Text = "地圖工具"
-        TabControl1.TabPages.Item(4).Text = "脚本工具"
-        TabControl1.TabPages.Item(5).Text = "版權許可"
-        TabControl1.TabPages.Item(6).Text = "關於"
-
-        ButtonNew.Text = "新建"
-        ButtonRead.Text = "讀取"
-        ButtonSave.Text = "保存"
-        ButtonOutput.Text = "導出"
-        ButtonTransform.Text = "變換"
-        ButtonShadow.Text = "陰影"
-        ButtonOffset.Text = "偏移"
-        ButtonBorder.Text = "邊框"
-        ButtonAxis.Text = "坐標"
-        ButtonLast.Text = "後退"
-        ButtonPlay.Text = "播放"
-        ButtonNext.Text = "前進"
-        Button0.Text = "圖層0"
-        Button1.Text = "圖層1"
-        Button2.Text = "圖層2"
-        Button3.Text = "圖層3"
-        Button4.Text = "圖層4"
-        Button5.Text = "圖層5"
-        Button6.Text = "圖層6"
-        Button7.Text = "圖層7"
-        Button8.Text = "圖層8"
-        Button9.Text = "圖層9"
-
-        ButtonImagePath.Text = "路徑"
-        ButtonFontToBitmap.Text = "由字體導出圖像"
-        ButtonBitmapToFont.Text = "由圖像生成字體"
-        ButtonSmallMap.Text = "小地圖生成工具"
+        SetLanguage(2)
+        SetAllString = {"是否統壹設置所選 ", " 個文件的偏移值？"}
     End Sub
 End Class

@@ -74,7 +74,7 @@ Module SangoCore
             Dim fs As FileStream = Nothing
             Do
                 Try
-                    fs = New FileStream(shpfile, FileMode.Open)
+                    fs = New FileStream(shpfile, FileMode.Open, FileAccess.Read)
                     Readfailed = False
                 Catch ' ex As Exception
                     Readfailed = True
@@ -99,7 +99,7 @@ Module SangoCore
             Dim fs As FileStream = Nothing
             Do
                 Try
-                    fs = New FileStream(shpfile, FileMode.Open)
+                    fs = New FileStream(shpfile, FileMode.Open, FileAccess.Read)
                     Readfailed = False
                 Catch ' ex As Exception
                     Readfailed = True
@@ -237,7 +237,7 @@ Module SangoCore
             Dim fs As FileStream = Nothing
             Do
                 Try
-                    fs = New FileStream(shpfile, FileMode.Open)
+                    fs = New FileStream(shpfile, FileMode.Open, FileAccess.Read)
                     Readfailed = False
                 Catch ' ex As Exception
                     Readfailed = True
@@ -402,7 +402,7 @@ Module SangoCore
             Dim fs As FileStream = Nothing
             Do
                 Try
-                    fs = New FileStream(shpfile, FileMode.Open)
+                    fs = New FileStream(shpfile, FileMode.Open, FileAccess.Read)
                     Readfailed = False
                 Catch ' ex As Exception
                     Readfailed = True
@@ -432,7 +432,7 @@ Module SangoCore
     Public Function GetFontData(fontfile As String) As Int32()
         If IO.File.Exists(fontfile) Then
             Dim fs As FileStream = Nothing
-            fs = New FileStream(fontfile, FileMode.Open)
+            fs = New FileStream(fontfile, FileMode.Open, FileAccess.Read)
             Dim br As New BinaryReader(fs)
             fs.Seek(52, SeekOrigin.Begin)
             Dim FontSize = br.ReadUInt32
@@ -452,7 +452,7 @@ Module SangoCore
 
     Public Function GetFontIndex(fontfile As String, index As UInt16) As UInt16
         Dim fs As FileStream = Nothing
-        fs = New FileStream(fontfile, FileMode.Open)
+        fs = New FileStream(fontfile, FileMode.Open, FileAccess.Read)
         Dim br As New BinaryReader(fs)
         fs.Seek(80 + index * 2, SeekOrigin.Begin)
         GetFontIndex = br.ReadUInt16
@@ -463,7 +463,7 @@ Module SangoCore
     Public Function FontToBitmap(fontfile As String, index As Int32, fontdata As Int32()) As Bitmap
         FontToBitmap = Nothing
         If IO.File.Exists(fontfile) Then
-            Dim fs As FileStream = New FileStream(fontfile, FileMode.Open)
+            Dim fs As FileStream = New FileStream(fontfile, FileMode.Open, FileAccess.Read)
             Dim br As New BinaryReader(fs)
             Dim BitmapPx(fontdata(3), fontdata(4)) As Int32
             FontToBitmap = New Bitmap(fontdata(3), fontdata(4))
@@ -547,7 +547,7 @@ Module SangoCore
     End Function
 
     Public Function BitmapToFont(ImagePath As String, FontFile As String, CodePage As Int32, ProgressBar As ProgressBar) As Boolean
-        Dim fsx As FileStream = New FileStream(ImagePath + "\Default.idx", FileMode.Open)
+        Dim fsx As FileStream = New FileStream(ImagePath + "\Default.idx", FileMode.Open, FileAccess.Read)
         Dim fs As New System.IO.FileStream(FontFile, System.IO.FileMode.Create)
         Dim bw As New System.IO.BinaryWriter(fs)
         Dim br As New BinaryReader(fsx)

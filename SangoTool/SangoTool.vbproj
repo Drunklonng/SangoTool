@@ -115,6 +115,7 @@
     <Compile Include="ImageOffset.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Language.vb" />
     <Compile Include="Shadow.vb">
       <SubType>Form</SubType>
     </Compile>
