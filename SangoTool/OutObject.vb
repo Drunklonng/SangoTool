@@ -5,7 +5,7 @@
             SplitContainer1.Panel2Collapsed = False
             Me.Close()
         Else
-            MsgBox("")
+            MsgBox(LanguageText.SetSelectPath.Text)
         End If
     End Sub
 

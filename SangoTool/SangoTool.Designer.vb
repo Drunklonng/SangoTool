@@ -115,12 +115,17 @@ Partial Class SangoTool
         Me.TableLayoutPanel18 = New System.Windows.Forms.TableLayoutPanel()
         Me.ButtonBitmapToFont = New System.Windows.Forms.Button()
         Me.ButtonFontToBitmap = New System.Windows.Forms.Button()
+        Me.ButtonNewBitmap = New System.Windows.Forms.Button()
         Me.MapTool = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel14 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel20 = New System.Windows.Forms.TableLayoutPanel()
         Me.ButtonSmallMap = New System.Windows.Forms.Button()
         Me.ScriptTool = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel15 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.SettingTool = New System.Windows.Forms.TabPage()
+        Me.TableLayoutPanel19 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Readme = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel11 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -146,10 +151,6 @@ Partial Class SangoTool
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
-        Me.SettingTool = New System.Windows.Forms.TabPage()
-        Me.TableLayoutPanel19 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel20 = New System.Windows.Forms.TableLayoutPanel()
         Me.License.SuspendLayout()
         Me.TableLayoutPanel10.SuspendLayout()
         Me.ObjectTool.SuspendLayout()
@@ -208,17 +209,17 @@ Partial Class SangoTool
         Me.TableLayoutPanel18.SuspendLayout()
         Me.MapTool.SuspendLayout()
         Me.TableLayoutPanel14.SuspendLayout()
+        Me.TableLayoutPanel20.SuspendLayout()
         Me.ScriptTool.SuspendLayout()
         Me.TableLayoutPanel15.SuspendLayout()
+        Me.SettingTool.SuspendLayout()
+        Me.TableLayoutPanel19.SuspendLayout()
         Me.Readme.SuspendLayout()
         Me.TableLayoutPanel11.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel16.SuspendLayout()
         CType(Me.PictureBoxWeChat, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel17.SuspendLayout()
-        Me.SettingTool.SuspendLayout()
-        Me.TableLayoutPanel19.SuspendLayout()
-        Me.TableLayoutPanel20.SuspendLayout()
         Me.SuspendLayout()
         '
         'BackgroundWorkerOut
@@ -268,7 +269,7 @@ Partial Class SangoTool
         Me.TextBox1.ReadOnly = True
         Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.TextBox1.Size = New System.Drawing.Size(454, 511)
-        Me.TextBox1.TabIndex = 0
+        Me.TextBox1.TabIndex = 1
         Me.TextBox1.Text = resources.GetString("TextBox1.Text")
         '
         'ObjectTool
@@ -357,7 +358,7 @@ Partial Class SangoTool
         Me.ButtonSave.Location = New System.Drawing.Point(173, 3)
         Me.ButtonSave.Name = "ButtonSave"
         Me.ButtonSave.Size = New System.Drawing.Size(79, 37)
-        Me.ButtonSave.TabIndex = 5
+        Me.ButtonSave.TabIndex = 3
         Me.ButtonSave.Text = "Save"
         Me.ButtonSave.UseVisualStyleBackColor = True
         '
@@ -367,7 +368,7 @@ Partial Class SangoTool
         Me.ButtonNew.Location = New System.Drawing.Point(3, 3)
         Me.ButtonNew.Name = "ButtonNew"
         Me.ButtonNew.Size = New System.Drawing.Size(79, 37)
-        Me.ButtonNew.TabIndex = 6
+        Me.ButtonNew.TabIndex = 1
         Me.ButtonNew.Text = "New"
         Me.ButtonNew.UseVisualStyleBackColor = True
         '
@@ -377,7 +378,7 @@ Partial Class SangoTool
         Me.ButtonRead.Location = New System.Drawing.Point(88, 3)
         Me.ButtonRead.Name = "ButtonRead"
         Me.ButtonRead.Size = New System.Drawing.Size(79, 37)
-        Me.ButtonRead.TabIndex = 7
+        Me.ButtonRead.TabIndex = 2
         Me.ButtonRead.Text = "Read"
         Me.ButtonRead.UseVisualStyleBackColor = True
         '
@@ -387,7 +388,7 @@ Partial Class SangoTool
         Me.ButtonShadow.Location = New System.Drawing.Point(428, 3)
         Me.ButtonShadow.Name = "ButtonShadow"
         Me.ButtonShadow.Size = New System.Drawing.Size(79, 37)
-        Me.ButtonShadow.TabIndex = 10
+        Me.ButtonShadow.TabIndex = 6
         Me.ButtonShadow.Text = "Shadow"
         Me.ButtonShadow.UseVisualStyleBackColor = True
         '
@@ -397,7 +398,7 @@ Partial Class SangoTool
         Me.ButtonTransform.Location = New System.Drawing.Point(343, 3)
         Me.ButtonTransform.Name = "ButtonTransform"
         Me.ButtonTransform.Size = New System.Drawing.Size(79, 37)
-        Me.ButtonTransform.TabIndex = 9
+        Me.ButtonTransform.TabIndex = 5
         Me.ButtonTransform.Text = "Transform"
         Me.ButtonTransform.UseVisualStyleBackColor = True
         '
@@ -407,7 +408,7 @@ Partial Class SangoTool
         Me.ButtonOutput.Location = New System.Drawing.Point(258, 3)
         Me.ButtonOutput.Name = "ButtonOutput"
         Me.ButtonOutput.Size = New System.Drawing.Size(79, 37)
-        Me.ButtonOutput.TabIndex = 8
+        Me.ButtonOutput.TabIndex = 4
         Me.ButtonOutput.Text = "Output"
         Me.ButtonOutput.UseVisualStyleBackColor = True
         '
@@ -417,7 +418,7 @@ Partial Class SangoTool
         Me.ButtonOffset.Location = New System.Drawing.Point(513, 3)
         Me.ButtonOffset.Name = "ButtonOffset"
         Me.ButtonOffset.Size = New System.Drawing.Size(82, 37)
-        Me.ButtonOffset.TabIndex = 11
+        Me.ButtonOffset.TabIndex = 7
         Me.ButtonOffset.Text = "Offset"
         Me.ButtonOffset.UseVisualStyleBackColor = True
         '
@@ -441,7 +442,8 @@ Partial Class SangoTool
         Me.SplitContainerPlay.Panel2.Controls.Add(Me.TableLayoutPanelPlay)
         Me.SplitContainerPlay.Size = New System.Drawing.Size(600, 470)
         Me.SplitContainerPlay.SplitterDistance = 425
-        Me.SplitContainerPlay.TabIndex = 4
+        Me.SplitContainerPlay.TabIndex = 0
+        Me.SplitContainerPlay.TabStop = False
         '
         'ContextMenuStrip1
         '
@@ -528,7 +530,7 @@ Partial Class SangoTool
         Me.Playback.Name = "Playback"
         Me.Playback.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Playback.Size = New System.Drawing.Size(82, 39)
-        Me.Playback.TabIndex = 2
+        Me.Playback.TabIndex = 17
         Me.Playback.Text = "0/0"
         Me.Playback.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -538,7 +540,7 @@ Partial Class SangoTool
         Me.ProgressBar1.Location = New System.Drawing.Point(428, 3)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(79, 33)
-        Me.ProgressBar1.TabIndex = 3
+        Me.ProgressBar1.TabIndex = 16
         '
         'ButtonPlay
         '
@@ -546,7 +548,7 @@ Partial Class SangoTool
         Me.ButtonPlay.Location = New System.Drawing.Point(258, 3)
         Me.ButtonPlay.Name = "ButtonPlay"
         Me.ButtonPlay.Size = New System.Drawing.Size(79, 33)
-        Me.ButtonPlay.TabIndex = 0
+        Me.ButtonPlay.TabIndex = 14
         Me.ButtonPlay.Text = "Play"
         Me.ButtonPlay.UseVisualStyleBackColor = True
         '
@@ -556,7 +558,7 @@ Partial Class SangoTool
         Me.ButtonNext.Location = New System.Drawing.Point(343, 3)
         Me.ButtonNext.Name = "ButtonNext"
         Me.ButtonNext.Size = New System.Drawing.Size(79, 33)
-        Me.ButtonNext.TabIndex = 4
+        Me.ButtonNext.TabIndex = 15
         Me.ButtonNext.Text = "Next"
         Me.ButtonNext.UseVisualStyleBackColor = True
         '
@@ -567,7 +569,7 @@ Partial Class SangoTool
         Me.ButtonLast.Location = New System.Drawing.Point(173, 3)
         Me.ButtonLast.Name = "ButtonLast"
         Me.ButtonLast.Size = New System.Drawing.Size(79, 33)
-        Me.ButtonLast.TabIndex = 5
+        Me.ButtonLast.TabIndex = 13
         Me.ButtonLast.Text = "Last"
         Me.ButtonLast.UseVisualStyleBackColor = True
         '
@@ -577,7 +579,7 @@ Partial Class SangoTool
         Me.ButtonBorder.Location = New System.Drawing.Point(3, 3)
         Me.ButtonBorder.Name = "ButtonBorder"
         Me.ButtonBorder.Size = New System.Drawing.Size(79, 33)
-        Me.ButtonBorder.TabIndex = 6
+        Me.ButtonBorder.TabIndex = 11
         Me.ButtonBorder.Text = "Border"
         Me.ButtonBorder.UseVisualStyleBackColor = True
         '
@@ -587,7 +589,7 @@ Partial Class SangoTool
         Me.ButtonAxis.Location = New System.Drawing.Point(88, 3)
         Me.ButtonAxis.Name = "ButtonAxis"
         Me.ButtonAxis.Size = New System.Drawing.Size(79, 33)
-        Me.ButtonAxis.TabIndex = 7
+        Me.ButtonAxis.TabIndex = 12
         Me.ButtonAxis.Text = "Axis"
         Me.ButtonAxis.UseVisualStyleBackColor = True
         '
@@ -652,7 +654,7 @@ Partial Class SangoTool
         Me.Button9.Margin = New System.Windows.Forms.Padding(1)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(76, 41)
-        Me.Button9.TabIndex = 1
+        Me.Button9.TabIndex = 31
         Me.Button9.Text = "Layer9"
         Me.Button9.UseVisualStyleBackColor = False
         '
@@ -694,7 +696,7 @@ Partial Class SangoTool
         Me.Button8.Margin = New System.Windows.Forms.Padding(1)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(76, 41)
-        Me.Button8.TabIndex = 1
+        Me.Button8.TabIndex = 32
         Me.Button8.Text = "Layer8"
         Me.Button8.UseVisualStyleBackColor = False
         '
@@ -736,7 +738,7 @@ Partial Class SangoTool
         Me.Button7.Margin = New System.Windows.Forms.Padding(1)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(76, 41)
-        Me.Button7.TabIndex = 1
+        Me.Button7.TabIndex = 33
         Me.Button7.Text = "Layer7"
         Me.Button7.UseVisualStyleBackColor = False
         '
@@ -778,7 +780,7 @@ Partial Class SangoTool
         Me.Button6.Margin = New System.Windows.Forms.Padding(1)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(76, 41)
-        Me.Button6.TabIndex = 1
+        Me.Button6.TabIndex = 34
         Me.Button6.Text = "Layer6"
         Me.Button6.UseVisualStyleBackColor = False
         '
@@ -820,7 +822,7 @@ Partial Class SangoTool
         Me.Button5.Margin = New System.Windows.Forms.Padding(1)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(76, 41)
-        Me.Button5.TabIndex = 1
+        Me.Button5.TabIndex = 35
         Me.Button5.Text = "Layer5"
         Me.Button5.UseVisualStyleBackColor = False
         '
@@ -862,7 +864,7 @@ Partial Class SangoTool
         Me.Button3.Margin = New System.Windows.Forms.Padding(1)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(76, 41)
-        Me.Button3.TabIndex = 1
+        Me.Button3.TabIndex = 37
         Me.Button3.Text = "Layer3"
         Me.Button3.UseVisualStyleBackColor = False
         '
@@ -904,7 +906,7 @@ Partial Class SangoTool
         Me.Button2.Margin = New System.Windows.Forms.Padding(1)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(76, 41)
-        Me.Button2.TabIndex = 1
+        Me.Button2.TabIndex = 38
         Me.Button2.Text = "Layer2"
         Me.Button2.UseVisualStyleBackColor = False
         '
@@ -946,7 +948,7 @@ Partial Class SangoTool
         Me.Button1.Margin = New System.Windows.Forms.Padding(1)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 41)
-        Me.Button1.TabIndex = 1
+        Me.Button1.TabIndex = 39
         Me.Button1.Text = "Layer1"
         Me.Button1.UseVisualStyleBackColor = False
         '
@@ -988,7 +990,7 @@ Partial Class SangoTool
         Me.Button0.Margin = New System.Windows.Forms.Padding(1)
         Me.Button0.Name = "Button0"
         Me.Button0.Size = New System.Drawing.Size(76, 48)
-        Me.Button0.TabIndex = 1
+        Me.Button0.TabIndex = 40
         Me.Button0.Text = "Layer0"
         Me.Button0.UseVisualStyleBackColor = False
         '
@@ -1030,7 +1032,7 @@ Partial Class SangoTool
         Me.Button4.Margin = New System.Windows.Forms.Padding(1)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(76, 41)
-        Me.Button4.TabIndex = 1
+        Me.Button4.TabIndex = 36
         Me.Button4.Text = "Layer4"
         Me.Button4.UseVisualStyleBackColor = False
         '
@@ -1120,7 +1122,7 @@ Partial Class SangoTool
         Me.TreeViewImagePath.Location = New System.Drawing.Point(3, 31)
         Me.TreeViewImagePath.Name = "TreeViewImagePath"
         Me.TreeViewImagePath.Size = New System.Drawing.Size(214, 459)
-        Me.TreeViewImagePath.TabIndex = 1
+        Me.TreeViewImagePath.TabIndex = 3
         '
         'TextBoxImagePath
         '
@@ -1130,7 +1132,8 @@ Partial Class SangoTool
         Me.TextBoxImagePath.Name = "TextBoxImagePath"
         Me.TextBoxImagePath.ReadOnly = True
         Me.TextBoxImagePath.Size = New System.Drawing.Size(170, 21)
-        Me.TextBoxImagePath.TabIndex = 3
+        Me.TextBoxImagePath.TabIndex = 1
+        Me.TextBoxImagePath.TabStop = False
         '
         'ProgressBarFormat
         '
@@ -1185,6 +1188,7 @@ Partial Class SangoTool
         Me.SplitContainer2.Size = New System.Drawing.Size(552, 525)
         Me.SplitContainer2.SplitterDistance = 300
         Me.SplitContainer2.TabIndex = 0
+        Me.SplitContainer2.TabStop = False
         '
         'PictureBoxImageView
         '
@@ -1200,12 +1204,13 @@ Partial Class SangoTool
         Me.ListViewImage.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.ListViewImage.ContextMenuStrip = Me.ContextMenuStrip2
         Me.ListViewImage.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListViewImage.HideSelection = False
         Me.ListViewImage.LargeImageList = Me.ImageList1
         Me.ListViewImage.Location = New System.Drawing.Point(0, 0)
         Me.ListViewImage.Name = "ListViewImage"
         Me.ListViewImage.Size = New System.Drawing.Size(550, 219)
         Me.ListViewImage.SmallImageList = Me.ImageList1
-        Me.ListViewImage.TabIndex = 0
+        Me.ListViewImage.TabIndex = 7
         Me.ListViewImage.UseCompatibleStateImageBehavior = False
         '
         'ContextMenuStrip2
@@ -1282,8 +1287,9 @@ Partial Class SangoTool
         Me.TableLayoutPanel18.ColumnCount = 1
         Me.TableLayoutPanel18.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel18.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel18.Controls.Add(Me.ButtonBitmapToFont, 0, 1)
-        Me.TableLayoutPanel18.Controls.Add(Me.ButtonFontToBitmap, 0, 0)
+        Me.TableLayoutPanel18.Controls.Add(Me.ButtonBitmapToFont, 0, 2)
+        Me.TableLayoutPanel18.Controls.Add(Me.ButtonFontToBitmap, 0, 1)
+        Me.TableLayoutPanel18.Controls.Add(Me.ButtonNewBitmap, 0, 0)
         Me.TableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel18.Location = New System.Drawing.Point(291, 115)
         Me.TableLayoutPanel18.Name = "TableLayoutPanel18"
@@ -1299,22 +1305,32 @@ Partial Class SangoTool
         'ButtonBitmapToFont
         '
         Me.ButtonBitmapToFont.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonBitmapToFont.Location = New System.Drawing.Point(3, 61)
+        Me.ButtonBitmapToFont.Location = New System.Drawing.Point(3, 119)
         Me.ButtonBitmapToFont.Name = "ButtonBitmapToFont"
         Me.ButtonBitmapToFont.Size = New System.Drawing.Size(188, 52)
-        Me.ButtonBitmapToFont.TabIndex = 1
+        Me.ButtonBitmapToFont.TabIndex = 3
         Me.ButtonBitmapToFont.Text = "Bitmap To Font"
         Me.ButtonBitmapToFont.UseVisualStyleBackColor = True
         '
         'ButtonFontToBitmap
         '
         Me.ButtonFontToBitmap.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonFontToBitmap.Location = New System.Drawing.Point(3, 3)
+        Me.ButtonFontToBitmap.Location = New System.Drawing.Point(3, 61)
         Me.ButtonFontToBitmap.Name = "ButtonFontToBitmap"
         Me.ButtonFontToBitmap.Size = New System.Drawing.Size(188, 52)
-        Me.ButtonFontToBitmap.TabIndex = 0
+        Me.ButtonFontToBitmap.TabIndex = 2
         Me.ButtonFontToBitmap.Text = "Font To Bitmap"
         Me.ButtonFontToBitmap.UseVisualStyleBackColor = True
+        '
+        'ButtonNewBitmap
+        '
+        Me.ButtonNewBitmap.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonNewBitmap.Location = New System.Drawing.Point(3, 3)
+        Me.ButtonNewBitmap.Name = "ButtonNewBitmap"
+        Me.ButtonNewBitmap.Size = New System.Drawing.Size(188, 52)
+        Me.ButtonNewBitmap.TabIndex = 1
+        Me.ButtonNewBitmap.Text = "Create Bitmap"
+        Me.ButtonNewBitmap.UseVisualStyleBackColor = True
         '
         'MapTool
         '
@@ -1343,12 +1359,30 @@ Partial Class SangoTool
         Me.TableLayoutPanel14.Size = New System.Drawing.Size(776, 525)
         Me.TableLayoutPanel14.TabIndex = 2
         '
+        'TableLayoutPanel20
+        '
+        Me.TableLayoutPanel20.ColumnCount = 1
+        Me.TableLayoutPanel20.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel20.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel20.Controls.Add(Me.ButtonSmallMap, 0, 0)
+        Me.TableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel20.Location = New System.Drawing.Point(291, 115)
+        Me.TableLayoutPanel20.Name = "TableLayoutPanel20"
+        Me.TableLayoutPanel20.RowCount = 5
+        Me.TableLayoutPanel20.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel20.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel20.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel20.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel20.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel20.Size = New System.Drawing.Size(194, 294)
+        Me.TableLayoutPanel20.TabIndex = 1
+        '
         'ButtonSmallMap
         '
         Me.ButtonSmallMap.Location = New System.Drawing.Point(3, 3)
         Me.ButtonSmallMap.Name = "ButtonSmallMap"
         Me.ButtonSmallMap.Size = New System.Drawing.Size(188, 52)
-        Me.ButtonSmallMap.TabIndex = 0
+        Me.ButtonSmallMap.TabIndex = 1
         Me.ButtonSmallMap.Text = "SmallMap"
         Me.ButtonSmallMap.UseVisualStyleBackColor = True
         '
@@ -1392,6 +1426,47 @@ Partial Class SangoTool
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "is developing"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'SettingTool
+        '
+        Me.SettingTool.Controls.Add(Me.TableLayoutPanel19)
+        Me.SettingTool.Location = New System.Drawing.Point(4, 32)
+        Me.SettingTool.Name = "SettingTool"
+        Me.SettingTool.Padding = New System.Windows.Forms.Padding(3)
+        Me.SettingTool.Size = New System.Drawing.Size(776, 525)
+        Me.SettingTool.TabIndex = 7
+        Me.SettingTool.Text = "SettingTool"
+        Me.SettingTool.UseVisualStyleBackColor = True
+        '
+        'TableLayoutPanel19
+        '
+        Me.TableLayoutPanel19.ColumnCount = 3
+        Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
+        Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.14036!))
+        Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
+        Me.TableLayoutPanel19.Controls.Add(Me.Label1, 1, 1)
+        Me.TableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel19.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel19.Name = "TableLayoutPanel19"
+        Me.TableLayoutPanel19.RowCount = 3
+        Me.TableLayoutPanel19.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
+        Me.TableLayoutPanel19.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.24242!))
+        Me.TableLayoutPanel19.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
+        Me.TableLayoutPanel19.Size = New System.Drawing.Size(770, 519)
+        Me.TableLayoutPanel19.TabIndex = 3
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label1.Location = New System.Drawing.Point(171, 196)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(426, 125)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "is developing"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Readme
         '
@@ -1473,7 +1548,7 @@ Partial Class SangoTool
         Me.LabelTIM.Margin = New System.Windows.Forms.Padding(100, 0, 3, 0)
         Me.LabelTIM.Name = "LabelTIM"
         Me.LabelTIM.Size = New System.Drawing.Size(84, 23)
-        Me.LabelTIM.TabIndex = 9
+        Me.LabelTIM.TabIndex = 0
         Me.LabelTIM.Text = "TIM :"
         Me.LabelTIM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -1484,7 +1559,7 @@ Partial Class SangoTool
         Me.LinkLabel5.Location = New System.Drawing.Point(199, 315)
         Me.LinkLabel5.Name = "LinkLabel5"
         Me.LinkLabel5.Size = New System.Drawing.Size(181, 23)
-        Me.LinkLabel5.TabIndex = 10
+        Me.LinkLabel5.TabIndex = 13
         Me.LinkLabel5.TabStop = True
         Me.LinkLabel5.Text = "1097811376"
         Me.LinkLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1496,7 +1571,7 @@ Partial Class SangoTool
         Me.LinkLabel1.Location = New System.Drawing.Point(199, 269)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(181, 23)
-        Me.LinkLabel1.TabIndex = 1
+        Me.LinkLabel1.TabIndex = 11
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "Drunklonng"
         Me.LinkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1509,7 +1584,7 @@ Partial Class SangoTool
         Me.LinkLabel2.Location = New System.Drawing.Point(199, 292)
         Me.LinkLabel2.Name = "LinkLabel2"
         Me.LinkLabel2.Size = New System.Drawing.Size(181, 23)
-        Me.LinkLabel2.TabIndex = 2
+        Me.LinkLabel2.TabIndex = 12
         Me.LinkLabel2.TabStop = True
         Me.LinkLabel2.Text = "1097811376"
         Me.LinkLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1521,7 +1596,7 @@ Partial Class SangoTool
         Me.LinkLabel4.Location = New System.Drawing.Point(199, 338)
         Me.LinkLabel4.Name = "LinkLabel4"
         Me.LinkLabel4.Size = New System.Drawing.Size(181, 23)
-        Me.LinkLabel4.TabIndex = 4
+        Me.LinkLabel4.TabIndex = 14
         Me.LinkLabel4.TabStop = True
         Me.LinkLabel4.Text = "mail@sango.ink"
         Me.LinkLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1534,7 +1609,7 @@ Partial Class SangoTool
         Me.LabelGitHub.Margin = New System.Windows.Forms.Padding(100, 0, 3, 0)
         Me.LabelGitHub.Name = "LabelGitHub"
         Me.LabelGitHub.Size = New System.Drawing.Size(84, 23)
-        Me.LabelGitHub.TabIndex = 5
+        Me.LabelGitHub.TabIndex = 0
         Me.LabelGitHub.Text = "GitHub :"
         Me.LabelGitHub.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -1546,7 +1621,7 @@ Partial Class SangoTool
         Me.LabelBaidu.Margin = New System.Windows.Forms.Padding(100, 0, 3, 0)
         Me.LabelBaidu.Name = "LabelBaidu"
         Me.LabelBaidu.Size = New System.Drawing.Size(84, 23)
-        Me.LabelBaidu.TabIndex = 6
+        Me.LabelBaidu.TabIndex = 0
         Me.LabelBaidu.Text = "Baidu :"
         Me.LabelBaidu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -1558,7 +1633,7 @@ Partial Class SangoTool
         Me.LabelEmail.Margin = New System.Windows.Forms.Padding(100, 0, 3, 0)
         Me.LabelEmail.Name = "LabelEmail"
         Me.LabelEmail.Size = New System.Drawing.Size(84, 23)
-        Me.LabelEmail.TabIndex = 8
+        Me.LabelEmail.TabIndex = 0
         Me.LabelEmail.Text = "Email :"
         Me.LabelEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -1570,7 +1645,7 @@ Partial Class SangoTool
         Me.LabelDownload.Margin = New System.Windows.Forms.Padding(100, 0, 3, 0)
         Me.LabelDownload.Name = "LabelDownload"
         Me.LabelDownload.Size = New System.Drawing.Size(84, 22)
-        Me.LabelDownload.TabIndex = 7
+        Me.LabelDownload.TabIndex = 0
         Me.LabelDownload.Text = "Download :"
         Me.LabelDownload.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -1581,7 +1656,7 @@ Partial Class SangoTool
         Me.LinkLabel3.Location = New System.Drawing.Point(199, 361)
         Me.LinkLabel3.Name = "LinkLabel3"
         Me.LinkLabel3.Size = New System.Drawing.Size(181, 22)
-        Me.LinkLabel3.TabIndex = 3
+        Me.LinkLabel3.TabIndex = 15
         Me.LinkLabel3.TabStop = True
         Me.LinkLabel3.Text = "sango.ys168.com"
         Me.LinkLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1641,7 +1716,7 @@ Partial Class SangoTool
         Me.ButtonEN.Location = New System.Drawing.Point(60, 13)
         Me.ButtonEN.Name = "ButtonEN"
         Me.ButtonEN.Size = New System.Drawing.Size(74, 24)
-        Me.ButtonEN.TabIndex = 0
+        Me.ButtonEN.TabIndex = 1
         Me.ButtonEN.Text = "English"
         Me.ButtonEN.UseVisualStyleBackColor = True
         '
@@ -1651,7 +1726,7 @@ Partial Class SangoTool
         Me.ButtonSC.Location = New System.Drawing.Point(160, 13)
         Me.ButtonSC.Name = "ButtonSC"
         Me.ButtonSC.Size = New System.Drawing.Size(74, 24)
-        Me.ButtonSC.TabIndex = 1
+        Me.ButtonSC.TabIndex = 2
         Me.ButtonSC.Text = "简体中文"
         Me.ButtonSC.UseVisualStyleBackColor = True
         '
@@ -1661,7 +1736,7 @@ Partial Class SangoTool
         Me.ButtonTC.Location = New System.Drawing.Point(260, 13)
         Me.ButtonTC.Name = "ButtonTC"
         Me.ButtonTC.Size = New System.Drawing.Size(74, 24)
-        Me.ButtonTC.TabIndex = 2
+        Me.ButtonTC.TabIndex = 3
         Me.ButtonTC.Text = "繁體中文"
         Me.ButtonTC.UseVisualStyleBackColor = True
         '
@@ -1685,65 +1760,6 @@ Partial Class SangoTool
         '
         Me.OpenFileDialog2.DefaultExt = "*.shp"
         Me.OpenFileDialog2.Filter = "Shadow File|*.shp"
-        '
-        'SettingTool
-        '
-        Me.SettingTool.Controls.Add(Me.TableLayoutPanel19)
-        Me.SettingTool.Location = New System.Drawing.Point(4, 32)
-        Me.SettingTool.Name = "SettingTool"
-        Me.SettingTool.Padding = New System.Windows.Forms.Padding(3)
-        Me.SettingTool.Size = New System.Drawing.Size(776, 525)
-        Me.SettingTool.TabIndex = 7
-        Me.SettingTool.Text = "SettingTool"
-        Me.SettingTool.UseVisualStyleBackColor = True
-        '
-        'TableLayoutPanel19
-        '
-        Me.TableLayoutPanel19.ColumnCount = 3
-        Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
-        Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.14036!))
-        Me.TableLayoutPanel19.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.92982!))
-        Me.TableLayoutPanel19.Controls.Add(Me.Label1, 1, 1)
-        Me.TableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel19.Location = New System.Drawing.Point(3, 3)
-        Me.TableLayoutPanel19.Name = "TableLayoutPanel19"
-        Me.TableLayoutPanel19.RowCount = 3
-        Me.TableLayoutPanel19.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
-        Me.TableLayoutPanel19.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.24242!))
-        Me.TableLayoutPanel19.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879!))
-        Me.TableLayoutPanel19.Size = New System.Drawing.Size(770, 519)
-        Me.TableLayoutPanel19.TabIndex = 3
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("宋体", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label1.Location = New System.Drawing.Point(171, 196)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(426, 125)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "is developing"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'TableLayoutPanel20
-        '
-        Me.TableLayoutPanel20.ColumnCount = 1
-        Me.TableLayoutPanel20.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel20.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel20.Controls.Add(Me.ButtonSmallMap, 0, 0)
-        Me.TableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel20.Location = New System.Drawing.Point(291, 115)
-        Me.TableLayoutPanel20.Name = "TableLayoutPanel20"
-        Me.TableLayoutPanel20.RowCount = 5
-        Me.TableLayoutPanel20.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel20.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel20.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel20.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel20.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel20.Size = New System.Drawing.Size(194, 294)
-        Me.TableLayoutPanel20.TabIndex = 1
         '
         'SangoTool
         '
@@ -1818,9 +1834,13 @@ Partial Class SangoTool
         Me.TableLayoutPanel18.ResumeLayout(False)
         Me.MapTool.ResumeLayout(False)
         Me.TableLayoutPanel14.ResumeLayout(False)
+        Me.TableLayoutPanel20.ResumeLayout(False)
         Me.ScriptTool.ResumeLayout(False)
         Me.TableLayoutPanel15.ResumeLayout(False)
         Me.TableLayoutPanel15.PerformLayout()
+        Me.SettingTool.ResumeLayout(False)
+        Me.TableLayoutPanel19.ResumeLayout(False)
+        Me.TableLayoutPanel19.PerformLayout()
         Me.Readme.ResumeLayout(False)
         Me.TableLayoutPanel11.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
@@ -1828,10 +1848,6 @@ Partial Class SangoTool
         Me.TableLayoutPanel16.PerformLayout()
         CType(Me.PictureBoxWeChat, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel17.ResumeLayout(False)
-        Me.SettingTool.ResumeLayout(False)
-        Me.TableLayoutPanel19.ResumeLayout(False)
-        Me.TableLayoutPanel19.PerformLayout()
-        Me.TableLayoutPanel20.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1961,4 +1977,5 @@ Partial Class SangoTool
     Friend WithEvents TableLayoutPanel19 As TableLayoutPanel
     Friend WithEvents Label1 As Label
     Friend WithEvents TableLayoutPanel20 As TableLayoutPanel
+    Friend WithEvents ButtonNewBitmap As Button
 End Class

@@ -77,27 +77,30 @@ Partial Class ToFont
         '
         'ButtonBitmapToFontPath
         '
+        Me.ButtonBitmapToFontPath.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ButtonBitmapToFontPath.Location = New System.Drawing.Point(257, 13)
         Me.ButtonBitmapToFontPath.Name = "ButtonBitmapToFontPath"
-        Me.ButtonBitmapToFontPath.Size = New System.Drawing.Size(54, 23)
+        Me.ButtonBitmapToFontPath.Size = New System.Drawing.Size(54, 24)
         Me.ButtonBitmapToFontPath.TabIndex = 0
         Me.ButtonBitmapToFontPath.Text = "Path"
         Me.ButtonBitmapToFontPath.UseVisualStyleBackColor = True
         '
         'ButtonBitmapToFontFile
         '
+        Me.ButtonBitmapToFontFile.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ButtonBitmapToFontFile.Location = New System.Drawing.Point(257, 58)
         Me.ButtonBitmapToFontFile.Name = "ButtonBitmapToFontFile"
-        Me.ButtonBitmapToFontFile.Size = New System.Drawing.Size(54, 23)
+        Me.ButtonBitmapToFontFile.Size = New System.Drawing.Size(54, 24)
         Me.ButtonBitmapToFontFile.TabIndex = 1
         Me.ButtonBitmapToFontFile.Text = "File"
         Me.ButtonBitmapToFontFile.UseVisualStyleBackColor = True
         '
         'ButtonBitmapToFont
         '
+        Me.ButtonBitmapToFont.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ButtonBitmapToFont.Location = New System.Drawing.Point(257, 103)
         Me.ButtonBitmapToFont.Name = "ButtonBitmapToFont"
-        Me.ButtonBitmapToFont.Size = New System.Drawing.Size(54, 23)
+        Me.ButtonBitmapToFont.Size = New System.Drawing.Size(54, 24)
         Me.ButtonBitmapToFont.TabIndex = 2
         Me.ButtonBitmapToFont.Text = "Run"
         Me.ButtonBitmapToFont.UseVisualStyleBackColor = True
@@ -127,9 +130,10 @@ Partial Class ToFont
         Me.CheckBoxBitmapToFontBig5.AutoSize = True
         Me.CheckBoxBitmapToFontBig5.Checked = True
         Me.CheckBoxBitmapToFontBig5.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBoxBitmapToFontBig5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CheckBoxBitmapToFontBig5.Location = New System.Drawing.Point(17, 103)
         Me.CheckBoxBitmapToFontBig5.Name = "CheckBoxBitmapToFontBig5"
-        Me.CheckBoxBitmapToFontBig5.Size = New System.Drawing.Size(48, 16)
+        Me.CheckBoxBitmapToFontBig5.Size = New System.Drawing.Size(54, 24)
         Me.CheckBoxBitmapToFontBig5.TabIndex = 5
         Me.CheckBoxBitmapToFontBig5.Text = "BIG5"
         Me.CheckBoxBitmapToFontBig5.UseVisualStyleBackColor = True
@@ -137,9 +141,10 @@ Partial Class ToFont
         'CheckBoxBitmapToFontGBK
         '
         Me.CheckBoxBitmapToFontGBK.AutoSize = True
+        Me.CheckBoxBitmapToFontGBK.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CheckBoxBitmapToFontGBK.Location = New System.Drawing.Point(97, 103)
         Me.CheckBoxBitmapToFontGBK.Name = "CheckBoxBitmapToFontGBK"
-        Me.CheckBoxBitmapToFontGBK.Size = New System.Drawing.Size(42, 16)
+        Me.CheckBoxBitmapToFontGBK.Size = New System.Drawing.Size(54, 24)
         Me.CheckBoxBitmapToFontGBK.TabIndex = 6
         Me.CheckBoxBitmapToFontGBK.Text = "GBK"
         Me.CheckBoxBitmapToFontGBK.UseVisualStyleBackColor = True
@@ -147,10 +152,11 @@ Partial Class ToFont
         'CheckBoxBitmapToFontUTF16
         '
         Me.CheckBoxBitmapToFontUTF16.AutoSize = True
+        Me.CheckBoxBitmapToFontUTF16.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CheckBoxBitmapToFontUTF16.Enabled = False
         Me.CheckBoxBitmapToFontUTF16.Location = New System.Drawing.Point(177, 103)
         Me.CheckBoxBitmapToFontUTF16.Name = "CheckBoxBitmapToFontUTF16"
-        Me.CheckBoxBitmapToFontUTF16.Size = New System.Drawing.Size(54, 16)
+        Me.CheckBoxBitmapToFontUTF16.Size = New System.Drawing.Size(54, 24)
         Me.CheckBoxBitmapToFontUTF16.TabIndex = 7
         Me.CheckBoxBitmapToFontUTF16.Text = "UTF16"
         Me.CheckBoxBitmapToFontUTF16.UseVisualStyleBackColor = True
@@ -158,10 +164,15 @@ Partial Class ToFont
         'ProgressBarBitmapToFont
         '
         Me.TableLayoutPanel13.SetColumnSpan(Me.ProgressBarBitmapToFont, 7)
+        Me.ProgressBarBitmapToFont.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ProgressBarBitmapToFont.Location = New System.Drawing.Point(17, 148)
         Me.ProgressBarBitmapToFont.Name = "ProgressBarBitmapToFont"
-        Me.ProgressBarBitmapToFont.Size = New System.Drawing.Size(294, 23)
+        Me.ProgressBarBitmapToFont.Size = New System.Drawing.Size(294, 24)
         Me.ProgressBarBitmapToFont.TabIndex = 8
+        '
+        'SaveFileDialog1
+        '
+        Me.SaveFileDialog1.Filter = "Font File|*.fnt"
         '
         'ToFont
         '

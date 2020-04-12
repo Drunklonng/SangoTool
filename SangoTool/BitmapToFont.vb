@@ -5,21 +5,27 @@
     Dim CodePage = 950
 
     Private Sub ButtonBitmapToFont_Click(sender As Object, e As EventArgs) Handles ButtonBitmapToFont.Click
-        BitmapToFont(ImagePath, FontFile, CodePage, ProgressBarBitmapToFont)
+        If IO.Directory.Exists(ImagePath) And IO.Directory.Exists(FontFile.Substring(0, InStrRev(FontFile, "\"))) Then
+            BitmapToFont(ImagePath, FontFile, CodePage, ProgressBarBitmapToFont)
+        Else
+            MsgBox(LanguageText.SetSelectPath.Text)
+        End If
     End Sub
 
     Private Sub ButtonBitmapToFontPath_Click(sender As Object, e As EventArgs) Handles ButtonBitmapToFontPath.Click
-        FolderBrowserDialog1.ShowDialog()
-        ImagePath = FolderBrowserDialog1.SelectedPath
-        TextBoxBitmapToFontPath.Text = ImagePath
-        WriteINI("FontTool", "BitmapToFontPath", ImagePath, Config)
+        If FolderBrowserDialog1.ShowDialog() = DialogResult.OK Then
+            ImagePath = FolderBrowserDialog1.SelectedPath
+            TextBoxBitmapToFontPath.Text = ImagePath
+            WriteINI("FontTool", "BitmapToFontPath", ImagePath, Config)
+        End If
     End Sub
 
     Private Sub ButtonBitmapToFontFile_Click(sender As Object, e As EventArgs) Handles ButtonBitmapToFontFile.Click
-        SaveFileDialog1.ShowDialog()
-        FontFile = SaveFileDialog1.FileName
-        TextBoxBitmapToFontFile.Text = FontFile
-        WriteINI("FontTool", "BitmapToFontFile", FontFile, Config)
+        If SaveFileDialog1.ShowDialog() = DialogResult.OK Then
+            FontFile = SaveFileDialog1.FileName
+            TextBoxBitmapToFontFile.Text = FontFile
+            WriteINI("FontTool", "BitmapToFontFile", FontFile, Config)
+        End If
     End Sub
 
     Private Sub CheckBoxBitmapToFontBig5_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxBitmapToFontBig5.CheckedChanged

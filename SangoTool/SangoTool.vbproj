@@ -116,6 +116,18 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Language.vb" />
+    <Compile Include="LanguageText.Designer.vb">
+      <DependentUpon>LanguageText.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LanguageText.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewBitmap.Designer.vb">
+      <DependentUpon>NewBitmap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NewBitmap.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Shadow.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +215,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ImageOffset.resx">
       <DependentUpon>ImageOffset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LanguageText.resx">
+      <DependentUpon>LanguageText.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewBitmap.resx">
+      <DependentUpon>NewBitmap.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Shadow.resx">
       <DependentUpon>Shadow.vb</DependentUpon>

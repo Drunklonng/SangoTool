@@ -15,7 +15,7 @@
                 SangoTool.TabControl1.TabPages.Item(2).Text = "FontTool"
                 SangoTool.TabControl1.TabPages.Item(3).Text = "MapTool"
                 SangoTool.TabControl1.TabPages.Item(4).Text = "ScriptTool"
-                SangoTool.TabControl1.TabPages.Item(6).Text = "SettingTool"
+                SangoTool.TabControl1.TabPages.Item(5).Text = "SettingTool"
                 SangoTool.TabControl1.TabPages.Item(6).Text = "License"
                 SangoTool.TabControl1.TabPages.Item(7).Text = "Readme"
 
@@ -43,6 +43,7 @@
                 SangoTool.Button9.Text = "Layer9"
 
                 SangoTool.ButtonImagePath.Text = "Path"
+                SangoTool.ButtonNewBitmap.Text = "Create Bitmap"
                 SangoTool.ButtonFontToBitmap.Text = "Font To Bitmap"
                 SangoTool.ButtonBitmapToFont.Text = "Bitmap To Font"
                 SangoTool.ButtonSmallMap.Text = "SmallMap"
@@ -220,9 +221,23 @@
                 ToFont.CheckBoxBitmapToFontGBK.Text = "GBK"
                 ToFont.CheckBoxBitmapToFontUTF16.Text = "UTF16"
 
+                NewBitmap.Text = "NewBitmap"
+                NewBitmap.CheckBoxBold.Text = "Bold"
+                NewBitmap.CheckBoxPixel.Text = "Pixel"
+                NewBitmap.CheckBoxConvert.Text = "Convert to"
+                NewBitmap.ComboBoxConvert.Items.Item(0) = "Simplified Font"
+                NewBitmap.ComboBoxConvert.Items.Item(1) = "Traditional Font"
+                NewBitmap.ButtonFont.Text = "Font"
+                NewBitmap.ButtonNewBitmapPath.Text = "Path"
+                NewBitmap.ButtonRun.Text = "Run"
+
                 SmallMap.Text = "SmallMap"
                 SmallMap.Button1.Text = "Load"
                 SmallMap.Button2.Text = "Save"
+
+                LanguageText.SetAllString1.Text = "Set all "
+                LanguageText.SetAllString2.Text = " files ?"
+                LanguageText.SetSelectPath.Text = "Please choose the correct path!"
             Case 1
                 SangoTool.LabelWeChat.Text = "  微信赞赏"
                 SangoTool.LabelGitHub.Text = "GitHub :"
@@ -264,6 +279,7 @@
                 SangoTool.Button9.Text = "图层9"
 
                 SangoTool.ButtonImagePath.Text = "路径"
+                SangoTool.ButtonNewBitmap.Text = "新建字体图像"
                 SangoTool.ButtonFontToBitmap.Text = "字体文件转换为图像"
                 SangoTool.ButtonBitmapToFont.Text = "图像转换为字体文件"
                 SangoTool.ButtonSmallMap.Text = "小地图生成工具"
@@ -441,9 +457,23 @@
                 ToFont.CheckBoxBitmapToFontGBK.Text = "GBK"
                 ToFont.CheckBoxBitmapToFontUTF16.Text = "UTF16"
 
+                NewBitmap.Text = "新建字体图像"
+                NewBitmap.CheckBoxBold.Text = "加粗"
+                NewBitmap.CheckBoxPixel.Text = "像素"
+                NewBitmap.CheckBoxConvert.Text = "转换为"
+                NewBitmap.ComboBoxConvert.Items.Item(0) = "简体字型"
+                NewBitmap.ComboBoxConvert.Items.Item(1) = "繁体字型"
+                NewBitmap.ButtonFont.Text = "字体"
+                NewBitmap.ButtonNewBitmapPath.Text = "路径"
+                NewBitmap.ButtonRun.Text = "执行"
+
                 SmallMap.Text = "小地图生成"
                 SmallMap.Button1.Text = "读取"
                 SmallMap.Button2.Text = "保存"
+
+                LanguageText.SetAllString1.Text = "是否统一设置所选 "
+                LanguageText.SetAllString2.Text = " 个文件的偏移值？"
+                LanguageText.SetSelectPath.Text = "请选择正确的路径！"
             Case 2
                 SangoTool.LabelWeChat.Text = "  微信讃賞"
                 SangoTool.LabelGitHub.Text = "GitHub :"
@@ -485,6 +515,7 @@
                 SangoTool.Button9.Text = "圖層9"
 
                 SangoTool.ButtonImagePath.Text = "路徑"
+                SangoTool.ButtonNewBitmap.Text = "新建字體圖像"
                 SangoTool.ButtonFontToBitmap.Text = "字體文件轉換為圖像"
                 SangoTool.ButtonBitmapToFont.Text = "圖像轉換為字體文件"
                 SangoTool.ButtonSmallMap.Text = "小地圖生成工具"
@@ -662,9 +693,23 @@
                 ToFont.CheckBoxBitmapToFontGBK.Text = "GBK"
                 ToFont.CheckBoxBitmapToFontUTF16.Text = "UTF16"
 
+                NewBitmap.Text = "新建字體圖像"
+                NewBitmap.CheckBoxBold.Text = "加粗"
+                NewBitmap.CheckBoxPixel.Text = "像素"
+                NewBitmap.CheckBoxConvert.Text = "轉換爲"
+                NewBitmap.ComboBoxConvert.Items.Item(0) = "簡體字型"
+                NewBitmap.ComboBoxConvert.Items.Item(1) = "繁體字型"
+                NewBitmap.ButtonFont.Text = "字體"
+                NewBitmap.ButtonNewBitmapPath.Text = "路徑"
+                NewBitmap.ButtonRun.Text = "執行"
+
                 SmallMap.Text = "小地圖生成"
                 SmallMap.Button1.Text = "讀取"
                 SmallMap.Button2.Text = "保存"
+
+                LanguageText.SetAllString1.Text = "是否統壹設置所選 "
+                LanguageText.SetAllString2.Text = " 個文件的偏移值？"
+                LanguageText.SetSelectPath.Text = "請選擇正確的路徑！"
         End Select
         SetLanguage = True
     End Function

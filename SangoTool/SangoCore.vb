@@ -425,10 +425,6 @@ Module SangoCore
         End If
     End Function
 
-    ' Public Function GetFontSum(fontfile As String) As Int32
-    '    GetFontSum = 1 '32768
-    'End Function
-
     Public Function GetFontData(fontfile As String) As Int32()
         If IO.File.Exists(fontfile) Then
             Dim fs As FileStream = Nothing
@@ -439,10 +435,10 @@ Module SangoCore
             Dim BitmapSum = br.ReadUInt32
             Dim BitmapLength = br.ReadInt32
             Dim BitmapWidth = br.ReadInt32
-            Dim BitmapHight = br.ReadInt32
+            Dim BitmapHeight = br.ReadInt32
             Dim DefaultBegin = br.ReadInt32
             Dim DefaultEnd = br.ReadInt32
-            GetFontData = {FontSize, BitmapSum, BitmapLength, BitmapWidth, BitmapHight, DefaultBegin, DefaultEnd}
+            GetFontData = {FontSize, BitmapSum, BitmapLength, BitmapWidth, BitmapHeight, DefaultBegin, DefaultEnd}
             br.Close()
             fs.Close()
         Else
@@ -503,14 +499,19 @@ Module SangoCore
         Select Case CodePage
             Case 936
                 For big = 129 To 254
-                    For little = 64 To 254
-                        Dim FontString = System.Text.Encoding.GetEncoding(936).GetString({big, little})
+                    For little1 = 64 To 126
+                        Dim FontString = System.Text.Encoding.GetEncoding(936).GetString({big, little1})
                         Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
-                        Dim FontIndex As UInt16 = GetFontIndex(FontFile, (big * 256 + little) - 32768)
-
+                        Dim FontIndex As UInt16 = GetFontIndex(FontFile, (big * 256 + little1) - 32768)
                         fs.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
                         bw.Write(FontIndex)
-
+                    Next
+                    For little2 = 128 To 254
+                        Dim FontString = System.Text.Encoding.GetEncoding(936).GetString({big, little2})
+                        Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
+                        Dim FontIndex As UInt16 = GetFontIndex(FontFile, (big * 256 + little2) - 32768)
+                        fs.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
+                        bw.Write(FontIndex)
                     Next
                 Next
             Case 950
@@ -519,26 +520,22 @@ Module SangoCore
                         Dim FontString = System.Text.Encoding.GetEncoding(950).GetString({big, little1})
                         Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
                         Dim FontIndex As UInt16 = GetFontIndex(FontFile, (big * 256 + little1) - 32768)
-
                         fs.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
                         bw.Write(FontIndex)
-
                     Next
                     For little2 = 161 To 254
                         Dim FontString = System.Text.Encoding.GetEncoding(950).GetString({big, little2})
                         Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
                         Dim FontIndex As UInt16 = GetFontIndex(FontFile, (big * 256 + little2) - 32768)
-
                         fs.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
                         bw.Write(FontIndex)
-
                     Next
                 Next
             Case Else
                 Dim FontString = System.Text.Encoding.GetEncoding(950).GetString({165, 64})
                 Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
                 Dim FontIndex As UInt16 = GetFontIndex(FontFile, (165 * 256 + 64) - 32768)
-                bw.Write({FontByteUnicode(0), FontByteUnicode(1)})
+                fs.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
                 bw.Write(FontIndex)
         End Select
         bw.Close()
@@ -563,11 +560,14 @@ Module SangoCore
             FontData(i) = br.ReadUInt32
             bw.Write(FontData(i))
         Next
-        ProgressBar.Maximum = FontData(1)
+        ProgressBar.Maximum = FontData(1) \ 100
         For i = 0 To (FontData(6) - FontData(5)) / 2 - 1
             bw.Write({0, 0})
         Next
         For i = 0 To FontData(1) - 1
+            If i Mod 100 = 0 Then
+                ProgressBar.Value = i \ 100
+            End If
             Dim BitmapBeginPos = i * FontData(2) * FontData(4) + FontData(6)
             fs.Seek(BitmapBeginPos, SeekOrigin.Begin)
             Dim FontBitmap = New Bitmap(ImagePath + "\" + i.ToString + ".png")
@@ -581,8 +581,8 @@ Module SangoCore
                     bw.Write(BitmapByte)
                 Next
             Next
-            ProgressBar.Value = i
         Next
+        ProgressBar.Value = ProgressBar.Maximum
         fsx.Seek(48, SeekOrigin.Begin)
         Select Case CodePage
             Case 950
@@ -590,21 +590,17 @@ Module SangoCore
                     For little1 = 64 To 126
                         Dim FontString = System.Text.Encoding.GetEncoding(950).GetString({big, little1})
                         Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
-
                         fsx.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
                         Dim FontIndex As UInt16 = br.ReadUInt16
-
                         If FontIndex = 0 Then
                             FontString = Strings.StrConv(FontString, VbStrConv.SimplifiedChinese)
                             FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
                             fsx.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
                             FontIndex = br.ReadUInt16
                         End If
-
                         Dim FontEncodePos = 80 + (big * 256 + little1 - 32768) * 2
                         fs.Seek(FontEncodePos, SeekOrigin.Begin)
                         bw.Write(FontIndex)
-
                     Next
                     For little2 = 161 To 254
                         Dim FontString = System.Text.Encoding.GetEncoding(950).GetString({big, little2})
@@ -612,37 +608,46 @@ Module SangoCore
 
                         fsx.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
                         Dim FontIndex As UInt16 = br.ReadUInt16
-
                         If FontIndex = 0 Then
                             FontString = Strings.StrConv(FontString, VbStrConv.SimplifiedChinese)
                             FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
                             fsx.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
                             FontIndex = br.ReadUInt16
                         End If
-
                         Dim FontEncodePos = 80 + (big * 256 + little2 - 32768) * 2
                         fs.Seek(FontEncodePos, SeekOrigin.Begin)
                         bw.Write(FontIndex)
-
                     Next
                 Next
             Case 936
                 For big = 129 To 254
-                    For little = 64 To 254
-                        Dim FontString = System.Text.Encoding.GetEncoding(936).GetString({big, little})
+                    For little1 = 64 To 126
+                        Dim FontString = System.Text.Encoding.GetEncoding(936).GetString({big, little1})
                         Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
-
                         fsx.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
                         Dim FontIndex As UInt16 = br.ReadUInt16
-
                         If FontIndex = 0 Then
                             FontString = Strings.StrConv(FontString, VbStrConv.TraditionalChinese)
                             FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
                             fsx.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
                             FontIndex = br.ReadUInt16
                         End If
-
-                        Dim FontEncodePos = 80 + (big * 256 + little - 32768) * 2
+                        Dim FontEncodePos = 80 + (big * 256 + little1 - 32768) * 2
+                        fs.Seek(FontEncodePos, SeekOrigin.Begin)
+                        bw.Write(FontIndex)
+                    Next
+                    For little2 = 128 To 254
+                        Dim FontString = System.Text.Encoding.GetEncoding(936).GetString({big, little2})
+                        Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
+                        fsx.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
+                        Dim FontIndex As UInt16 = br.ReadUInt16
+                        If FontIndex = 0 Then
+                            FontString = Strings.StrConv(FontString, VbStrConv.TraditionalChinese)
+                            FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
+                            fsx.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
+                            FontIndex = br.ReadUInt16
+                        End If
+                        Dim FontEncodePos = 80 + (big * 256 + little2 - 32768) * 2
                         fs.Seek(FontEncodePos, SeekOrigin.Begin)
                         bw.Write(FontIndex)
                     Next
@@ -666,7 +671,113 @@ Module SangoCore
         fs.Close()
         br.Close()
         fsx.Close()
-        ProgressBar.Value = ProgressBar.Maximum
+        ProgressBar.Value = 0
         BitmapToFont = True
+    End Function
+    Public Function CreateFontBitmap(Text As String, FontName As String, FontSize As Int16, Width As Int16, Height As Int16, Optional OffsetX As Int16 = 0, Optional OffsetY As Int16 = 0, Optional IsBold As Boolean = False, Optional IsPixel As Boolean = False, Optional IsDemo As Boolean = False) As Bitmap
+        CreateFontBitmap = Nothing
+        Dim font As Font
+        If IsBold Then
+            font = New Font(FontName, FontSize, FontStyle.Bold)
+        Else
+            font = New Font(FontName, FontSize, FontStyle.Regular)
+        End If
+        Dim brush As SolidBrush
+        brush = New SolidBrush(Color.Black)
+        CreateFontBitmap = New Bitmap(Width, Height)
+        If IsDemo = True Then
+            For x = 0 To Width - 1
+                CreateFontBitmap.SetPixel(x, 0, Color.Red)
+                CreateFontBitmap.SetPixel(x, Height - 1, Color.Red)
+            Next
+            For y = 0 To Height - 1
+                CreateFontBitmap.SetPixel(0, y, Color.Red)
+                CreateFontBitmap.SetPixel(Width - 1, y, Color.Red)
+            Next
+        End If
+        Dim g As Graphics
+        g = Graphics.FromImage(CreateFontBitmap)
+        Dim rect As RectangleF
+        rect = New RectangleF(0 - FontSize * 0.2 + OffsetX, OffsetY, Width * 1.2 + {0, OffsetX}.Max, Height - {0, OffsetY}.Min)
+        If IsPixel Then
+            g.TextRenderingHint = Drawing.Text.TextRenderingHint.SingleBitPerPixel
+        Else
+            g.TextRenderingHint = Drawing.Text.TextRenderingHint.AntiAlias
+        End If
+        g.DrawString(Text, font, brush, rect)
+        g.Dispose()
+    End Function
+
+    Public Function NewFontDefault(FontSize As Int32, ImagePath As String, CodePage As Int32, Optional IsASCII As Boolean = False) As Boolean
+        Dim fs As New System.IO.FileStream(ImagePath + "\Default.idx", System.IO.FileMode.Create)
+        Dim bw As New System.IO.BinaryWriter(fs)
+        Dim BitmapSum As Int32
+        Dim BitmapLength As Int32 = FontSize / 2
+        Dim BitmapWidth As Int32 = FontSize
+        Dim BitmapHeight As Int32 = FontSize
+        Dim DefaultBegin As Int32 = 80
+        Dim DefaultEnd As Int32 = 65616
+        bw.Write({255, 254, 0, 0})
+        Select Case CodePage
+            Case 936
+                BitmapSum = ((127 - 64) + (255 - 128)) * (255 - 129)
+            Case 950
+                BitmapSum = ((127 - 64) + (255 - 161)) * (250 - 161)
+            Case Else
+                BitmapSum = 1
+        End Select
+        Dim FontData = {FontSize, BitmapSum, BitmapLength, BitmapWidth, BitmapHeight, DefaultBegin, DefaultEnd}
+        For i = 0 To FontData.Count - 1
+            bw.Write(FontData(i))
+        Next
+        bw.Write({115, 97, 110, 103, 111, 46, 121, 115, 49, 54, 56, 46, 99, 111, 109, 0})
+        For i = 0 To 65535
+            bw.Write({0, 0})
+        Next
+        Select Case CodePage
+            Case 936
+                For big = 129 To 254
+                    For little1 = 64 To 126
+                        Dim BitmapIndex As UInt16 = (big - 129) * 190 + (little1 - 64)
+                        Dim FontString = System.Text.Encoding.GetEncoding(936).GetString({big, little1})
+                        Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
+                        fs.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
+                        bw.Write(BitmapIndex)
+                    Next
+                    For little2 = 128 To 254
+                        Dim BitmapIndex As UInt16 = (big - 129) * 190 + 63 + (little2 - 128)
+                        Dim FontString = System.Text.Encoding.GetEncoding(936).GetString({big, little2})
+                        Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
+                        fs.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
+                        bw.Write(BitmapIndex)
+                    Next
+                Next
+            Case 950
+                For big = 161 To 249
+                    For little1 = 64 To 126
+                        Dim BitmapIndex As UInt16 = (big - 161) * 157 + (little1 - 64)
+                        Dim FontString = System.Text.Encoding.GetEncoding(950).GetString({big, little1})
+                        Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
+                        fs.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
+                        bw.Write(BitmapIndex)
+                    Next
+                    For little2 = 161 To 254
+                        Dim BitmapIndex As UInt16 = (big - 161) * 157 + 63 + (little2 - 161)
+                        Dim FontString = System.Text.Encoding.GetEncoding(950).GetString({big, little2})
+                        Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
+                        fs.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
+                        bw.Write(BitmapIndex)
+                    Next
+                Next
+            Case Else
+                Dim BitmapIndex As UInt16 = 0
+                Dim FontString = System.Text.Encoding.GetEncoding(950).GetString({165, 64})
+                Dim FontByteUnicode = System.Text.Encoding.Unicode.GetBytes(FontString)
+                fs.Seek(48 + (FontByteUnicode(1) * 256 + FontByteUnicode(0)) * 2, SeekOrigin.Begin)
+                bw.Write(BitmapIndex)
+        End Select
+        bw.Close()
+        fs.Close()
+        NewFontDefault = True
     End Function
 End Module

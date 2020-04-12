@@ -45,7 +45,6 @@
     Dim ImageViewList As String()
     Dim ImageFilePath As String = ""
     Dim FormatThread As Int32 = 0
-    Dim SetAllString As String() = {"Set all ", " files ?"}
     'Dim FormatToFileList As String()
     '------------------------PlaySound------------------------------------
     Private Declare Auto Function PlaySound Lib "winmm.dll" (ByVal lpszSoundName As String, ByVal hModule As Integer, ByVal dwFlags As Integer) As Integer
@@ -1646,7 +1645,7 @@
                 If My.Computer.FileSystem.GetFileInfo(ImageFilePath).Length > 5242880 Then
                     ImageFilePath = ""
                     PictureBoxImageView.Image = Nothing
-                    MsgBox("File is too large!")
+                    MsgBox(LanguageText.FileLarge.Text)
                 Else
                     PictureBoxImageView.Image = Bitmap.FromFile(ImageFilePath)
                 End If
@@ -1795,7 +1794,7 @@
                 End If
             End If
         ElseIf ListViewImage.SelectedIndices.Count > 1 Then
-            If MsgBox(SetAllString(0) + ListViewImage.SelectedIndices.Count.ToString + SetAllString(1), MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+            If MsgBox(LanguageText.SetAllString1.Text + ListViewImage.SelectedIndices.Count.ToString + LanguageText.SetAllString2.Text, MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 ImageOffset.ImageOffsetX.Value = 0
                 ImageOffset.ImageOffsetY.Value = 0
                 If ImageOffset.ShowDialog() = DialogResult.OK Then
@@ -1820,6 +1819,9 @@
     Private Sub ButtonSmallMap_Click(sender As Object, e As EventArgs) Handles ButtonSmallMap.Click
         SmallMap.ShowDialog()
     End Sub
+    Private Sub ButtonNewBitmap_Click(sender As Object, e As EventArgs) Handles ButtonNewBitmap.Click
+        NewBitmap.ShowDialog()
+    End Sub
 
     Private Sub ButtonFontToBitmap_Click(sender As Object, e As EventArgs) Handles ButtonFontToBitmap.Click
         FontTo.ShowDialog()
@@ -1836,16 +1838,14 @@
 
     Private Sub ButtonEN_Click(sender As Object, e As EventArgs) Handles ButtonEN.Click
         SetLanguage(0)
-        SetAllString = {"Set all ", " files ?"}
     End Sub
 
     Private Sub ButtonSC_Click(sender As Object, e As EventArgs) Handles ButtonSC.Click
         SetLanguage(1)
-        SetAllString = {"是否统一设置所选 ", " 个文件的偏移值？"}
     End Sub
 
     Private Sub ButtonTC_Click(sender As Object, e As EventArgs) Handles ButtonTC.Click
         SetLanguage(2)
-        SetAllString = {"是否統壹設置所選 ", " 個文件的偏移值？"}
     End Sub
+
 End Class
