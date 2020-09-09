@@ -321,7 +321,7 @@ Module SangoCore
         Dim Height As Int32 = bitmap.Height
         Dim Line As Int32()
         'Dim Salute As Byte() = Salutelist(8)
-        Dim Header As Byte() = {84, 76, 72, 83, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+        Dim Header As Byte() = {84, 76, 72, 83, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, Byte.Parse("255"), Byte.Parse("255"), 0, 0}
         bw.Write(Header)
         bw.Write(Width)
         bw.Write(Height)
